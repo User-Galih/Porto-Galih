@@ -1,0 +1,14 @@
+{
+  "id": "dicoding-ml-pemula",
+  "title_id": "Belajar Machine Learning untuk Pemula",
+  "title_en": "Belajar Machine Learning untuk Pemula",
+  "issuer": "Dicoding Indonesia",
+  "credential_id": "1OP8R25DLZQK",
+  "issue_date": "March 2026",
+  "expiry_date": "March 2029",
+  "category": "AI & Deep Learning",
+  "isFeatured": false,
+  "description_id": "Meliputi teori dasar machine learning, supervised & unsupervised learning, pemrosesan data, serta pembuatan model klasifikasi/regresi sederhana dengan Scikit-Learn.",
+  "description_en": "Covers machine learning basics, supervised & unsupervised learning, data preprocessing, and building simple classification/regression models using Scikit-Learn.",
+  "verification_url": "https://www.dicoding.com/certificates/1OP8R25DLZQK"
+}

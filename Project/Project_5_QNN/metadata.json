@@ -1,0 +1,25 @@
+{
+  "id": "qnn-classifier",
+  "title_id": "Quantum Neural Network Classification",
+  "title_en": "Quantum Neural Network Classification",
+  "subtitle_id": "Klasifikasi Diabetes dengan Jaringan Saraf Kuantum (QNN)",
+  "subtitle_en": "Diabetes Classification using Quantum Neural Networks (QNN)",
+  "description_id": "Proyek eksplorasi Quantum Computing yang menerapkan Quantum Neural Networks (QNN) untuk klasifikasi hasil diabetes menggunakan dataset klinis. Mendemonstrasikan penerapan teknik komputasi kuantum pada problem machine learning klasik.",
+  "description_en": "Quantum Computing exploration project applying Quantum Neural Networks (QNN) for classifying diabetes outcomes using clinical dataset. Demonstrates the application of quantum computing techniques to classical machine learning classification problems.",
+  "architecture_id": "<div class='model-arch-block'><h4 style='color: var(--color-ai); font-size: 13.5px; margin-bottom: 6px; font-weight: 700;'>1. Quantum Circuit Design</h4><ul><li><b>Qubits:</b> 8 qubit (satu per fitur klinis) untuk encoding data dan transformasi rotasi.</li><li><b>Framework:</b> Qiskit 0.46.1 + qiskit_machine_learning 0.7.2.</li><li><b>Optimizer:</b> COBYLA optimizer dengan callback tracking progress training.</li></ul></div><hr style='border: none; border-top: 1px solid var(--border-light); margin: 12px 0;' /><div class='model-arch-block'><h4 style='color: var(--color-ds); font-size: 13.5px; margin-bottom: 6px; font-weight: 700;'>2. Evaluasi dan Visualisasi</h4><ul><li><b>Metrik:</b> Precision, Recall, Accuracy, F1-Score, dan Confusion Matrix.</li><li><b>Visualisasi:</b> Decision boundaries menggunakan PCA (Principal Component Analysis) untuk representasi region klasifikasi.</li><li><b>Perbandingan:</b> Performa QNN vs model ML klasik.</li></ul></div>",
+  "architecture_en": "<div class='model-arch-block'><h4 style='color: var(--color-ai); font-size: 13.5px; margin-bottom: 6px; font-weight: 700;'>1. Quantum Circuit Design</h4><ul><li><b>Qubits:</b> 8 qubits (one per clinical feature) for data encoding and rotation transformations.</li><li><b>Framework:</b> Qiskit 0.46.1 + qiskit_machine_learning 0.7.2.</li><li><b>Optimizer:</b> COBYLA optimizer with callback tracking for training progress.</li></ul></div><hr style='border: none; border-top: 1px solid var(--border-light); margin: 12px 0;' /><div class='model-arch-block'><h4 style='color: var(--color-ds); font-size: 13.5px; margin-bottom: 6px; font-weight: 700;'>2. Evaluation and Visualization</h4><ul><li><b>Metrics:</b> Precision, Recall, Accuracy, F1-Score, and Confusion Matrix.</li><li><b>Visualization:</b> Decision boundaries using PCA (Principal Component Analysis) to represent classification regions.</li><li><b>Comparison:</b> QNN performance vs classical ML models.</li></ul></div>",
+  "tools": [
+    "Python",
+    "Qiskit",
+    "Quantum Computing",
+    "qiskit_machine_learning",
+    "scikit-learn",
+    "PCA",
+    "Jupyter Notebook"
+  ],
+  "github_repo": "User-Galih/Quantum-Neural-Network-Classification-Models",
+  "demo_url": "",
+  "category": "quantum-nlp",
+  "featured": false,
+  "highlight_metric": "8-Qubit Quantum Circuit • Qiskit ML Model"
+}

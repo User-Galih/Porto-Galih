@@ -1,0 +1,25 @@
+{
+  "id": "cnn-object-classification",
+  "category": "deep-learning",
+  "featured": false,
+  "highlight_metric": "5-Class Classification • Deep CNN Architecture",
+  "title_id": "Klasifikasi Objek & Wajah Berbasis CNN",
+  "title_en": "CNN-Based Object & Face Classification",
+  "subtitle_id": "Model Klasifikasi Multi-Kelas Menggunakan Arsitektur Convolutional Neural Network",
+  "subtitle_en": "Multi-Class Deep CNN Model with Augmentation & Confusion Matrix Analysis",
+  "description_id": "Model Computer Vision Convolutional Neural Network (CNN) kustom untuk klasifikasi citra 5 kelas identifikasi subjek. Mengimplementasikan augmentasi data citra, regularisasi dropout, categorical cross-entropy loss, dan evaluasi matriks performa komprehensif.",
+  "description_en": "Custom Computer Vision Convolutional Neural Network (CNN) model for 5-class object/subject identification. Implements image augmentation pipelines, dropout regularization, categorical cross-entropy optimization, and confusion matrix performance evaluation.",
+  "architecture_id": "<div class=\"model-arch-block\"><h4 style=\"color: #10b981; font-size: 14px; margin-bottom: 8px; font-weight: 700;\">1. Arsitektur Convolutional</h4><ul><li><b>Feature Extractor:</b> Multiple stacked Conv2D layers (32, 64, 128 filters) dengan ReLU activation dan MaxPooling2D.</li><li><b>Regularisasi:</b> Batch Normalization dan Dropout (0.3 - 0.5) untuk mencegah overfitting pada dataset citra terbatas.</li><li><b>Dense Classifier:</b> Flatten layer diteruskan ke Dense 256 dan output layer Softmax 5 kelas.</li></ul></div><hr style=\"border: none; border-top: 1px solid rgba(255,255,255,0.1); margin: 12px 0;\" /><div class=\"model-arch-block\"><h4 style=\"color: #06b6d4; font-size: 14px; margin-bottom: 8px; font-weight: 700;\">2. Pipeline Pelatihan & Evaluasi</h4><ul><li><b>Augmentasi:</b> Random rotation, zoom, width/height shift, dan horizontal flip menggunakan ImageDataGenerator.</li><li><b>Optimasi:</b> Adam optimizer dengan learning rate schedule adaptif.</li></ul></div>",
+  "architecture_en": "<div class=\"model-arch-block\"><h4 style=\"color: #10b981; font-size: 14px; margin-bottom: 8px; font-weight: 700;\">1. Convolutional Architecture</h4><ul><li><b>Feature Extractor:</b> Stacked Conv2D layers (32, 64, 128 filters) with ReLU activations and MaxPooling2D layers.</li><li><b>Regularization:</b> Batch Normalization and Dropout (0.3 - 0.5) to combat overfitting on custom image datasets.</li><li><b>Dense Classifier:</b> Flattened feature representations routed to Dense 256 and 5-class Softmax output layer.</li></ul></div><hr style=\"border: none; border-top: 1px solid rgba(255,255,255,0.1); margin: 12px 0;\" /><div class=\"model-arch-block\"><h4 style=\"color: #06b6d4; font-size: 14px; margin-bottom: 8px; font-weight: 700;\">2. Training Pipeline & Evaluation</h4><ul><li><b>Data Augmentation:</b> Random rotation, zoom, translation shifts, and horizontal flips via ImageDataGenerator.</li><li><b>Optimization:</b> Adam optimizer with adaptive learning rate scheduling and early stopping.</li></ul></div>",
+  "tools": [
+    "Python",
+    "TensorFlow",
+    "Keras",
+    "CNN",
+    "scikit-learn",
+    "OpenCV",
+    "Jupyter Notebook"
+  ],
+  "github_repo": "User-Galih/Klasifikasi-Objek-CNN",
+  "demo_url": ""
+}

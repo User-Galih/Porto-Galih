@@ -1,0 +1,93 @@
+[
+  {
+    "institution_id": "Universitas Dian Nuswantoro (UDINUS)",
+    "institution_en": "Universitas Dian Nuswantoro (UDINUS)",
+    "degree_id": "Sarjana Komputer (S.Kom.) dalam Teknik Informatika",
+    "degree_en": "Bachelor of Computer Science in Informatics Engineering",
+    "period": "August 2022 - August 2026",
+    "gpa": "3.72 / 4.00",
+    "honors_id": "Dengan Pujian (Cumlaude)",
+    "honors_en": "Graduated with Honors (Cumlaude)",
+    "thesis_title_id": "Implementasi Model Deep Learning Menggunakan Arsitektur EfficientNetV2 untuk Sistem Klasifikasi Sampah Otomatis",
+    "thesis_title_en": "Full-Stack Implementation of Deep Learning Model Using EfficientNetV2 Architecture for Automated Waste Classification System",
+    "core_courses": [
+      {
+        "course_id": "Kecerdasan Buatan",
+        "course_en": "Artificial Intelligence",
+        "grade": "A",
+        "credits": 3,
+        "semester": 3
+      },
+      {
+        "course_id": "Pemrosesan Bahasa Alami Berbasis Teks",
+        "course_en": "Text-based Natural Language Processing",
+        "grade": "A",
+        "credits": 3,
+        "semester": 6
+      },
+      {
+        "course_id": "Penglihatan Komputer dan Analisis Citra",
+        "course_en": "Computer Vision and Image Analysis",
+        "grade": "A",
+        "credits": 3,
+        "semester": 6
+      },
+      {
+        "course_id": "Penambangan Data",
+        "course_en": "Data Mining",
+        "grade": "A",
+        "credits": 3,
+        "semester": 5
+      },
+      {
+        "course_id": "Pengolahan Citra Digital",
+        "course_en": "Digital Image Processing",
+        "grade": "A",
+        "credits": 3,
+        "semester": 5
+      },
+      {
+        "course_id": "Keamanan Sistem dan Siber",
+        "course_en": "System and Cyber Security",
+        "grade": "A",
+        "credits": 3,
+        "semester": 5
+      },
+      {
+        "course_id": "Komputasi Kuantum",
+        "course_en": "Quantum Computing",
+        "grade": "A",
+        "credits": 3,
+        "semester": 7
+      },
+      {
+        "course_id": "Sistem Basis Data",
+        "course_en": "Database Systems",
+        "grade": "A",
+        "credits": 2,
+        "semester": 3
+      },
+      {
+        "course_id": "Pembelajaran Mesin",
+        "course_en": "Machine Learning",
+        "grade": "AB",
+        "credits": 3,
+        "semester": 4
+      },
+      {
+        "course_id": "Pemrograman Web Lanjut",
+        "course_en": "Advanced Web Programming",
+        "grade": "AB",
+        "credits": 2,
+        "semester": 4
+      },
+      {
+        "course_id": "Pemrograman Berorientasi Objek",
+        "course_en": "Object-Oriented Programming",
+        "grade": "A",
+        "credits": 4,
+        "semester": 3
+      }
+    ]
+  }
+]

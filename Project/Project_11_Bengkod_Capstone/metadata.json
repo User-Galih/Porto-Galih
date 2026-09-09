@@ -1,0 +1,25 @@
+{
+  "id": "bengkod-capstone",
+  "category": "agent-ml",
+  "featured": false,
+  "highlight_metric": "End-to-End ML Pipeline • Exploratory Data Analysis",
+  "title_id": "Bengkod Data Science & ML Capstone",
+  "title_en": "Bengkod Data Science & ML Capstone",
+  "subtitle_id": "Pipeline Analisis Data Eksploratif, Rekayasa Fitur & Pemodelan Machine Learning",
+  "subtitle_en": "End-to-End Exploratory Data Analysis, Feature Engineering & ML Pipeline",
+  "description_id": "Proyek capstone pembelajaran intensif data science Bengkod yang mencakup pengolahan data mentah, penanganan missing values dan outlier, rekayasa fitur statistik, pemodelan prediktif machine learning terawasi, serta visualisasi insight data interaktif.",
+  "description_en": "Data science and machine learning capstone project covering raw data preprocessing, outlier and missing value mitigation, statistical feature engineering, supervised predictive modeling, and interactive visualization dashboards.",
+  "architecture_id": "<div class=\"model-arch-block\"><h4 style=\"color: #10b981; font-size: 14px; margin-bottom: 8px; font-weight: 700;\">1. Pipeline Data Science</h4><ul><li><b>Data Wrangling:</b> Imputasi data, normalisasi MinMax/StandardScaler, dan deteksi korelasi fitur.</li><li><b>Machine Learning:</b> Benchmark algoritma klasifikasi (Random Forest, Gradient Boosting, SVM).</li><li><b>Evaluasi:</b> Cross-validation k-fold, ROC-AUC curve, dan feature importance extraction.</li></ul></div>",
+  "architecture_en": "<div class=\"model-arch-block\"><h4 style=\"color: #10b981; font-size: 14px; margin-bottom: 8px; font-weight: 700;\">1. Data Science Pipeline</h4><ul><li><b>Data Wrangling:</b> Automated imputation, feature scaling, and multi-collinearity analysis.</li><li><b>Modeling:</b> Benchmarked classification models (Random Forest, Gradient Boosting, SVM).</li><li><b>Evaluation:</b> K-fold cross-validation, ROC-AUC profiling, and feature importance attribution.</li></ul></div>",
+  "tools": [
+    "Python",
+    "scikit-learn",
+    "Pandas",
+    "NumPy",
+    "Seaborn",
+    "Matplotlib",
+    "Jupyter Notebook"
+  ],
+  "github_repo": "User-Galih/capstone-project-bengkod",
+  "demo_url": ""
+}

@@ -1,0 +1,30 @@
+{
+  "id": "nusapolicy-copilot",
+  "category": "rag-llm",
+  "featured": true,
+  "highlight_metric": "Recall@5: 98% • 50 Golden Tests • Zero Hallucination Refusal",
+  "title_id": "NusaPolicy Copilot — Indonesian RAG Policy Assistant",
+  "title_en": "NusaPolicy Copilot — Indonesian RAG Policy Assistant",
+  "subtitle_id": "Sistem RAG End-to-End dengan Hybrid Retrieval (RRF + pgvector), Sitasi Terverifikasi & Safe Refusal",
+  "subtitle_en": "End-to-End Indonesian RAG Copilot with Hybrid Retrieval, Verified Citations & Safe Refusal",
+  "description_id": "Sistem Retrieval-Augmented Generation (RAG) end-to-end berbahasa Indonesia tingkat enterprise untuk pencarian dan pemahaman kebijakan internal perusahaan. Menggabungkan hybrid semantic vector similarity (pgvector) dan keyword search (PostgreSQL FTS) dengan Reciprocal Rank Fusion (RRF), penolakan aman (safe refusal) berbasis threshold bukti, evaluasi terukur (Golden Eval Suite 50 kasus), serta tracing latensi dan token LLMOps.",
+  "description_en": "Enterprise-grade end-to-end Indonesian Retrieval-Augmented Generation (RAG) system for internal company policy querying. Features hybrid semantic search (pgvector) fused with PostgreSQL full-text keyword search via Reciprocal Rank Fusion (RRF), threshold-based safe refusal against out-of-scope hallucinations, a 50-test golden evaluation suite, and production LLMOps telemetry.",
+  "architecture_id": "<div class=\"model-arch-block\"><h4 style=\"color: #10b981; font-size: 14px; margin-bottom: 8px; font-weight: 700;\">1. Hybrid Retrieval Engine (RRF + pgvector + PostgreSQL FTS)</h4><ul><li><b>Vector Similarity:</b> Embedding semantik disimpan dalam PostgreSQL 16 dengan ekstensi <code>pgvector</code> menggunakan cosine distance HNSW index.</li><li><b>Keyword Search:</b> PostgreSQL Full-Text Search (FTS) berbahasa Indonesia untuk matching akurat nomor pasal, singkatan, dan regulasi spesifik.</li><li><b>Reciprocal Rank Fusion (RRF):</b> Menggabungkan hasil ranking semantik dan keyword dengan bobot adaptif untuk menghasilkan context recall optimal (Recall@5 mencapai 98%).</li></ul></div><hr style=\"border: none; border-top: 1px solid rgba(255,255,255,0.1); margin: 12px 0;\" /><div class=\"model-arch-block\"><h4 style=\"color: #06b6d4; font-size: 14px; margin-bottom: 8px; font-weight: 700;\">2. Grounded Generation, Citations & Safe Refusal</h4><ul><li><b>Strict Citations:</b> Setiap jawaban LLM wajib menyertakan sitasi dokumen sumber spesifik hingga ke nomor pasal/paragraf.</li><li><b>Safe Refusal Mechanism:</b> Sistem menghitung threshold confidence bukti retrieval; jika bukti di bawah ambang batas, model secara otomatis menolak menjawab alih-alih berhalusinasi.</li><li><b>PDF Verifiable Source:</b> Endpoint PDF terproteksi yang memungkinkan pengguna langsung memverifikasi dokumen rujukan asli dari UI.</li></ul></div><hr style=\"border: none; border-top: 1px solid rgba(255,255,255,0.1); margin: 12px 0;\" /><div class=\"model-arch-block\"><h4 style=\"color: #a855f7; font-size: 14px; margin-bottom: 8px; font-weight: 700;\">3. Golden Evaluation Suite & LLMOps Telemetry</h4><ul><li><b>Evaluation Benchmark:</b> 50 golden test cases mencakup skenario factual, multi-policy reasoning, ambiguity, safe refusal, dan adversarial queries.</li><li><b>Tracing & Monitoring:</b> Telemetri menyeluruh mencakup tracking latensi inferensi, konsumsi token, model routing, serta umpan balik pengguna tersimpan di PostgreSQL.</li><li><b>Tech Stack:</b> Python, FastAPI, Next.js, PostgreSQL 16, pgvector, Docker, 9Router LLM Gateway.</li></ul></div>",
+  "architecture_en": "<div class=\"model-arch-block\"><h4 style=\"color: #10b981; font-size: 14px; margin-bottom: 8px; font-weight: 700;\">1. Hybrid Retrieval Engine (RRF + pgvector + PostgreSQL FTS)</h4><ul><li><b>Vector Similarity:</b> Semantic embeddings stored in PostgreSQL 16 with <code>pgvector</code> extension utilizing cosine distance HNSW indexing.</li><li><b>Keyword Search:</b> Indonesian PostgreSQL Full-Text Search (FTS) for precise matching of specific clauses, abbreviations, and regulatory numbers.</li><li><b>Reciprocal Rank Fusion (RRF):</b> Fuses dense vector and sparse keyword rankings with adaptive weighting for optimal context recall (Recall@5 reaches 98%).</li></ul></div><hr style=\"border: none; border-top: 1px solid rgba(255,255,255,0.1); margin: 12px 0;\" /><div class=\"model-arch-block\"><h4 style=\"color: #06b6d4; font-size: 14px; margin-bottom: 8px; font-weight: 700;\">2. Grounded Generation, Citations & Safe Refusal</h4><ul><li><b>Strict Citations:</b> Every LLM generation is strictly grounded and includes exact source document, section, and article references.</li><li><b>Safe Refusal Mechanism:</b> System evaluates retrieval confidence thresholds; when evidence falls below safety margins, the model refuses gracefully instead of hallucinating.</li><li><b>PDF Verifiable Source:</b> Protected PDF endpoint enabling users to inspect and verify authentic referenced documents directly in the UI.</li></ul></div><hr style=\"border: none; border-top: 1px solid rgba(255,255,255,0.1); margin: 12px 0;\" /><div class=\"model-arch-block\"><h4 style=\"color: #a855f7; font-size: 14px; margin-bottom: 8px; font-weight: 700;\">3. Golden Evaluation Suite & LLMOps Telemetry</h4><ul><li><b>Evaluation Benchmark:</b> 50 golden test cases covering factual queries, multi-policy synthesis, ambiguity, safe refusal, and adversarial prompts.</li><li><b>Tracing & Monitoring:</b> Complete telemetry logging inference latencies, token expenditures, model fallback routing, and user feedback into PostgreSQL.</li><li><b>Tech Stack:</b> Python, FastAPI, Next.js, PostgreSQL 16, pgvector, Docker, 9Router LLM Gateway.</li></ul></div>",
+  "tools": [
+    "Python",
+    "FastAPI",
+    "PostgreSQL",
+    "pgvector",
+    "Hybrid Retrieval",
+    "RRF",
+    "Next.js",
+    "Docker",
+    "Alembic",
+    "pytest",
+    "9Router LLM"
+  ],
+  "github_repo": "User-Galih/nusapolicy-copilot",
+  "demo_url": "https://nusapolicy-copilot-git-main-galih-putra-pratamas-projects.vercel.app/",
+  "priority": 2
+}

@@ -1,0 +1,139 @@
+[
+  {
+    "id": "smartinvest-ai",
+    "title_id": "SmartInvest (AI Engineering)",
+    "title_en": "SmartInvest (AI Engineering)",
+    "subtitle_id": "Klasifikasi Tren IHSG & Saham dengan Deep Learning (BiLSTM + Attention)",
+    "subtitle_en": "IHSG & Stock Market Trend Classification with Deep Learning (BiLSTM + Attention)",
+    "description_id": "Modul Deep Learning time-series berkinerja tinggi untuk memprediksi pergerakan jangka pendek (Naik/Bullish, Stabil/Sideways, Turun/Bearish) pada indeks pasar IHSG dan emiten individu konstituen LQ45/IDX30.",
+    "description_en": "High-performance time-series Deep Learning module designed to classify short-term movement trends (Bullish, Sideways, Bearish) for the IHSG composite index and individual LQ45/IDX30 stocks.",
+    "architecture_id": "• Arsitektur: Bidirectional LSTM + Multi-Head Attention + Custom Dense layer.<br>• Input: Data sekuensial 15 hari perdagangan dengan 11 fitur indikator teknikal (RSI, MACD, Bollinger Bands, dll.).<br>• Model IHSG (ihsg_best_model_3class.keras): Uji Blind Test menghasilkan Akurasi 92.64% dan Macro F1-Score 90.39% (F1-Score Sideways mencapai 80.00%).<br>• Model Emiten (smartinvest_best_model_3class.keras.zip): Uji Blind Test menghasilkan Akurasi 94.46% dan Macro F1-Score 93%.<br>• Jupyter Notebooks: KLASIFIKASI_IHSG_TUNED_DAN_REKOMENDASI.ipynb & Modelling_trenSaham_FIXED_STABIL.ipynb.<br>• Deployment: FastAPI microservices dengan browser header spoofing pada Yahoo Finance scraper untuk memintas rate-limiting.",
+    "architecture_en": "• Architecture: Bidirectional LSTM + Multi-Head Attention + Custom Dense layers.<br>• Input: Sequential 15-day trading data with 11 technical indicators (RSI, MACD, Bollinger Bands, etc.).<br>• IHSG Model (ihsg_best_model_3class.keras): Blind Test achieves 92.64% Accuracy and 90.39% Macro F1-Score (Sideways F1-Score: 80.00%).<br>• Stock Model (smartinvest_best_model_3class.keras.zip): Blind Test achieves 94.46% Accuracy and 93% Macro F1-Score.<br>• Jupyter Notebooks: KLASIFIKASI_IHSG_TUNED_DAN_REKOMENDASI.ipynb & Modelling_trenSaham_FIXED_STABIL.ipynb.<br>• Deployment: FastAPI microservices running browser header spoofing on yfinance scraper to prevent API rate-limiting.",
+    "tools": [
+      "Python",
+      "TensorFlow",
+      "Keras",
+      "FastAPI",
+      "Uvicorn",
+      "yfinance",
+      "scikit-learn",
+      "Joblib"
+    ],
+    "github_repo": "User-Galih/SmartInvest-App",
+    "demo_url": "https://smart-invest-app-git-main-helmi-azkias-projects.vercel.app/",
+    "folder_name": "Project_1"
+  },
+  {
+    "id": "smartinvest-ds",
+    "title_id": "SmartInvest (Data Science)",
+    "title_en": "SmartInvest (Data Science)",
+    "subtitle_id": "Optimasi Portofolio Kuantitatif (Modern Portfolio Theory)",
+    "subtitle_en": "Quantitative Portfolio Optimization (Modern Portfolio Theory)",
+    "description_id": "Modul riset kuantitatif dan analisis data keuangan yang mengalokasikan bobot modal optimal untuk meminimalkan risiko portofolio saham berdasarkan profil risiko investor.",
+    "description_en": "Quantitative financial research module allocating optimal asset weights to minimize portfolio risk based on investor profiles.",
+    "architecture_id": "• Algoritma Utama: MVEP (Mean-Variance Efficient Portfolio) via SciPy SLSQP optimizer untuk memaksimalkan Sharpe Ratio, SIM (Single Index Model) untuk menyederhanakan kovarians pasar, dan CAPM (Capital Asset Pricing Model) untuk portofolio defensif berbasis sensitivitas Beta.<br>• Exploratory Data Analysis (EDA): Analisis return historis 5 tahun emiten LQ45/IDX30, visualisasi Correlation Heatmap, Risk vs Return Scatter Plot, dan Rolling Volatility.<br>• Analisis Statistik: Uji statistik berpasangan t-test relasional via SciPy untuk menjamin konsistensi formula kuantitatif.<br>• Jupyter Notebooks: notebook.ipynb & AB_Testing_Capstone_Project.ipynb.<br>• Validasi Dasbor: Prototipe interaktif divalidasi via Streamlit sebelum integrasi ke web produksi.",
+    "architecture_en": "• Core Algorithms: MVEP (Mean-Variance Efficient Portfolio) via SciPy SLSQP solver to maximize Sharpe Ratio, SIM (Single Index Model) to simplify market covariance, and CAPM (Capital Asset Pricing Model) for defensive Beta-based allocations.<br>• Exploratory Data Analysis (EDA): Analyzed 5-year historical return distributions of LQ45/IDX30 stocks, plotting Correlation Heatmaps, Risk vs. Return Scatters, and Rolling Volatility.<br>• Statistical Analysis: Relational t-test statistical validation via SciPy to guarantee mathematical formula consistency.<br>• Jupyter Notebooks: notebook.ipynb & AB_Testing_Capstone_Project.ipynb.<br>• Dashboard Validation: Interactive prototype validated via Streamlit before production integration.",
+    "tools": [
+      "Python",
+      "Streamlit",
+      "Pandas",
+      "NumPy",
+      "SciPy",
+      "PyPortfolioOpt",
+      "Plotly",
+      "yfinance"
+    ],
+    "github_repo": "User-Galih/SmartInvest-App",
+    "demo_url": "https://smart-invest-app-git-main-helmi-azkias-projects.vercel.app/",
+    "folder_name": "Project_1"
+  },
+  {
+    "id": "smartinvest-fs",
+    "title_id": "SmartInvest (Fullstack Web)",
+    "title_en": "SmartInvest (Fullstack Web)",
+    "subtitle_id": "Integrasi Sistem & Orkestrasi Platform Terdistribusi",
+    "subtitle_en": "System Integration & Distributed Platform Orchestration",
+    "description_id": "Orkestrasi arsitektur sistem web terdistribusi untuk menyatukan mesin analisis kuantitatif dan prediksi Deep Learning Python ke dalam dashboard interaktif investor ritel.",
+    "description_en": "Distributed system orchestration merging the Python quantitative engine and Deep Learning models into a production-ready retail investor dashboard.",
+    "architecture_id": "• Frontend: React (Vite) + Tailwind CSS dengan desain premium glassmorphism, visualisasi Chart.js, dan panel konfigurasi parameter.<br>• API Gateway: Node.js Express Gateway untuk mengorkestrasi autentikasi user dan koordinasi data.<br>• FastAPI Engine (SmartfastApi): Backend Python yang mengoordinasikan input modal, scraping BI Rate secara real-time dari situs resmi Bank Indonesia, menghitung pembobotan optimal secara dinamis, mengintegrasikan Google Gemini Pro API untuk narasi analisis risiko-keuntungan, serta menyimpan kalkulasi otomatis ke database Supabase (PostgreSQL) dengan sistem rotasi FIFO maksimal 20 record.",
+    "architecture_en": "• Frontend: React (Vite) + Tailwind CSS using premium glassmorphic layouts, dynamic Chart.js visualizations, and parameter panels.<br>• API Gateway: Node.js Express Gateway orchestrating user auth and database CRUD routing.<br>• FastAPI Engine (SmartfastApi): Coordinates capital parameters, scrapes the Bank Indonesia rate in real-time, calculates dynamic portfolio weights, integrates Google Gemini Pro API for narrative analysis, and handles automatic saves to Supabase (PostgreSQL) using a 20-record FIFO rotation policy.",
+    "tools": [
+      "React",
+      "Tailwind CSS",
+      "Node.js",
+      "Express",
+      "FastAPI",
+      "Supabase",
+      "PostgreSQL",
+      "Chart.js"
+    ],
+    "github_repo": "User-Galih/SmartInvest-App",
+    "demo_url": "https://smart-invest-app-git-main-helmi-azkias-projects.vercel.app/",
+    "folder_name": "Project_1"
+  },
+  {
+    "id": "waste-classifier",
+    "title_id": "Waste Classifier API & UI",
+    "title_en": "Waste Classifier API & UI",
+    "subtitle_id": "Klasifikasi Sampah Otomatis dengan EfficientNetV2",
+    "subtitle_en": "Automated Waste Classification with EfficientNetV2",
+    "description_id": "Aplikasi deteksi gambar untuk membedakan sampah Organik dan Anorganik secara otomatis. Bertujuan membantu digitalisasi pengelolaan sampah rumah tangga dan instansi.",
+    "description_en": "Image detection application to automatically classify Organic and Inorganic waste, designed to support waste management digitization in households and institutions.",
+    "architecture_id": "Model dilatih menggunakan arsitektur Convolutional Neural Network EfficientNetV2 (TensorFlow/Keras) berukuran input 224x224. Backend API dibangun menggunakan FastAPI, dikontainerisasi dengan Docker, dan dideploy pada Hugging Face Spaces. Frontend UI dibangun dengan React dan dideploy di Vercel.",
+    "architecture_en": "Model is trained using the EfficientNetV2 Convolutional Neural Network architecture (TensorFlow/Keras) with a 224x224 input size. Backend API is built using FastAPI, containerized with Docker, and deployed on Hugging Face Spaces. Frontend UI is built using React and hosted on Vercel.",
+    "tools": [
+      "Python",
+      "TensorFlow",
+      "Keras",
+      "FastAPI",
+      "Pillow",
+      "Docker",
+      "React",
+      "Tailwind CSS"
+    ],
+    "github_repo": "User-Galih/waste-classification-ui",
+    "demo_url": "https://waste-classification-ui.vercel.app/",
+    "folder_name": "Project_2"
+  },
+  {
+    "id": "diskominfo-chatbot",
+    "title_id": "Diskominfo Registration Bot & Portal",
+    "title_en": "Diskominfo Registration Bot & Portal",
+    "subtitle_id": "Sistem Informasi Pendaftaran Magang Berbasis AI",
+    "subtitle_en": "AI-Driven Internship Registration Information System",
+    "description_id": "Platform digital untuk mengotomatisasi layanan pendaftaran magang di Dinas Komunikasi dan Informatika (Diskominfo) Kota Semarang, menyaring FAQ pendaftar secara otomatis.",
+    "description_en": "Digital platform to automate internship registration services at Semarang Communication and Informatics Office (Diskominfo), automatically filtering applicant FAQs.",
+    "architecture_id": "Berperan sebagai Ketua Tim. Merancang arsitektur chatbot berbasis aturan (rule-based) terintegrasi untuk menyaring FAQ instan. Mengembangkan web portal pendaftaran responsif dari front-end hingga back-end, serta REST API penampung data pendaftar yang efisien dan aman.",
+    "architecture_en": "Served as Team Lead. Designed and built an integrated rule-based FAQ chatbot to answer recurring queries. Developed the responsive registration web portal from front-end to back-end, alongside secure REST APIs for database management.",
+    "tools": [
+      "HTML5",
+      "CSS3",
+      "JavaScript",
+      "PHP",
+      "Bootstrap",
+      "MySQL",
+      "REST API",
+      "Git"
+    ],
+    "github_repo": "User-Galih",
+    "demo_url": "",
+    "folder_name": ""
+  },
+  {
+    "id": "project_3_ai_agent",
+    "title_id": "Project 3 AI Agent",
+    "title_en": "Project 3 AI Agent",
+    "subtitle_id": "Proyek AI & Software Engineering Baru",
+    "subtitle_en": "New AI & Software Engineering Project",
+    "description_id": "Deskripsi otomatis untuk proyek dari folder Project_3_AI_Agent. Silakan edit berkas projects.json untuk memperbarui teks ini.",
+    "description_en": "Automated description for project from folder Project_3_AI_Agent. Please edit projects.json to customize this text.",
+    "architecture_id": "• Arsitektur: Belum dikonfigurasi.<br>• Integrasi: Tambahkan detail teknis arsitektur di projects.json.",
+    "architecture_en": "• Architecture: Not configured.<br>• Integration: Add technical architecture details in projects.json.",
+    "tools": [
+      "Python"
+    ],
+    "github_repo": "User-Galih",
+    "demo_url": "",
+    "folder_name": "Project_3_AI_Agent"
+  }
+]

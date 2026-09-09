@@ -1,0 +1,11 @@
+{
+  "name": "porto-galih",
+  "private": true,
+  "description": "Root launcher for the portfolio app in Web_porto",
+  "scripts": {
+    "dev": "npm run dev --prefix Web_porto",
+    "build": "npm run build --prefix Web_porto",
+    "preview": "npm run preview --prefix Web_porto",
+    "sync:certs": "node scripts/sync_certificates.js"
+  }
+}

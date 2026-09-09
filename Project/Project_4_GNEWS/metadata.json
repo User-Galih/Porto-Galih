@@ -1,0 +1,25 @@
+{
+  "id": "gnews-summarizer",
+  "title_id": "GNews Summarization & Hashtag Generator",
+  "title_en": "GNews Summarization & Hashtag Generator",
+  "subtitle_id": "Ringkasan Berita Otomatis & Generator Hashtag dengan NLP",
+  "subtitle_en": "Automated News Summarization & Hashtag Generation with NLP",
+  "description_id": "Aplikasi NLP yang secara otomatis merangkum artikel berita dan menghasilkan hashtag relevan. Menghilangkan gangguan seperti iklan dan elemen tidak perlu, menyajikan ringkasan ringkas. Hasil disimpan dalam file Excel untuk akses mudah.",
+  "description_en": "NLP application that automatically summarizes news articles and generates relevant hashtags using natural language processing and machine learning. Removes distractions like ads, providing concise summaries. Results are saved in Excel files for easy access.",
+  "architecture_id": "<div class='model-arch-block'><h4 style='color: var(--color-ai); font-size: 13.5px; margin-bottom: 6px; font-weight: 700;'>1. Text Processing Pipeline</h4><ul><li><b>Web Scraping:</b> Ekstraksi konten artikel dari URL, menghilangkan iklan dan elemen noise.</li><li><b>NLP Engine:</b> Tokenisasi, ekstraksi fitur TF-IDF, dan algoritma summarization untuk menghasilkan ringkasan.</li><li><b>Hashtag Generator:</b> Keyword extraction berbasis frekuensi dan relevansi untuk menghasilkan hashtag otomatis.</li></ul></div><hr style='border: none; border-top: 1px solid var(--border-light); margin: 12px 0;' /><div class='model-arch-block'><h4 style='color: var(--primary-color); font-size: 13.5px; margin-bottom: 6px; font-weight: 700;'>2. Output dan Storage</h4><ul><li><b>Multi-language:</b> Mendukung pemilihan bahasa untuk summarization.</li><li><b>Data History:</b> Riwayat ringkasan disimpan dalam file Excel (openpyxl).</li><li><b>UI:</b> Interface berbasis Jupyter Notebook dengan visualisasi interaktif.</li></ul></div>",
+  "architecture_en": "<div class='model-arch-block'><h4 style='color: var(--color-ai); font-size: 13.5px; margin-bottom: 6px; font-weight: 700;'>1. Text Processing Pipeline</h4><ul><li><b>Web Scraping:</b> Article content extraction from URLs, removing ads and noise elements.</li><li><b>NLP Engine:</b> Tokenization, TF-IDF feature extraction, and summarization algorithms for generating concise summaries.</li><li><b>Hashtag Generator:</b> Frequency and relevance-based keyword extraction for automatic hashtag generation.</li></ul></div><hr style='border: none; border-top: 1px solid var(--border-light); margin: 12px 0;' /><div class='model-arch-block'><h4 style='color: var(--primary-color); font-size: 13.5px; margin-bottom: 6px; font-weight: 700;'>2. Output and Storage</h4><ul><li><b>Multi-language:</b> Supports language selection for summarization.</li><li><b>Data History:</b> Summary history saved in Excel files (openpyxl).</li><li><b>UI:</b> Jupyter Notebook-based interface with interactive visualizations.</li></ul></div>",
+  "tools": [
+    "Python",
+    "NLP",
+    "TF-IDF",
+    "BeautifulSoup",
+    "openpyxl",
+    "Jupyter Notebook",
+    "Machine Learning"
+  ],
+  "github_repo": "User-Galih/GNEWS-Summarization-Hastags-Generator",
+  "demo_url": "",
+  "category": "quantum-nlp",
+  "featured": false,
+  "highlight_metric": "NLP Text Summarization • Automated Hashtag Generation"
+}

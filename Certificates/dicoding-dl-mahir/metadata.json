@@ -1,0 +1,34 @@
+{
+  "id": "dicoding-dl-mahir",
+  "title_id": "Membangun Proyek Deep Learning Tingkat Mahir",
+  "title_en": "Membangun Proyek Deep Learning Tingkat Mahir",
+  "issuer": "Dicoding Indonesia",
+  "credential_id": "JMZVO5E1QXN9",
+  "issue_date": "June 8, 2026",
+  "expiry_date": "June 8, 2029",
+  "category": "AI & Deep Learning",
+  "isFeatured": true,
+  "description_id": "Kelas ditujukan bagi AI/ML/DL Engineer yang ingin memperdalam pengetahuan tentang computer vision, NLP, time series, dan sistem rekomendasi berbasis kustomisasi arsitektur TensorFlow.",
+  "description_en": "Advanced course for AI/ML/DL Engineers to deepen knowledge in computer vision, NLP, time series, and recommendation systems using custom TensorFlow architectures.",
+  "verification_url": "https://www.dicoding.com/certificates/JMZVO5E1QXN9",
+  "syllabus_id": [
+    "Menyelam Lebih Dalam ke Tensorflow! (7 jam)",
+    "Custom Model, Layer, Loss, dan Callback (8 jam 10 menit)",
+    "Custom dan Distributed Training dengan TensorFlow (8 jam 55 menit)",
+    "Sistem Rekomendasi Lanjutan dengan TensorFlow (10 jam)",
+    "Natural Language Processing Lanjutan dengan TensorFlow (13 jam)",
+    "Computer Vision Lanjutan dengan TensorFlow (12 jam)",
+    "Time Series Lanjutan dengan TensorFlow (15 jam)",
+    "Submission: Proyek time series multivariate multi-step dengan model & training kustom (Total 90 jam)"
+  ],
+  "syllabus_en": [
+    "Diving Deeper into TensorFlow! (7 hours)",
+    "Custom Models, Layers, Losses, and Callbacks (8 hours 10 mins)",
+    "Custom and Distributed Training with TensorFlow (8 hours 55 mins)",
+    "Advanced Recommendation Systems with TensorFlow (10 hours)",
+    "Advanced Natural Language Processing with TensorFlow (13 hours)",
+    "Advanced Computer Vision with TensorFlow (12 hours)",
+    "Advanced Time Series with TensorFlow (15 hours)",
+    "Submission: Multivariate multi-step time series forecasting project with custom loops (Total 90 hours)"
+  ]
+}

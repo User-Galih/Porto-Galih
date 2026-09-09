@@ -1,0 +1,32 @@
+{
+  "id": "dicoding-ds-dasar",
+  "title_id": "Belajar Dasar Data Science",
+  "title_en": "Belajar Dasar Data Science",
+  "issuer": "Dicoding Indonesia",
+  "credential_id": "EYX4J6EDWZDL",
+  "issue_date": "October 8, 2024",
+  "expiry_date": "October 8, 2027",
+  "category": "Data Science",
+  "isFeatured": false,
+  "description_id": "Mempelajari konsep dasar data science bagi pemula, mulai dari siklus data, eksplorasi analisis data, hingga machine learning terapan.",
+  "description_en": "Teaches fundamental data science concepts for beginners, from data lifecycles and exploratory data analysis to applied machine learning.",
+  "verification_url": "https://www.dicoding.com/certificates/EYX4J6EDWZDL",
+  "syllabus_id": [
+    "The Power of Data: Pengenalan data, jenis data, keputusan berbasis data (100 menit)",
+    "Fundamental Data Science: Istilah, tren, dan keahlian data scientist (90 menit)",
+    "Menjelajahi Analisis Data: Pengenalan istilah, siklus, dan proses analisis data (140 menit)",
+    "Teknologi dan Tools Pendukung: SQL, NoSQL, Excel, SPSS, Tableau, Python vs R (70 menit)",
+    "Machine Learning untuk Data Science: Penggunaan, alasan, dan penerapan ML (90 menit)",
+    "Mulailah Mencari Peluang: Karier data, portofolio, tips & triks (85 menit)",
+    "Total jam belajar: 11 jam"
+  ],
+  "syllabus_en": [
+    "The Power of Data: Intro to data, data types, data-driven decisions (100 mins)",
+    "Fundamental Data Science: Terminology, trends, and key data scientist skills (90 mins)",
+    "Exploring Data Analysis: Terminology, cycles, and process of data analysis (140 mins)",
+    "Supporting Technologies and Tools: SQL, NoSQL, Excel, SPSS, Tableau, Python vs R (70 mins)",
+    "Machine Learning for Data Science: Use cases, rationale, and real-world ML (90 mins)",
+    "Start Seeking Opportunities: Data careers, portfolios, tips & tricks (85 mins)",
+    "Total learning duration: 11 hours"
+  ]
+}

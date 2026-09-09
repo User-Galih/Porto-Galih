@@ -1,0 +1,17 @@
+﻿<svg xmlns="http://www.w3.org/2000/svg" width="800" height="600" viewBox="0 0 800 600">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1a1a2e;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#16213e;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <rect width="800" height="600" fill="url(#bg)" rx="16"/>
+  <rect x="30" y="30" width="740" height="540" fill="none" stroke="#334155" stroke-width="2" stroke-dasharray="8,4" rx="12"/>
+  <text x="400" y="200" text-anchor="middle" fill="#94a3b8" font-family="system-ui,sans-serif" font-size="18" font-weight="600">CERTIFICATE PLACEHOLDER</text>
+  <text x="400" y="260" text-anchor="middle" fill="#e2e8f0" font-family="system-ui,sans-serif" font-size="22" font-weight="700">Pelatihan Manajemen Proyek</text>
+  <text x="400" y="310" text-anchor="middle" fill="#64748b" font-family="system-ui,sans-serif" font-size="16">Issued by: Dicoding Indonesia</text>
+  <text x="400" y="350" text-anchor="middle" fill="#64748b" font-family="system-ui,sans-serif" font-size="14">July 2023</text>
+  <text x="400" y="400" text-anchor="middle" fill="#475569" font-family="system-ui,sans-serif" font-size="13">Category: Software Engineering & Management</text>
+  <text x="400" y="480" text-anchor="middle" fill="#334155" font-family="system-ui,sans-serif" font-size="14">Replace this file with the actual certificate image</text>
+  <text x="400" y="510" text-anchor="middle" fill="#334155" font-family="system-ui,sans-serif" font-size="13">Supported formats: .jpeg, .png, .webp</text>
+</svg>

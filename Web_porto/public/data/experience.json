@@ -1,0 +1,52 @@
+[
+  {
+    "id": "dbs-coding-camp",
+    "company": "Coding Camp powered by DBS Foundation & Dicoding",
+    "role_id": "Cohort Member - AI Engineering (Apprenticeship)",
+    "role_en": "Cohort Member - AI Engineering (Apprenticeship)",
+    "period_id": "Januari 2026 - Sekarang",
+    "period_en": "January 2026 - Present",
+    "location_id": "Indonesia (Remote)",
+    "location_en": "Indonesia (Remote)",
+    "responsibilities_id": [
+      "Terpilih sebagai salah satu cohort member dalam jalur pembelajaran intensif AI Engineering yang didukung oleh DBS Foundation dan Dicoding Indonesia.",
+      "Bertindak sebagai Technical Lead & Perwakilan Tim untuk proyek capstone 'SmartInvest', mengelola struktur repositori GitHub, timeline teknis, serta mentoring developer dalam tim.",
+      "Memimpin perancangan arsitektur dan implementasi algoritma kecerdasan buatan utama dalam platform.",
+      "Mengintegrasikan model AI/DL secara langsung ke dalam aplikasi full-stack web React-FastAPI untuk memastikan kelancaran fungsionalitas end-to-end."
+    ],
+    "responsibilities_en": [
+      "Selected as a cohort member in the intensive AI Engineering learning path supported by DBS Foundation and Dicoding Indonesia.",
+      "Served as Technical Lead & Team Representative for the 'SmartInvest' capstone project, managing GitHub repositories, technical timelines, and mentoring team developers.",
+      "Led the architectural design and implementation of core AI models within the team's platform.",
+      "Integrated AI/DL models directly into the React-FastAPI fullstack web application to ensure seamless end-to-end production functionality."
+    ],
+    "skills": ["Artificial Intelligence", "Deep Learning", "Team Leadership", "GitHub Management", "Full-Stack Integration"]
+  },
+  {
+    "id": "diskominfo-semarang",
+    "company": "Dinas Komunikasi, Informatika, Statistik dan Persandian Kota Semarang",
+    "role_id": "LLM Application Developer & Ketua Tim (Magang)",
+    "role_en": "LLM Application Developer & Team Lead (Internship)",
+    "period_id": "Mei 2025 - Juli 2025 (3 Bulan)",
+    "period_en": "May 2025 - July 2025 (3 Months)",
+    "location_id": "Kota Semarang, Jawa Tengah (On-site)",
+    "location_en": "Semarang City, Central Java (On-site)",
+    "responsibilities_id": [
+      "Melaksanakan magang sebagai Ketua Tim yang mengoordinasikan pembagian tugas developer, manajemen timeline, dan kelancaran kolaborasi.",
+      "Merancang dan mengembangkan arsitektur chatbot berbasis aturan (rule-based FAQ chatbot) untuk otomasi penyaringan informasi pendaftaran magang resmi.",
+      "Mengintegrasikan logika chatbot AI ke dalam sistem internal dinas untuk menyaring dan menjawab pertanyaan berulang secara instan.",
+      "Membangun platform web responsif pendaftaran magang Diskominfo Kota Semarang dari sisi frontend hingga backend.",
+      "Mengembangkan REST API dan manajemen database MySQL untuk penyimpanan data pendaftar yang efisien dan aman.",
+      "Melakukan pengujian fungsionalitas sistem (testing) guna menjamin kestabilan chatbot dan web portal saat diakses oleh publik."
+    ],
+    "responsibilities_en": [
+      "Acted as Team Lead coordinating task distribution, project timelines, and developer collaboration during the internship.",
+      "Designed and developed a rule-based FAQ chatbot architecture to automate queries for official internship registration.",
+      "Integrated chatbot logic into internal systems to answer repetitive inquiries and FAQs instantly.",
+      "Built the responsive Diskominfo Semarang internship registration web portal from front-end to back-end.",
+      "Developed secure REST APIs and MySQL database management to handle applicant records efficiently.",
+      "Performed system functionality testing to guarantee the stability of the chatbot and portal under public load."
+    ],
+    "skills": ["Team Leadership", "Chatbot Development", "Web Development", "REST API", "Database Management", "System Testing"]
+  }
+]

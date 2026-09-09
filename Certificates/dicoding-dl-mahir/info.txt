@@ -1,0 +1,5 @@
+Link: https://www.dicoding.com/certificates/JMZVO5E1QXN9
+Syllabus:
+- Jaringan Saraf Tiruan Lanjutan (10 jam)
+- Pengenalan Convolutional Neural Networks (5 jam 30 menit)
+- Proyek Klasifikasi Citra Medis dengan TensorFlow (25 jam)

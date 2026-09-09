@@ -1,0 +1,28 @@
+{
+  "id": "9router-codex-toolkit",
+  "title_id": "9Router + Codex AI Development Toolkit",
+  "title_en": "9Router + Codex AI Development Toolkit",
+  "subtitle_id": "Ekosistem AI Pribadi: Multi-Model Router, Agentic Coding & Custom Skills",
+  "subtitle_en": "Personal AI Ecosystem: Multi-Model Router, Agentic Coding & Custom Skills",
+  "description_id": "Membangun ekosistem pengembangan AI pribadi berbasis 9Router (OpenAI-compatible API gateway) yang mengintegrasikan 68+ model LLM (GPT, Claude, Gemini, Kimi, DeepSeek) dengan Codex CLI sebagai agentic coding interface. Dilengkapi custom skills untuk web search, image generation, text-to-speech, web scraping, dan embeddings.",
+  "description_en": "Built a personal AI development ecosystem powered by 9Router (OpenAI-compatible API gateway) integrating 68+ LLM models (GPT, Claude, Gemini, Kimi, DeepSeek) with Codex CLI as an agentic coding interface. Equipped with custom skills for web search, image generation, text-to-speech, web scraping, and embeddings.",
+  "architecture_id": "<div class='model-arch-block'><h4 style='color: var(--color-ai); font-size: 13.5px; margin-bottom: 6px; font-weight: 700;'>1. 9Router API Gateway</h4><ul><li><b>Fungsi:</b> Unified OpenAI-compatible API gateway yang merutekan request ke 68+ model LLM secara otomatis dengan fallback chain.</li><li><b>Model Routing:</b> master-fallback combo (GPT-5.6, Claude Opus 4, Gemini 3.8, Kimi K3, DeepSeek V4, dll) dengan auto-failover.</li><li><b>Endpoint:</b> /v1/chat/completions, /v1/search, /v1/web/fetch, /v1/models.</li><li><b>Provider:</b> Tavily, SearXNG, Jina Reader, Antigravity untuk search dan fetch.</li></ul></div><hr style='border: none; border-top: 1px solid var(--border-light); margin: 12px 0;' /><div class='model-arch-block'><h4 style='color: var(--color-ds); font-size: 13.5px; margin-bottom: 6px; font-weight: 700;'>2. Codex CLI + Custom Skills</h4><ul><li><b>Agentic Coding:</b> Terminal-based AI assistant yang bisa membaca, menulis, dan menjalankan code secara otonom.</li><li><b>Custom Skills (9Router):</b> web-search, image-gen, tts, web-fetch, embeddings.</li><li><b>NPX Skills:</b> gpt-taste (UI design principles), full-output-enforcement, imagegen-frontend-web.</li></ul></div><hr style='border: none; border-top: 1px solid var(--border-light); margin: 12px 0;' /><div class='model-arch-block'><h4 style='color: var(--primary-color); font-size: 13.5px; margin-bottom: 6px; font-weight: 700;'>3. Konfigurasi dan Otomasi</h4><ul><li><b>AGENTS.md:</b> Konfigurasi global yang memaksa agent selalu patuh pada aturan skill dan routing.</li><li><b>Environment:</b> NINEROUTER_URL, NINEROUTER_KEY tersimpan di env vars untuk seamless auth.</li></ul></div>",
+  "architecture_en": "<div class='model-arch-block'><h4 style='color: var(--color-ai); font-size: 13.5px; margin-bottom: 6px; font-weight: 700;'>1. 9Router API Gateway</h4><ul><li><b>Function:</b> Unified OpenAI-compatible API gateway that routes requests to 68+ LLM models automatically with fallback chains.</li><li><b>Model Routing:</b> master-fallback combo (GPT-5.6, Claude Opus 4, Gemini 3.8, Kimi K3, DeepSeek V4, etc.) with auto-failover.</li><li><b>Endpoints:</b> /v1/chat/completions, /v1/search, /v1/web/fetch, /v1/models.</li><li><b>Providers:</b> Tavily, SearXNG, Jina Reader, Antigravity for search and fetch.</li></ul></div><hr style='border: none; border-top: 1px solid var(--border-light); margin: 12px 0;' /><div class='model-arch-block'><h4 style='color: var(--color-ds); font-size: 13.5px; margin-bottom: 6px; font-weight: 700;'>2. Codex CLI + Custom Skills</h4><ul><li><b>Agentic Coding:</b> Terminal-based AI assistant capable of autonomously reading, writing, and executing code.</li><li><b>Custom Skills (9Router):</b> web-search, image-gen, tts, web-fetch, embeddings.</li><li><b>NPX Skills:</b> gpt-taste (UI design principles), full-output-enforcement, imagegen-frontend-web.</li></ul></div><hr style='border: none; border-top: 1px solid var(--border-light); margin: 12px 0;' /><div class='model-arch-block'><h4 style='color: var(--primary-color); font-size: 13.5px; margin-bottom: 6px; font-weight: 700;'>3. Configuration and Automation</h4><ul><li><b>AGENTS.md:</b> Global agent config enforcing strict skill compliance and routing rules.</li><li><b>Environment:</b> NINEROUTER_URL, NINEROUTER_KEY stored in env vars for seamless auth.</li></ul></div>",
+  "tools": [
+    "9Router",
+    "Codex CLI",
+    "OpenAI API",
+    "Claude API",
+    "Gemini API",
+    "Tavily",
+    "SearXNG",
+    "Jina Reader",
+    "PowerShell",
+    "Node.js"
+  ],
+  "github_repo": "User-Galih",
+  "demo_url": "",
+  "category": "rag-llm",
+  "featured": false,
+  "highlight_metric": "68+ LLM Multi-Model Routing • Auto Failover Gateway"
+}

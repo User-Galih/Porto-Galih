@@ -1,0 +1,14 @@
+{
+  "id": "dicoding-python-dasar",
+  "title_id": "Memulai Pemrograman dengan Python",
+  "title_en": "Memulai Pemrograman dengan Python",
+  "issuer": "Dicoding Indonesia",
+  "credential_id": "JLX1VGL95Z72",
+  "issue_date": "February 2026",
+  "expiry_date": "February 2029",
+  "category": "Software Engineering & Management",
+  "isFeatured": false,
+  "description_id": "Memvalidasi pemahaman sintaks dasar Python, tipe data, perulangan, percabangan, fungsi, object-oriented programming (OOP), dan penanganan error.",
+  "description_en": "Validates understanding of basic Python syntax, data types, loops, conditionals, functions, object-oriented programming (OOP), and error handling.",
+  "verification_url": "https://www.dicoding.com/certificates/JLX1VGL95Z72"
+}

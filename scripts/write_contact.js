@@ -1,0 +1,103 @@
+const fs = require("fs");
+
+const code = `import React, { useState } from "react";
+import { useLanguage } from "../context/LanguageContext";
+import { Mail, Check, Copy, Sparkles } from "lucide-react";
+import { playClickSound } from "../utils/audio";
+
+const GithubIcon = ({ size = 20 }) => (
+  <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4" />
+    <path d="M9 18c-4.51 2-5-2-7-2" />
+  </svg>
+);
+
+const LinkedinIcon = ({ size = 20 }) => (
+  <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+    <rect width="4" height="12" x="2" y="9" rx="1" />
+    <circle cx="4" cy="4" r="2" />
+  </svg>
+);
+
+export const Contact = () => {
+  const { language } = useLanguage();
+  const [copied, setCopied] = useState(false);
+  const emailAddress = "galihputra9191@gmail.com";
+
+  const handleCopyEmail = () => {
+    playClickSound();
+    navigator.clipboard.writeText(emailAddress);
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2500);
+  };
+
+  return (
+    <section id="contact" className="contact-section container">
+      <div className="contact-card-box glass-card">
+        <div className="section-tag" style={{ margin: "0 auto 16px auto" }}>
+          <Sparkles size={13} />
+          <span>{language === "id" ? "Terhubung & Kolaborasi" : "Connect & Collaborate"}</span>
+        </div>
+
+        <h2 className="section-title" style={{ fontSize: "clamp(2.2rem, 4vw, 3.2rem)", marginBottom: "16px" }}>
+          {language === "id" ? "Mari Membangun Solusi AI Bersama" : "Let’s Build Impactful AI Systems"}
+        </h2>
+
+        <p style={{ color: "var(--text-secondary)", fontSize: "1.05rem", maxWidth: "620px", margin: "0 auto", lineHeight: "1.7" }}>
+          {language === "id"
+            ? "Tertarik berdiskusi seputar implementasi RAG tingkat produksi, pemodelan Deep Learning, integrasi LLMOps, atau peluang karier AI Engineer? Pintu kolaborasi selalu terbuka."
+            : "Interested in discussing production RAG architectures, Deep Learning models, LLMOps pipelines, or AI Engineer roles? I am always open to impactful technical conversations."}
+        </p>
+
+        <div className="contact-channels-grid">
+          <a
+            href={`mailto:${emailAddress}`}
+            className="contact-item-btn primary-btn"
+            onClick={playClickSound}
+          >
+            <Mail size={18} />
+            <span>{language === "id" ? "Kirim Email Langsung" : "Email Me Directly"}</span>
+          </a>
+
+          <button
+            className="contact-item-btn secondary-btn"
+            onClick={handleCopyEmail}
+            title="Copy email to clipboard"
+          >
+            {copied ? <Check size={18} style={{ color: "var(--accent-primary)" }} /> : <Copy size={18} />}
+            <span>{copied ? (language === "id" ? "Tersalin!" : "Copied!") : emailAddress}</span>
+          </button>
+
+          <a
+            href="https://github.com/User-Galih"
+            target="_blank"
+            rel="noreferrer"
+            className="contact-item-btn secondary-btn"
+            onClick={playClickSound}
+          >
+            <GithubIcon size={18} />
+            <span>GitHub</span>
+          </a>
+
+          <a
+            href="https://linkedin.com/in/galih-putra-pratama-8194bb255"
+            target="_blank"
+            rel="noreferrer"
+            className="contact-item-btn secondary-btn"
+            onClick={playClickSound}
+          >
+            <LinkedinIcon size={18} />
+            <span>LinkedIn</span>
+          </a>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default Contact;
+`;
+
+fs.writeFileSync("Web_porto/src/components/Contact.jsx", code, "utf8");
+console.log("Contact.jsx written successfully.");

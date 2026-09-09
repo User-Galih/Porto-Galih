@@ -1,0 +1,14 @@
+{
+  "id": "dicoding-dl-fundamental",
+  "title_id": "Belajar Fundamental Deep Learning",
+  "title_en": "Belajar Fundamental Deep Learning",
+  "issuer": "Dicoding Indonesia",
+  "credential_id": "QLZ993277Z5D",
+  "issue_date": "April 2026",
+  "expiry_date": "April 2029",
+  "category": "AI & Deep Learning",
+  "isFeatured": false,
+  "description_id": "Memvalidasi pemahaman dasar arsitektur Deep Learning (Neural Networks, CNN untuk klasifikasi gambar, dan dasar RNN/LSTM).",
+  "description_en": "Validates fundamental understanding of Deep Learning architectures (Neural Networks, CNNs for image classification, and basic RNNs/LSTMs).",
+  "verification_url": "https://www.dicoding.com/certificates/QLZ993277Z5D"
+}

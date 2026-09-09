@@ -1,0 +1,31 @@
+{
+  "id": "waste-classifier",
+  "title_id": "Waste Classifier API & UI",
+  "title_en": "Waste Classifier API & UI",
+  "subtitle_id": "Klasifikasi Sampah Otomatis dengan EfficientNetV2",
+  "subtitle_en": "Automated Waste Classification with EfficientNetV2",
+  "description_id": "Aplikasi deteksi gambar untuk membedakan sampah Organik dan Anorganik secara otomatis. Bertujuan membantu digitalisasi pengelolaan sampah rumah tangga dan instansi.",
+  "description_en": "Image detection application to automatically classify Organic and Inorganic waste, designed to support waste management digitization in households and institutions.",
+  "architecture_id": "Model dilatih menggunakan arsitektur Convolutional Neural Network EfficientNetV2 (TensorFlow/Keras) berukuran input 224x224. Backend API dibangun menggunakan FastAPI, dikontainerisasi dengan Docker, dan dideploy pada Hugging Face Spaces. Frontend UI dibangun dengan React dan dideploy di Vercel.",
+  "architecture_en": "Model is trained using the EfficientNetV2 Convolutional Neural Network architecture (TensorFlow/Keras) with a 224x224 input size. Backend API is built using FastAPI, containerized with Docker, and deployed on Hugging Face Spaces. Frontend UI is built using React and hosted on Vercel.",
+  "tools": [
+    "Python",
+    "TensorFlow",
+    "Keras",
+    "FastAPI",
+    "Pillow",
+    "Docker",
+    "React",
+    "Tailwind CSS",
+    "JavaScript",
+    "HTML5",
+    "Node.js",
+    "CSS3"
+  ],
+  "github_repo": "User-Galih/waste-classification-api",
+  "demo_url": "https://waste-classification-ui.vercel.app/",
+  "category": "deep-learning",
+  "featured": true,
+  "highlight_metric": "Production CNN • Real-Time Camera Inference",
+  "priority": 3
+}

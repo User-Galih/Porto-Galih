@@ -1,0 +1,26 @@
+{
+  "id": "sift-akaze-comparison",
+  "category": "deep-learning",
+  "featured": false,
+  "highlight_metric": "NIST Dataset Benchmark • Invariant Keypoint Extraction",
+  "title_id": "Benchmark Ekstraksi Fitur SIFT vs AKAZE",
+  "title_en": "SIFT vs AKAZE Feature Extraction Benchmark",
+  "subtitle_id": "Studi Komparasi Algoritma Computer Vision pada Dataset Wajah NIST",
+  "subtitle_en": "Comparative Computer Vision Study on NIST Facial Dataset",
+  "description_id": "Penelitian dan benchmarking komparatif antara algoritma Scale-Invariant Feature Transform (SIFT) dan Accelerated-KAZE (AKAZE) untuk ekstraksi fitur citra wajah menggunakan NIST dataset. Mengevaluasi densitas keypoint, invariance terhadap rotasi dan skala, kecepatan komputasi, serta efisiensi feature matching.",
+  "description_en": "Comparative research and benchmarking between Scale-Invariant Feature Transform (SIFT) and Accelerated-KAZE (AKAZE) algorithms for facial image feature extraction on the NIST dataset. Analyzes keypoint density, rotation/scale invariance, execution speed, and matching accuracy.",
+  "architecture_id": "<div class=\"model-arch-block\"><h4 style=\"color: #10b981; font-size: 14px; margin-bottom: 8px; font-weight: 700;\">1. Pipeline Ekstraksi Fitur</h4><ul><li><b>Preprocessing:</b> Grayscale conversion, adaptive histogram equalization, dan normalisasi dimensi citra wajah NIST.</li><li><b>SIFT:</b> DoG (Difference of Gaussians) scale space extrema detection dan gradient orientation assignment.</li><li><b>AKAZE:</b> Non-linear scale space filtering menggunakan Fast Explicit Diffusion (FED) dan descriptor binary M-LDB.</li></ul></div><hr style=\"border: none; border-top: 1px solid rgba(255,255,255,0.1); margin: 12px 0;\" /><div class=\"model-arch-block\"><h4 style=\"color: #06b6d4; font-size: 14px; margin-bottom: 8px; font-weight: 700;\">2. Evaluasi Komparatif & Output</h4><ul><li><b>Feature Matching:</b> FLANN based matcher untuk SIFT dan Brute-Force Hamming matcher untuk AKAZE.</li><li><b>Laporan Analitis:</b> Visualisasi komparasi grafik keypoints, ekspor data matriks ke format Excel dan Word.</li></ul></div>",
+  "architecture_en": "<div class=\"model-arch-block\"><h4 style=\"color: #10b981; font-size: 14px; margin-bottom: 8px; font-weight: 700;\">1. Feature Extraction Pipeline</h4><ul><li><b>Preprocessing:</b> Grayscale normalization, adaptive histogram equalization, and dimension scaling on NIST facial dataset.</li><li><b>SIFT:</b> Difference of Gaussians (DoG) scale space extrema detection and gradient orientation assignment.</li><li><b>AKAZE:</b> Non-linear scale space filtering using Fast Explicit Diffusion (FED) and M-LDB binary descriptors.</li></ul></div><hr style=\"border: none; border-top: 1px solid rgba(255,255,255,0.1); margin: 12px 0;\" /><div class=\"model-arch-block\"><h4 style=\"color: #06b6d4; font-size: 14px; margin-bottom: 8px; font-weight: 700;\">2. Comparative Evaluation & Outputs</h4><ul><li><b>Feature Matching:</b> FLANN based matcher for SIFT and Brute-Force Hamming matcher for AKAZE.</li><li><b>Analytical Reports:</b> Keypoint distribution plotting, execution timing comparisons, and exported Excel/Word reports.</li></ul></div>",
+  "tools": [
+    "Python",
+    "OpenCV",
+    "SIFT",
+    "AKAZE",
+    "NumPy",
+    "Matplotlib",
+    "Jupyter Notebook",
+    "Computer Vision"
+  ],
+  "github_repo": "User-Galih/Comparation-Feature-Extraction-SIFT-AKAZE-algorithm-by-Galih",
+  "demo_url": ""
+}

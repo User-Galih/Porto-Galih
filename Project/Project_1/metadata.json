@@ -1,0 +1,102 @@
+[
+  {
+    "id": "smartinvest-ai",
+    "title_id": "SmartInvest (AI Engineering)",
+    "title_en": "SmartInvest (AI Engineering)",
+    "subtitle_id": "Klasifikasi Tren IHSG & Saham dengan Deep Learning (BiLSTM + Attention)",
+    "subtitle_en": "IHSG & Stock Market Trend Classification with Deep Learning (BiLSTM + Attention)",
+    "description_id": "Modul Deep Learning time-series berkinerja tinggi untuk memprediksi pergerakan jangka pendek (Naik/Bullish, Stabil/Sideways, Turun/Bearish) pada indeks pasar IHSG dan emiten individu konstituen LQ45/IDX30.",
+    "description_en": "High-performance time-series Deep Learning module designed to classify short-term movement trends (Bullish, Sideways, Bearish) for the IHSG composite index and individual LQ45/IDX30 stocks.",
+    "architecture_id": "<div class='model-arch-block'><h4 style='color: var(--color-ai); font-size: 13.5px; margin-bottom: 6px; font-weight: 700;'>1. Model Rekomendasi IHSG (Tren Pasar Makro)</h4><ul><li><b>Arsitektur:</b> Bidirectional LSTM + Multi-Head Attention + Custom Dense layers.</li><li><b>Input:</b> Data sekuensial 15 hari perdagangan dengan 11 fitur indikator teknikal (RSI, MACD, Bollinger Bands, dll.).</li><li><b>Akurasi & Performa:</b> Uji Blind Test menghasilkan Akurasi 92.64% dan Macro F1-Score 90.39% (F1-Score Sideways mencapai 80.00%).</li><li><b>Berkas Model:</b> <code>ihsg_best_model_3class.keras</code></li><li><b>Jupyter Notebook:</b> <code>KLASIFIKASI_IHSG_TUNED_DAN_REKOMENDASI.ipynb</code></li></ul></div><hr style='border: none; border-top: 1px solid var(--border-light); margin: 12px 0;' /><div class='model-arch-block'><h4 style='color: var(--color-ds); font-size: 13.5px; margin-bottom: 6px; font-weight: 700;'>2. Model Analisis Emiten (Saham Individual LQ45/IDX30)</h4><ul><li><b>Arsitektur:</b> Bidirectional LSTM + Multi-Head Attention + Custom Dense layers (dengan fine-tuning parameter emiten).</li><li><b>Input:</b> Data sekuensial 15 hari perdagangan dengan 11 fitur indikator teknikal.</li><li><b>Akurasi & Performa:</b> Uji Blind Test menghasilkan Akurasi 94.46% dan Macro F1-Score 93%.</li><li><b>Berkas Model:</b> <code>smartinvest_best_model_3class.keras.zip</code></li><li><b>Jupyter Notebook:</b> <code>Modelling_trenSaham_FIXED_STABIL.ipynb</code></li></ul></div><hr style='border: none; border-top: 1px solid var(--border-light); margin: 12px 0;' /><div class='model-arch-block'><h4 style='color: var(--primary-color); font-size: 13.5px; margin-bottom: 6px; font-weight: 700;'>3. Sistem Deployment & Scraping Pipeline</h4><ul><li><b>Deployment:</b> FastAPI microservices untuk menyajikan prediksi real-time secara terdistribusi.</li><li><b>Rate-Limiting Bypass:</b> Yahoo Finance scraper dengan browser header spoofing dinamis untuk menghindari rate-limiting API.</li></ul></div>",
+    "architecture_en": "<div class='model-arch-block'><h4 style='color: var(--color-ai); font-size: 13.5px; margin-bottom: 6px; font-weight: 700;'>1. IHSG Recommendation Model (Macro Market Trend)</h4><ul><li><b>Architecture:</b> Bidirectional LSTM + Multi-Head Attention + Custom Dense layers.</li><li><b>Input:</b> Sequential 15-day trading data with 11 technical indicators (RSI, MACD, Bollinger Bands, etc.).</li><li><b>Accuracy & Performance:</b> Blind Test achieves 92.64% Accuracy and 90.39% Macro F1-Score (Sideways F1-Score: 80.00%).</li><li><b>Model File:</b> <code>ihsg_best_model_3class.keras</code></li><li><b>Jupyter Notebook:</b> <code>KLASIFIKASI_IHSG_TUNED_DAN_REKOMENDASI.ipynb</code></li></ul></div><hr style='border: none; border-top: 1px solid var(--border-light); margin: 12px 0;' /><div class='model-arch-block'><h4 style='color: var(--color-ds); font-size: 13.5px; margin-bottom: 6px; font-weight: 700;'>2. Individual Stock Analysis Model (LQ45/IDX30 Stocks)</h4><ul><li><b>Architecture:</b> Bidirectional LSTM + Multi-Head Attention + Custom Dense layers (tuned for stock variance).</li><li><b>Input:</b> Sequential 15-day trading data with 11 technical indicators.</li><li><b>Accuracy & Performance:</b> Blind Test achieves 94.46% Accuracy and 93% Macro F1-Score.</li><li><b>Model File:</b> <code>smartinvest_best_model_3class.keras.zip</code></li><li><b>Jupyter Notebook:</b> <code>Modelling_trenSaham_FIXED_STABIL.ipynb</code></li></ul></div><hr style='border: none; border-top: 1px solid var(--border-light); margin: 12px 0;' /><div class='model-arch-block'><h4 style='color: var(--primary-color); font-size: 13.5px; margin-bottom: 6px; font-weight: 700;'>3. Deployment & Scraping Pipeline</h4><ul><li><b>Deployment:</b> Distributed FastAPI microservices serving predictions in real-time.</li><li><b>Rate-Limiting Bypass:</b> Yahoo Finance scraper with dynamic browser header spoofing to circumvent API rate-limits.</li></ul></div>",
+    "tools": [
+      "Python",
+      "TensorFlow",
+      "Keras",
+      "FastAPI",
+      "Uvicorn",
+      "yfinance",
+      "scikit-learn",
+      "Joblib"
+    ],
+    "github_repo": "User-Galih/SmartInvest-App",
+    "demo_url": "https://smart-invest-app-git-main-helmi-azkias-projects.vercel.app/",
+    "evaluation_images": [
+      {
+        "title_id": "Confusion Matrix: Model Rekomendasi IHSG (Tren Pasar)",
+        "title_en": "Confusion Matrix: IHSG Recommendation Model (Market Trend)",
+        "description_id": "Mengklasifikasikan pergerakan IHSG ke dalam 3 kelas (Bullish, Bearish, Sideways) menggunakan data runtun waktu 15 hari perdagangan.",
+        "description_en": "Classifies IHSG composite movements into 3 classes (Bullish, Bearish, Sideways) using 15-day sequential market data.",
+        "url": "assets/projects/project_1/images/evaluation_model_rekomendasi.png"
+      },
+      {
+        "title_id": "Confusion Matrix: Model Analisis Emiten (Saham Individual)",
+        "title_en": "Confusion Matrix: Stock Analysis Model (Individual Emitents)",
+        "description_id": "Mengklasifikasikan pergerakan saham emiten individu LQ45/IDX30 dengan akurasi blind test sebesar 94.46%.",
+        "description_en": "Classifies individual stock ticker movements (LQ45/IDX30 constituents) with a blind test accuracy of 94.46%.",
+        "url": "assets/projects/project_1/images/evaluation_model_analisis.png"
+      }
+    ],
+    "category": "deep-learning",
+    "featured": true,
+    "highlight_metric": "94.46% Blind Test Accuracy • 93% Macro F1 • BiLSTM + Attention",
+    "priority": 1
+  },
+  {
+    "id": "smartinvest-ds",
+    "title_id": "SmartInvest (Data Science)",
+    "title_en": "SmartInvest (Data Science)",
+    "subtitle_id": "Optimasi Portofolio Kuantitatif (Modern Portfolio Theory)",
+    "subtitle_en": "Quantitative Portfolio Optimization (Modern Portfolio Theory)",
+    "description_id": "Modul riset kuantitatif dan analisis data keuangan yang mengalokasikan bobot modal optimal untuk meminimalkan risiko portofolio saham berdasarkan profil risiko investor.",
+    "description_en": "Quantitative financial research module allocating optimal asset weights to minimize portfolio risk based on investor profiles.",
+    "architecture_id": "• Algoritma Utama: MVEP (Mean-Variance Efficient Portfolio) via SciPy SLSQP optimizer untuk memaksimalkan Sharpe Ratio, SIM (Single Index Model) untuk menyederhanakan kovarians pasar, dan CAPM (Capital Asset Pricing Model) untuk portofolio defensif berbasis sensitivitas Beta.<br>• Exploratory Data Analysis (EDA): Analisis return historis 5 tahun emiten LQ45/IDX30, visualisasi Correlation Heatmap, Risk vs Return Scatter Plot, dan Rolling Volatility.<br>• Analisis Statistik: Uji statistik berpasangan t-test relasional via SciPy untuk menjamin konsistensi formula kuantitatif.<br>• Jupyter Notebooks: notebook.ipynb & AB_Testing_Capstone_Project.ipynb.<br>• Validasi Dasbor: Prototipe interaktif divalidasi via Streamlit sebelum integrasi ke web produksi.",
+    "architecture_en": "• Core Algorithms: MVEP (Mean-Variance Efficient Portfolio) via SciPy SLSQP solver to maximize Sharpe Ratio, SIM (Single Index Model) to simplify market covariance, and CAPM (Capital Asset Pricing Model) for defensive Beta-based allocations.<br>• Exploratory Data Analysis (EDA): Analyzed 5-year historical return distributions of LQ45/IDX30 stocks, plotting Correlation Heatmaps, Risk vs. Return Scatters, and Rolling Volatility.<br>• Statistical Analysis: Relational t-test statistical validation via SciPy to guarantee mathematical formula consistency.<br>• Jupyter Notebooks: notebook.ipynb & AB_Testing_Capstone_Project.ipynb.<br>• Dashboard Validation: Interactive prototype validated via Streamlit before production integration.",
+    "tools": [
+      "Python",
+      "Streamlit",
+      "Pandas",
+      "NumPy",
+      "SciPy",
+      "PyPortfolioOpt",
+      "Plotly",
+      "yfinance"
+    ],
+    "github_repo": "User-Galih/SmartInvest-App",
+    "demo_url": "https://smart-invest-app-git-main-helmi-azkias-projects.vercel.app/",
+    "category": "agent-ml",
+    "highlight_metric": "Time-Series Data Pipeline • 15-Day Sequential Window",
+    "priority": 5
+  },
+  {
+    "id": "smartinvest-fs",
+    "title_id": "SmartInvest (Fullstack Web)",
+    "title_en": "SmartInvest (Fullstack Web)",
+    "subtitle_id": "Integrasi Sistem & Orkestrasi Platform Terdistribusi",
+    "subtitle_en": "System Integration & Distributed Platform Orchestration",
+    "description_id": "Orkestrasi arsitektur sistem web terdistribusi untuk menyatukan mesin analisis kuantitatif dan prediksi Deep Learning Python ke dalam dashboard interaktif investor ritel.",
+    "description_en": "Distributed system orchestration merging the Python quantitative engine and Deep Learning models into a production-ready retail investor dashboard.",
+    "architecture_id": "• Frontend: React (Vite) + Tailwind CSS dengan desain premium glassmorphism, visualisasi Chart.js, dan panel konfigurasi parameter.<br>• API Gateway: Node.js Express Gateway untuk mengorkestrasi autentikasi user dan koordinasi data.<br>• FastAPI Engine (SmartfastApi): Backend Python yang mengoordinasikan input modal, scraping BI Rate secara real-time dari situs resmi Bank Indonesia, menghitung pembobotan optimal secara dinamis, mengintegrasikan Google Gemini Pro API untuk narasi analisis risiko-keuntungan, serta menyimpan kalkulasi otomatis ke database Supabase (PostgreSQL) dengan sistem rotasi FIFO maksimal 20 record.",
+    "architecture_en": "• Frontend: React (Vite) + Tailwind CSS using premium glassmorphic layouts, dynamic Chart.js visualizations, and parameter panels.<br>• API Gateway: Node.js Express Gateway orchestrating user auth and database CRUD routing.<br>• FastAPI Engine (SmartfastApi): Coordinates capital parameters, scrapes the Bank Indonesia rate in real-time, calculates dynamic portfolio weights, integrates Google Gemini Pro API for narrative analysis, and handles automatic saves to Supabase (PostgreSQL) using a 20-record FIFO rotation policy.",
+    "tools": [
+      "React",
+      "Tailwind CSS",
+      "Node.js",
+      "Express",
+      "FastAPI",
+      "Supabase",
+      "PostgreSQL",
+      "Chart.js",
+      "Keras",
+      "Python",
+      "Jupyter Notebook",
+      "JavaScript",
+      "HTML5"
+    ],
+    "github_repo": "User-Galih/SmartInvest-App",
+    "demo_url": "https://smart-invest-app-git-main-helmi-azkias-projects.vercel.app/",
+    "category": "agent-ml",
+    "highlight_metric": "FastAPI Distributed Microservices • React UI",
+    "priority": 6
+  }
+]

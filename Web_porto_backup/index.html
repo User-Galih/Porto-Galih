@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Galih Putra Pratama | AI Engineer & Data Scientist Portfolio</title>
+  
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="Portofolio Profesional Galih Putra Pratama - AI Engineer & Data Scientist. Spesialis dalam Deep Learning modeling, NLP, Computer Vision, dan optimasi portofolio kuantitatif.">
+  <meta name="keywords" content="Galih Putra Pratama, AI Engineer, Data Scientist, Deep Learning, TensorFlow, FastAPI, React, Portofolio, UDINUS, Indonesia">
+  <meta name="author" content="Galih Putra Pratama">
+  
+  <!-- OpenGraph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://github.com/User-Galih">
+  <meta property="og:title" content="Galih Putra Pratama | AI Engineer & Data Scientist Portfolio">
+  <meta property="og:description" content="Portofolio Profesional bertema iOS Clean Apple-Style. Menampilkan proyek AI terapan, sertifikasi BNSP & Dicoding, serta simulator interaktif.">
+  <meta property="og:image" content="assets/seo/og_image.png">
+
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:title" content="Galih Putra Pratama | AI Engineer & Data Scientist Portfolio">
+  <meta property="twitter:description" content="Portofolio Profesional bertema iOS Clean Apple-Style. Menampilkan proyek AI terapan, sertifikasi BNSP & Dicoding, serta simulator interaktif.">
+  <meta property="twitter:image" content="assets/seo/og_image.png">
+
+  <!-- Google Fonts & FontAwesome -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- Main Stylesheet -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="light-theme">
+
+  <!-- Dynamic Watercolor Background Blobs -->
+  <div class="background-blobs-container">
+    <div class="blob blob-1" id="blob-1"></div>
+    <div class="blob blob-2" id="blob-2"></div>
+    <div class="blob blob-3" id="blob-3"></div>
+  </div>
+
+  <!-- Sticky Translucent Header -->
+  <header class="app-header glass">
+    <div class="header-container">
+      <a href="#about" class="header-logo">Galih P. Pratama</a>
+      
+      <!-- Desktop Navigation Menu -->
+      <nav class="header-nav">
+        <a href="#about" data-key="nav_about">Tentang</a>
+        <a href="#projects" data-key="nav_projects">Proyek</a>
+        <a href="#experience" data-key="nav_experience">Pengalaman</a>
+        <a href="#certifications" data-key="nav_certs">Sertifikat</a>
+        <a href="#ai-lab" data-key="nav_lab">AI Lab</a>
+        <a href="#contact" data-key="nav_contact">Kontak</a>
+      </nav>
+
+      <!-- Quick Action Controls -->
+      <div class="header-actions">
+        <!-- Audio Toggle Button -->
+        <button class="icon-action-btn" id="audioToggle" onclick="toggleAudio()" title="Toggle Sound">
+          <i class="fa-solid fa-volume-high"></i>
+        </button>
+        <!-- i18n Language Toggle Button -->
+        <button class="lang-toggle-btn" id="langToggle" onclick="toggleLanguage()" title="Change Language">
+          EN 🇬🇧
+        </button>
+        <!-- Print / CV download shortcut -->
+        <a href="assets/documents/CV_Galih.pdf" download="CV_Galih_Putra_Pratama.pdf" class="btn-download-cv">
+          <i class="fa-solid fa-file-arrow-down"></i> <span data-key="cc_download">CV PDF</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Scrolling Container -->
+  <main class="main-content">
+
+    <!-- ================== HERO / ABOUT SECTION ================== -->
+    <section id="about" class="section hero-section">
+      <div class="container hero-container">
+        <!-- Left Side: Profile Text Summary -->
+        <div class="hero-info">
+          <span class="hero-status-badge" data-key="hero_status">🟢 Open to Work</span>
+          <h1 class="hero-greeting" data-key="hero_greeting">Hi, I'm Galih Putra Pratama</h1>
+          <h2 class="hero-title" id="heroTitle" data-key="hero_title">AI Engineer & Data Scientist</h2>
+          <p class="hero-summary" id="heroSummary" data-key="hero_summary">
+            Mahasiswa Teknik Informatika di Universitas Dian Nuswantoro (UDINUS) dengan gairah besar dalam membangun sistem cerdas yang otonom—khususnya dalam merancang Advanced AI Agents dan aplikasi LLM menggunakan modern framework seperti LangChain, LangGraph, dan Llama. Didukung sertifikasi profesional di bidang Data Science, saya fokus pada pengintegrasian kemampuan AI state-of-the-art ini ke dalam aplikasi web Full-Stack siap produksi untuk memecahkan masalah nyata.
+          </p>
+          <div class="hero-buttons">
+            <a href="assets/documents/CV_Galih.pdf" download="CV_Galih_Putra_Pratama.pdf" class="btn-primary-ios">
+              <i class="fa-solid fa-file-arrow-down"></i> <span data-key="widget_print">Unduh Resume (CV)</span>
+            </a>
+            <a href="https://www.linkedin.com/in/galih-putra-pratama-8194bb255/" target="_blank" class="btn-secondary-ios">
+              <i class="fa-brands fa-linkedin"></i> LinkedIn
+            </a>
+            <a href="https://github.com/User-Galih" target="_blank" class="btn-secondary-ios">
+              <i class="fa-brands fa-github"></i> GitHub
+            </a>
+          </div>
+        </div>
+
+        <!-- Right Side: iOS Squircle Profile Pic & Mini Widgets -->
+        <div class="hero-visual">
+          <div class="profile-squircle-frame">
+            <img src="assets/images/foto_profil.jpeg" alt="Galih Putra Pratama" class="profile-img">
+          </div>
+          <!-- GPA & Certs Widgets floats -->
+          <div class="visual-widget gpa-widget glass-card" onclick="showGpaDetail()">
+            <span class="v-widget-val">3.72</span>
+            <span class="v-widget-lbl" data-key="widget_gpa">IPK UDINUS (Cumlaude)</span>
+          </div>
+          <div class="visual-widget certs-widget glass-card" onclick="showCertsDetail()">
+            <span class="v-widget-val">18</span>
+            <span class="v-widget-lbl" data-key="widget_certs">Sertifikasi Diverifikasi</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Mini Tech Stack Grid -->
+      <div class="tech-stack-row">
+        <h3 data-key="tech_stack_title">Keahlian Utama:</h3>
+        <div class="tech-badges">
+          <span class="tech-badge-primary">TensorFlow</span>
+          <span class="tech-badge-primary">Keras</span>
+          <span class="tech-badge-primary">Python</span>
+          <span class="tech-badge-primary">FastAPI</span>
+          <span class="tech-badge-primary">React</span>
+          <span class="tech-badge-primary">Data Science</span>
+          <span class="tech-badge-primary">LangChain / LangGraph</span>
+          <span class="tech-badge-primary">Docker</span>
+          <span class="tech-badge-primary">Cybersecurity</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================== PROJECTS SECTION ================== -->
+    <section id="projects" class="section projects-section grey-bg">
+      <div class="container">
+        <div class="section-header">
+          <h2 data-key="app_projects">Proyek Terpilih</h2>
+          <p data-key="projects_desc">Berikut adalah implementasi sistem kecerdasan buatan, analisis kuantitatif data, dan rekayasa web full-stack yang telah saya rancang.</p>
+        </div>
+
+        <!-- Grid of Project Cards -->
+        <div class="projects-grid" id="projectsContainer">
+          <!-- Rendered dynamically by JS -->
+        </div>
+      </div>
+    </section>
+
+    <!-- ================== EXPERIENCE & EDUCATION SECTION ================== -->
+    <section id="experience" class="section experience-section">
+      <div class="container exp-edu-grid">
+        
+        <!-- Left Column: Work Experience Timeline -->
+        <div class="exp-column">
+          <div class="section-header">
+            <h2 data-key="tab_exp">Pengalaman Kerja</h2>
+          </div>
+          <div class="experience-timeline" id="experienceTimeline">
+            <!-- Rendered dynamically by JS -->
+          </div>
+        </div>
+
+        <!-- Right Column: Education & Coursework Grades -->
+        <div class="edu-column">
+          <div class="section-header">
+            <h2 data-key="tab_edu">Pendidikan & Transkrip</h2>
+          </div>
+          <div class="education-timeline" id="educationContainer">
+            <!-- Rendered dynamically by JS -->
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ================== CERTIFICATIONS SECTION ================== -->
+    <section id="certifications" class="section certifications-section grey-bg">
+      <div class="container">
+        <div class="section-header">
+          <h2 data-key="app_certs">Sertifikasi & Kredensial</h2>
+          <p data-key="certs_desc">Sebanyak 18 sertifikasi profesi nasional dan internasional yang memvalidasi kompetensi saya dalam bidang AI, Data Science, Cybersecurity, dan Software Engineering.</p>
+        </div>
+
+        <!-- Tab Filters -->
+        <div class="certs-filters">
+          <button class="cert-tab-btn active" onclick="filterCerts('All')" data-key="cat_all">Semua</button>
+          <button class="cert-tab-btn" onclick="filterCerts('AI & Deep Learning')">AI & Deep Learning</button>
+          <button class="cert-tab-btn" onclick="filterCerts('Data Science')">Data Science</button>
+          <button class="cert-tab-btn" onclick="filterCerts('Cyber Security & DevOps')">Cybersecurity & DevOps</button>
+          <button class="cert-tab-btn" onclick="filterCerts('Software Engineering & Management')">Software Eng & Mgmt</button>
+        </div>
+
+        <!-- Certificates Carousel Wrapper -->
+        <div class="certs-carousel-wrapper">
+          <button class="carousel-nav-btn prev" id="certCarouselPrev" onclick="scrollCertificates(-1)" title="Previous">
+            <i class="fa-solid fa-chevron-left"></i>
+          </button>
+          
+          <!-- Slider Track (keeps same ID to avoid breaking script bindings) -->
+          <div class="certs-slider-container" id="certsAccordionGrid">
+            <!-- Rendered dynamically by JS -->
+          </div>
+          
+          <button class="carousel-nav-btn next" id="certCarouselNext" onclick="scrollCertificates(1)" title="Next">
+            <i class="fa-solid fa-chevron-right"></i>
+          </button>
+        </div>
+
+        <!-- Indicator Dots -->
+        <div class="certs-carousel-dots" id="certsCarouselDots"></div>
+      </div>
+    </section>
+
+    <!-- ================== AI LAB & SIMULATORS SECTION ================== -->
+    <section id="ai-lab" class="section ai-lab-section">
+      <div class="container">
+        <div class="section-header">
+          <h2 data-key="app_lab">Galih's AI & Data Science Lab</h2>
+          <p data-key="lab_desc">Coba langsung simulator client-side interaktif untuk menguji penerapan logika kuantitatif finansial dan pemrosesan pemindaian citra AI.</p>
+        </div>
+
+        <!-- Lab Tabs Switcher -->
+        <div class="lab-tabs">
+          <button class="lab-tab-btn active" id="btnTabStock" onclick="switchLabTab('stock')" data-key="tab_stock_opt">Optimasi Saham (SmartInvest)</button>
+          <button class="lab-tab-btn" id="btnTabWaste" onclick="switchLabTab('waste')" data-key="tab_waste_opt">Pendeteksi Sampah (EfficientNetV2)</button>
+        </div>
+
+        <!-- Simulator Content 1: Stock Portfolio optimizer -->
+        <div class="lab-content-box active" id="contentStock">
+          <div class="simulator-stock-layout">
+            <!-- Left panel: parameters inputs -->
+            <div class="sim-card-panel">
+              <h3 data-key="stock_title">Parameter Optimasi</h3>
+              <div class="form-group-ios">
+                <label for="stockCapital" data-key="stock_cap">Nominal Modal Investasi (Rupiah):</label>
+                <input type="number" id="stockCapital" class="form-control-ios" value="10000000" min="100000" step="500000">
+              </div>
+              <div class="form-group-ios">
+                <label data-key="stock_emiten">Emiten Terpilih (LQ45):</label>
+                <div class="emiten-chips">
+                  <span class="emiten-chip active" onclick="toggleEmiten(this, 'BBCA')">BBCA</span>
+                  <span class="emiten-chip active" onclick="toggleEmiten(this, 'BBRI')">BBRI</span>
+                  <span class="emiten-chip active" onclick="toggleEmiten(this, 'TLKM')">TLKM</span>
+                  <span class="emiten-chip active" onclick="toggleEmiten(this, 'ASII')">ASII</span>
+                </div>
+              </div>
+              <div class="form-group-ios">
+                <label data-key="stock_ihsg">Simulasikan Sentimen Tren IHSG:</label>
+                <div class="trend-toggles">
+                  <button class="trend-toggle-btn active" id="trendBullish" onclick="setSimulatedTrend('Bullish')">🐂 Bullish</button>
+                  <button class="trend-toggle-btn" id="trendBearish" onclick="setSimulatedTrend('Bearish')">🐻 Bearish</button>
+                  <button class="trend-toggle-btn" id="trendSideways" onclick="setSimulatedTrend('Sideways')">⚖️ Sideways</button>
+                </div>
+              </div>
+              <div class="form-group-ios">
+                <label for="stockMethod" data-key="stock_method">Metode Alokasi Portofolio:</label>
+                <select id="stockMethod" class="form-control-ios" onchange="runStockOptimization()">
+                  <option value="ALL" data-key="opt_all">ALL (Decision Engine Otomatis)</option>
+                  <option value="MVEP">MVEP (Sharpe Ratio Maksimal)</option>
+                  <option value="SIM">SIM (Single Index Model)</option>
+                  <option value="CAPM">CAPM (Defensif Beta Pasar)</option>
+                </select>
+              </div>
+              <button class="btn-primary-ios" style="width:100%;" onclick="runStockOptimization()">
+                <i class="fa-solid fa-calculator"></i> <span data-key="btn_calc">Kalkulasi Alokasi</span>
+              </button>
+            </div>
+
+            <!-- Right panel: allocations outputs -->
+            <div class="sim-card-panel">
+              <h3 data-key="stock_res">Hasil Alokasi Aset</h3>
+              <div class="decision-response-alert" id="decisionEngineResponse">
+                <!-- Dynamic text by JS -->
+              </div>
+              
+              <div class="sim-visual-row">
+                <!-- SVG pie chart donut -->
+                <div class="pie-chart-box">
+                  <svg width="180" height="180" viewBox="0 0 220 220" id="allocationPieChart">
+                    <!-- Segment slices injected by JS -->
+                  </svg>
+                  <div class="chart-legend" id="allocationLegend"></div>
+                </div>
+              </div>
+
+              <div class="table-container-ios">
+                <table class="ios-table">
+                  <thead>
+                    <tr>
+                      <th>Saham</th>
+                      <th data-key="tbl_price">Harga (Rp)</th>
+                      <th data-key="tbl_weight">Bobot (%)</th>
+                      <th data-key="tbl_shares">Lembar</th>
+                      <th>Lot</th>
+                      <th data-key="tbl_nominal">Total (Rp)</th>
+                    </tr>
+                  </thead>
+                  <tbody id="lotTableBody">
+                    <!-- Rows injected by JS -->
+                  </tbody>
+                </table>
+              </div>
+
+              <!-- Narasi interpretasi model AI -->
+              <div class="sim-gemini-box">
+                <div class="gemini-badge">
+                  <i class="fa-solid fa-wand-magic-sparkles"></i>
+                  <span data-key="gemini_intel">Interpretasi Portofolio (Gemini API)</span>
+                </div>
+                <p id="geminiNaratif">Loading AI interpretation...</p>
+              </div>
+
+              <a href="https://smart-invest-app-git-main-helmi-azkias-projects.vercel.app/" target="_blank" class="btn-primary-ios" style="background:#30d158; width:100%; text-decoration:none; text-align:center;">
+                <i class="fa-solid fa-arrow-up-right-from-square"></i> <span data-key="btn_full_app">Buka Aplikasi SmartInvest Selengkapnya</span>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Simulator Content 2: Waste Image Classifier scanner -->
+        <div class="lab-content-box" id="contentWaste">
+          <div class="simulator-waste-layout">
+            <!-- Left panel: Drag and drop upload -->
+            <div class="sim-card-panel">
+              <h3 data-key="waste_sub">Unggah Citra Sampah</h3>
+              <div class="waste-drop-box" id="wasteDropzone">
+                <input type="file" id="wasteFileInput" accept="image/*" style="display:none;" onchange="handleWasteUpload(event)">
+                <i class="fa-solid fa-cloud-arrow-up dropzone-icon"></i>
+                <p class="dropzone-title" data-key="drag_text">Seret gambar kemari atau klik untuk memilih file</p>
+                <span class="dropzone-subtitle">JPEG, JPG, PNG (maksimal 5MB)</span>
+              </div>
+
+              <!-- Quick sample image buttons -->
+              <div class="sample-actions-box">
+                <h4 data-key="sample_text">Or Use Quick Samples:</h4>
+                <div class="sample-btn-group">
+                  <button class="sample-img-btn" onclick="runWasteClassifierSample('plastic')">🧴 <span data-key="samp_plastic">Botol Plastik</span></button>
+                  <button class="sample-img-btn" onclick="runWasteClassifierSample('leaf')">🍂 <span data-key="samp_leaf">Daun Kering</span></button>
+                </div>
+              </div>
+
+              <!-- Hugging Face warning note -->
+              <div class="hf-warning-banner">
+                <i class="fa-solid fa-triangle-exclamation"></i>
+                <p data-key="hf_note">Catatan: Model dideploy di Hugging Face Spaces. Jika deteksi membutuhkan waktu lama di awal, kontainer backend sedang melakukan cold-start (bangun dari mode tidur).</p>
+              </div>
+            </div>
+
+            <!-- Right panel: Scan laser steps and classification return -->
+            <div class="sim-card-panel">
+              <h3 data-key="waste_res">Hasil Deteksi AI</h3>
+              
+              <!-- Scan Box preview container -->
+              <div class="scanner-preview-box" id="wastePreviewContainer">
+                <div class="scanner-placeholder">
+                  <i class="fa-solid fa-image"></i>
+                  <p data-key="prev_text">Menunggu citra masukan...</p>
+                </div>
+                <!-- Laser line vertical sweep animation -->
+                <div class="scanner-laser" id="laserScanner"></div>
+                <img id="wasteImagePreview" src="" alt="Waste Preview" style="display:none;">
+              </div>
+
+              <div class="pipeline-step-list" id="wasteSteps">
+                <div class="pipeline-step" id="step1"><i class="fa-regular fa-circle"></i> <span data-key="step_1">Membaca Citra Masukan</span></div>
+                <div class="pipeline-step" id="step2"><i class="fa-regular fa-circle"></i> <span data-key="step_2">Merubah Resolusi ke 224x224 (RGB)</span></div>
+                <div class="pipeline-step" id="step3"><i class="fa-regular fa-circle"></i> <span data-key="step_3">Menjalankan EfficientNetV2 Inference</span></div>
+                <div class="pipeline-step" id="step4"><i class="fa-regular fa-circle"></i> <span data-key="step_4">Menerima argmax Matriks Probabilitas</span></div>
+              </div>
+
+              <div class="classification-output-card" id="wasteResultBox">
+                <div class="output-row">
+                  <span data-key="res_class">Klasifikasi Sampah:</span>
+                  <span class="class-badge" id="wasteClassBadge">ORGANIK</span>
+                </div>
+                <div class="output-row">
+                  <span data-key="res_conf">Skor Kepercayaan:</span>
+                  <span class="conf-percentage" id="wasteConfValue">98.4%</span>
+                </div>
+                <p class="output-advice-text" id="wasteAdviceText">
+                  Buanglah ke tempat sampah organik berwarna hijau untuk diolah menjadi pupuk kompos ramah lingkungan.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ================== CONTACT SECTION ================== -->
+    <section id="contact" class="section contact-section grey-bg">
+      <div class="container max-width-600">
+        <div class="section-header text-center">
+          <h2 data-key="nav_contact">Hubungi Saya</h2>
+          <p data-key="contact_desc">Punya tawaran proyek kolaborasi atau ingin berdiskusi seputar AI & Data Science? Silakan kirim pesan Anda langsung lewat formulir iMessage ini.</p>
+        </div>
+
+        <!-- iMessage-style Compose Form -->
+        <div class="imessage-container glass-card">
+          <div class="imessage-header">
+            <span class="imessage-dot red"></span>
+            <span class="imessage-dot yellow"></span>
+            <span class="imessage-dot green"></span>
+            <span class="imessage-title" data-key="mail_send">Kirim Email</span>
+          </div>
+          
+          <div class="imessage-body">
+            <div class="imessage-field">
+              <span class="imessage-lbl" data-key="mail_to">Kepada:</span>
+              <span class="imessage-val">galihputra9191@gmail.com</span>
+            </div>
+            <div class="imessage-field">
+              <span class="imessage-lbl" data-key="mail_from">Dari:</span>
+              <input type="email" id="mailSender" placeholder="email_anda@perusahaan.com" class="imessage-input" data-key="placeholder_email" required>
+            </div>
+            <div class="imessage-field">
+              <span class="imessage-lbl" data-key="mail_subject">Subjek:</span>
+              <input type="text" id="mailSubject" placeholder="Tawaran Wawancara / Diskusi AI" class="imessage-input" data-key="placeholder_subject" required>
+            </div>
+            
+            <div class="imessage-text-wrapper">
+              <!-- Envelope Flying effect node -->
+              <div class="flying-env-node" id="flyingEnvelope">
+                <i class="fa-solid fa-paper-plane"></i>
+              </div>
+              <textarea id="mailMessage" placeholder="Halo Galih, saya tertarik dengan profil portofolio Anda..." class="imessage-textarea" data-key="placeholder_message" required></textarea>
+            </div>
+          </div>
+
+          <div class="imessage-footer">
+            <button class="imessage-send-btn" onclick="sendMailSimulated()">
+              <i class="fa-solid fa-paper-plane"></i> <span data-key="btn_send">Kirim</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- iOS System Overlay Dialog (Confirm / Options Alert) -->
+  <div class="ios-dialog-overlay" id="alertOverlay">
+    <div class="ios-dialog glass-card">
+      <div class="ios-dialog-header">
+        <i class="fa-solid fa-circle-check text-primary-ios"></i>
+        <h3 id="alertTitle">Pemberitahuan</h3>
+      </div>
+      <div class="ios-dialog-body">
+        <p id="alertMessage">Pesan berhasil dikirim!</p>
+      </div>
+      <div class="ios-dialog-footer" id="alertFooter">
+        <button class="ios-dialog-btn" onclick="closeAlert()">OK</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="app-footer-bar">
+    <div class="container text-center">
+      <p>&copy; 2026 Galih Putra Pratama. Built with clean HTML, CSS, and JS (No templates).</p>
+      <div class="footer-links">
+        <a href="https://github.com/User-Galih" target="_blank"><i class="fa-brands fa-github"></i> GitHub</a>
+        <a href="https://www.linkedin.com/in/galih-putra-pratama-8194bb255/" target="_blank"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
+        <a href="mailto:galihputra9191@gmail.com"><i class="fa-solid fa-envelope"></i> Email</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Core JavaScript -->
+  <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,9 @@
+{
+  "installCommand": "npm install --prefix Web_porto",
+  "buildCommand": "npm run build --prefix Web_porto",
+  "outputDirectory": "Web_porto/dist",
+  "framework": null,
+  "rewrites": [
+    { "source": "/(.*)", "destination": "/index.html" }
+  ]
+}

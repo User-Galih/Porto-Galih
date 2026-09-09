@@ -1,0 +1,14 @@
+{
+  "id": "dicoding-aws-cloud",
+  "title_id": "Cloud Practitioner Essentials (Dasar AWS Cloud)",
+  "title_en": "Cloud Practitioner Essentials (Dasar AWS Cloud)",
+  "issuer": "Dicoding Indonesia",
+  "credential_id": "RVZKKV6RMZD5",
+  "issue_date": "March 2023",
+  "expiry_date": "March 2026",
+  "category": "Cyber Security & DevOps",
+  "isFeatured": false,
+  "description_id": "Pengenalan infrastruktur dasar Amazon Web Services (AWS), EC2 instances, S3 storage, VPC networking, RDS database, IAM security, dan arsitektur cloud server.",
+  "description_en": "Introduction to basic Amazon Web Services (AWS) infrastructure, EC2 instances, S3 storage, VPC networking, RDS database, IAM security, and cloud architectures.",
+  "verification_url": "https://www.dicoding.com/certificates/RVZKKV6RMZD5"
+}

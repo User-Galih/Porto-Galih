@@ -1,0 +1,14 @@
+{
+  "id": "dicoding-sql-dasar",
+  "title_id": "Belajar Dasar Structured Query Language (SQL)",
+  "title_en": "Belajar Dasar Structured Query Language (SQL)",
+  "issuer": "Dicoding Indonesia",
+  "credential_id": "0LZ0R323RP65",
+  "issue_date": "January 2025",
+  "expiry_date": "January 2028",
+  "category": "Data Science",
+  "isFeatured": false,
+  "description_id": "Mempelajari dasar penulisan query database SQL relasional, seleksi kolom, filtering data, manipulasi tabel, join database, dan pengelompokan agregasi.",
+  "description_en": "Teaches fundamental queries in relational databases, column selection, data filtering, table manipulation, database joins, and group aggregation.",
+  "verification_url": "https://www.dicoding.com/certificates/0LZ0R323RP65"
+}

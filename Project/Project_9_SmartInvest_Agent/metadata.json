@@ -1,0 +1,27 @@
+{
+  "id": "smartinvest-agent-system",
+  "category": "rag-llm",
+  "featured": true,
+  "highlight_metric": "Multi-Agent System • Autonomous Market Scrapers",
+  "title_id": "SmartInvest Multi-Agent Financial Copilot",
+  "title_en": "SmartInvest Multi-Agent Financial Copilot",
+  "subtitle_id": "Sistem Multi-Agent Otonom untuk Analisis Finansial, Sentimen Pasar & Portofolio",
+  "subtitle_en": "Autonomous Multi-Agent System for Financial Analysis, Sentiment & Portfolio Intelligence",
+  "description_id": "Arsitektur multi-agent otonom yang memecah riset investasi kompleks ke dalam beberapa agent terspesialisasi: News Sentiment Scraper Agent, Technical Indicator Calculator Agent, dan Portfolio Advisory Agent. Dibangun dengan backend Python FastAPI dan UI TypeScript interaktif.",
+  "description_en": "Autonomous multi-agent architecture decomposing complex financial research into specialized cooperating agents: News Sentiment Scraper, Technical Indicator Calculator, and Portfolio Advisor Agent. Built with Python FastAPI backend and responsive TypeScript UI.",
+  "architecture_id": "<div class=\"model-arch-block\"><h4 style=\"color: #10b981; font-size: 14px; margin-bottom: 8px; font-weight: 700;\">1. Sistem Multi-Agent Orchestration</h4><ul><li><b>Research Agent:</b> Scrape berita emiten IDX real-time dan analisis sentimen berita.</li><li><b>Technical Agent:</b> Menghitung moving averages, RSI, MACD, dan sinyal breakout.</li><li><b>Synthesizer Agent:</b> Menggabungkan hasil analisis multi-agent menjadi rekomendasi portofolio terstruktur.</li></ul></div><hr style=\"border: none; border-top: 1px solid rgba(255,255,255,0.1); margin: 12px 0;\" /><div class=\"model-arch-block\"><h4 style=\"color: #06b6d4; font-size: 14px; margin-bottom: 8px; font-weight: 700;\">2. Microservices Architecture</h4><ul><li><b>Backend (BE):</b> Python FastAPI dengan asynchronous agent task queue.</li><li><b>Frontend (UI):</b> TypeScript modern chat & card interface untuk interaksi dinamis pengguna.</li></ul></div>",
+  "architecture_en": "<div class=\"model-arch-block\"><h4 style=\"color: #10b981; font-size: 14px; margin-bottom: 8px; font-weight: 700;\">1. Multi-Agent Orchestration</h4><ul><li><b>Research Agent:</b> Real-time IDX corporate news scraping and NLP sentiment analysis.</li><li><b>Technical Agent:</b> Computes moving averages, momentum indicators (RSI, MACD), and breakout signals.</li><li><b>Synthesizer Agent:</b> Fuses multi-agent findings into a cohesive, structured portfolio thesis.</li></ul></div><hr style=\"border: none; border-top: 1px solid rgba(255,255,255,0.1); margin: 12px 0;\" /><div class=\"model-arch-block\"><h4 style=\"color: #06b6d4; font-size: 14px; margin-bottom: 8px; font-weight: 700;\">2. Microservices Architecture</h4><ul><li><b>Backend:</b> Python FastAPI with asynchronous execution and structured agent outputs.</li><li><b>Frontend:</b> TypeScript modern responsive dashboard for agent step inspection.</li></ul></div>",
+  "tools": [
+    "Python",
+    "FastAPI",
+    "TypeScript",
+    "Multi-Agent AI",
+    "LangChain",
+    "yfinance",
+    "React",
+    "Docker"
+  ],
+  "github_repo": "User-Galih/SmartInvest-Agent-BE",
+  "demo_url": "",
+  "priority": 4
+}

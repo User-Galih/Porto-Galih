@@ -1,0 +1,23 @@
+{
+  "id": "gprompt-workbench",
+  "category": "rag-llm",
+  "featured": false,
+  "highlight_metric": "Prompt Optimization • System Prompt Studio",
+  "title_id": "G-Prompt AI Engineering Studio",
+  "title_en": "G-Prompt AI Engineering Studio",
+  "subtitle_id": "Workbench Eksperimentasi & Optimasi Prompt untuk Pengembang LLM",
+  "subtitle_en": "Developer Workbench for Prompt Engineering, Evaluation & Optimization",
+  "description_id": "Aplikasi developer tool untuk merancang, menguji, dan membandingkan variasi prompt LLM sistematis. Membantu AI Engineer menguji ketahanan role-prompting, few-shot examples, token efficiency, dan edge-case refusal sebelum model dideploy ke produksi.",
+  "description_en": "Developer workbench application designed to formulate, test, and benchmark LLM prompt variations. Enables AI Engineers to systematically validate system prompt guardrails, few-shot distributions, token usage, and edge-case behaviors before deployment.",
+  "architecture_id": "<div class=\"model-arch-block\"><h4 style=\"color: #10b981; font-size: 14px; margin-bottom: 8px; font-weight: 700;\">1. Fitur Utama Workbench</h4><ul><li><b>Side-by-side Comparison:</b> Menguji dua variasi prompt secara paralel terhadap test input yang sama.</li><li><b>Token & Cost Counter:</b> Estimasi konsumsi context window dan biaya per panggilan model.</li><li><b>Template Engine:</b> Variabel dinamis untuk penyusunan prompt terstruktur.</li></ul></div>",
+  "architecture_en": "<div class=\"model-arch-block\"><h4 style=\"color: #10b981; font-size: 14px; margin-bottom: 8px; font-weight: 700;\">1. Workbench Capabilities</h4><ul><li><b>Side-by-side Comparison:</b> Parallel comparison of prompt variants against uniform test inputs.</li><li><b>Token & Cost Estimation:</b> Live context window calculation and token optimization metrics.</li><li><b>Template Engine:</b> Dynamic variable injection for structured system prompt generation.</li></ul></div>",
+  "tools": [
+    "JavaScript",
+    "React",
+    "Prompt Engineering",
+    "OpenAI API",
+    "Node.js"
+  ],
+  "github_repo": "User-Galih/gpromt",
+  "demo_url": ""
+}
