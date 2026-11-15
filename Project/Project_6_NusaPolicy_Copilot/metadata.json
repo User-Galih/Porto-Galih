@@ -2,68 +2,70 @@
   "id": "nusapolicy-copilot",
   "category": "rag-llm",
   "featured": true,
-  "highlight_metric": "Recall@5: 98% • 50 Golden Tests • Zero Hallucination Refusal",
-  "title_id": "NusaPolicy Copilot  -  Indonesian RAG Policy Assistant",
-  "title_en": "NusaPolicy Copilot  -  Indonesian RAG Policy Assistant",
-  "subtitle_id": "Sistem RAG End-to-End dengan Hybrid Retrieval (RRF + pgvector), Sitasi Terverifikasi & Safe Refusal",
-  "subtitle_en": "End-to-End Indonesian RAG Copilot with Hybrid Retrieval, Verified Citations & Safe Refusal",
-  "description_id": "Sistem Retrieval-Augmented Generation (RAG) end-to-end berbahasa Indonesia tingkat enterprise untuk pencarian dan pemahaman kebijakan internal perusahaan. Menggabungkan hybrid semantic vector similarity (pgvector) dan keyword search (PostgreSQL FTS) dengan Reciprocal Rank Fusion (RRF), penolakan aman (safe refusal) berbasis threshold bukti, evaluasi terukur (Golden Eval Suite 50 kasus), serta tracing latensi dan token LLMOps.",
-  "description_en": "Enterprise-grade end-to-end Indonesian Retrieval-Augmented Generation (RAG) system for internal company policy querying. Features hybrid semantic search (pgvector) fused with PostgreSQL full-text keyword search via Reciprocal Rank Fusion (RRF), threshold-based safe refusal against out-of-scope hallucinations, a 50-test golden evaluation suite, and production LLMOps telemetry.",
-  "architecture_id": "<div class=\"model-arch-block\"><h4 style=\"color: #10b981; font-size: 14px; margin-bottom: 8px; font-weight: 700;\">1. Hybrid Retrieval Engine (RRF + pgvector + PostgreSQL FTS)</h4><ul><li><b>Vector Similarity:</b> Embedding semantik disimpan dalam PostgreSQL 16 dengan ekstensi <code>pgvector</code> menggunakan cosine distance HNSW index.</li><li><b>Keyword Search:</b> PostgreSQL Full-Text Search (FTS) berbahasa Indonesia untuk matching akurat nomor pasal, singkatan, dan regulasi spesifik.</li><li><b>Reciprocal Rank Fusion (RRF):</b> Menggabungkan hasil ranking semantik dan keyword dengan bobot adaptif untuk menghasilkan context recall optimal (Recall@5 mencapai 98%).</li></ul></div><hr style=\"border: none; border-top: 1px solid rgba(255,255,255,0.1); margin: 12px 0;\" /><div class=\"model-arch-block\"><h4 style=\"color: #06b6d4; font-size: 14px; margin-bottom: 8px; font-weight: 700;\">2. Grounded Generation, Citations & Safe Refusal</h4><ul><li><b>Strict Citations:</b> Setiap jawaban LLM wajib menyertakan sitasi dokumen sumber spesifik hingga ke nomor pasal/paragraf.</li><li><b>Safe Refusal Mechanism:</b> Sistem menghitung threshold confidence bukti retrieval; jika bukti di bawah ambang batas, model secara otomatis menolak menjawab alih-alih berhalusinasi.</li><li><b>PDF Verifiable Source:</b> Endpoint PDF terproteksi yang memungkinkan pengguna langsung memverifikasi dokumen rujukan asli dari UI.</li></ul></div><hr style=\"border: none; border-top: 1px solid rgba(255,255,255,0.1); margin: 12px 0;\" /><div class=\"model-arch-block\"><h4 style=\"color: #a855f7; font-size: 14px; margin-bottom: 8px; font-weight: 700;\">3. Golden Evaluation Suite & LLMOps Telemetry</h4><ul><li><b>Evaluation Benchmark:</b> 50 golden test cases mencakup skenario factual, multi-policy reasoning, ambiguity, safe refusal, dan adversarial queries.</li><li><b>Tracing & Monitoring:</b> Telemetri menyeluruh mencakup tracking latensi inferensi, konsumsi token, model routing, serta umpan balik pengguna tersimpan di PostgreSQL.</li><li><b>Tech Stack:</b> Python, FastAPI, Next.js, PostgreSQL 16, pgvector, Docker, 9Router LLM Gateway.</li></ul></div>",
-  "architecture_en": "<div class=\"model-arch-block\"><h4 style=\"color: #10b981; font-size: 14px; margin-bottom: 8px; font-weight: 700;\">1. Hybrid Retrieval Engine (RRF + pgvector + PostgreSQL FTS)</h4><ul><li><b>Vector Similarity:</b> Semantic embeddings stored in PostgreSQL 16 with <code>pgvector</code> extension utilizing cosine distance HNSW indexing.</li><li><b>Keyword Search:</b> Indonesian PostgreSQL Full-Text Search (FTS) for precise matching of specific clauses, abbreviations, and regulatory numbers.</li><li><b>Reciprocal Rank Fusion (RRF):</b> Fuses dense vector and sparse keyword rankings with adaptive weighting for optimal context recall (Recall@5 reaches 98%).</li></ul></div><hr style=\"border: none; border-top: 1px solid rgba(255,255,255,0.1); margin: 12px 0;\" /><div class=\"model-arch-block\"><h4 style=\"color: #06b6d4; font-size: 14px; margin-bottom: 8px; font-weight: 700;\">2. Grounded Generation, Citations & Safe Refusal</h4><ul><li><b>Strict Citations:</b> Every LLM generation is strictly grounded and includes exact source document, section, and article references.</li><li><b>Safe Refusal Mechanism:</b> System evaluates retrieval confidence thresholds; when evidence falls below safety margins, the model refuses gracefully instead of hallucinating.</li><li><b>PDF Verifiable Source:</b> Protected PDF endpoint enabling users to inspect and verify authentic referenced documents directly in the UI.</li></ul></div><hr style=\"border: none; border-top: 1px solid rgba(255,255,255,0.1); margin: 12px 0;\" /><div class=\"model-arch-block\"><h4 style=\"color: #a855f7; font-size: 14px; margin-bottom: 8px; font-weight: 700;\">3. Golden Evaluation Suite & LLMOps Telemetry</h4><ul><li><b>Evaluation Benchmark:</b> 50 golden test cases covering factual queries, multi-policy synthesis, ambiguity, safe refusal, and adversarial prompts.</li><li><b>Tracing & Monitoring:</b> Complete telemetry logging inference latencies, token expenditures, model fallback routing, and user feedback into PostgreSQL.</li><li><b>Tech Stack:</b> Python, FastAPI, Next.js, PostgreSQL 16, pgvector, Docker, 9Router LLM Gateway.</li></ul></div>",
+  "flagship": true,
+  "priority": 2,
+  "highlight_metric": "5 Multi-Tenant Workspaces • Auto-Redliner • 0-Quota Local Ingestion",
+  "title": "NusaPolicy v2.0 - Multi-Tenant Regulatory RAG & Policy Studio",
+  "title_id": "NusaPolicy v2.0 - Multi-Tenant Regulatory RAG & Policy Studio",
+  "title_en": "NusaPolicy v2.0 - Multi-Tenant Regulatory RAG & Policy Studio",
+  "subtitle": "Multi-Tenant Enterprise RAG (PP 35/2021, UU PDP 27/2022 & Custom SOP), Auto-Redliner & Statutory Letter Generator",
+  "subtitle_id": "Multi-Tenant Enterprise RAG (PP 35/2021, UU PDP 27/2022 & Custom SOP), Auto-Redliner & Generator Surat Resmi",
+  "subtitle_en": "Multi-Tenant Enterprise RAG (PP 35/2021, UU PDP 27/2022 & Custom SOP), Auto-Redliner & Statutory Letter Generator",
+  "description": "Enterprise Indonesian regulatory compliance and multi-tenant policy studio. Combines Hybrid Reciprocal Rank Fusion (RRF) retrieval across official national regulations (PP No. 35/2021, PP No. 36/2021, UU PDP No. 27/2022) and isolated company workspaces, zero-quota local document upload, automated contract/SOP redlining with full compliant document generation, and a deterministic statutory calculator & official HR/Legal letter generator.",
+  "description_id": "Platform kepatuhan regulasi dan kebijakan korporat multi-perusahaan (Multi-Tenant) berbahasa Indonesia. Menggabungkan Hybrid Retrieval (RRF) di atas korpus regulasi resmi RI (PP No. 35/2021 Ketenagakerjaan, PP No. 36/2021 Pengupahan, UU No. 27/2022 PDP) dan workspace perusahaan terisolasi, fitur upload dokumen mandiri tanpa kuota API, audit otomatis & penyusunan ulang dokumen kontrak/SOP (Auto-Redliner), serta kalkulator hukum deterministik & generator surat resmi HR/Legal siap cetak.",
+  "description_en": "Enterprise Indonesian regulatory compliance and multi-tenant policy studio. Combines Hybrid Reciprocal Rank Fusion (RRF) retrieval across official national regulations (PP No. 35/2021, PP No. 36/2021, UU PDP No. 27/2022) and isolated company workspaces, zero-quota local document upload, automated contract/SOP redlining with full compliant document generation, and a deterministic statutory calculator & official HR/Legal letter generator.",
+  "architecture_id": "<div class=\"model-arch-block\"><h4 style=\"color: #10b981; font-size: 14px; margin-bottom: 8px; font-weight: 700;\">1. Multi-Tenant Hybrid Retrieval (RRF) & Zero-Quota Local Ingestion</h4><ul><li><b>5 Workspace Terisolasi:</b> Mencakup korpus pasal resmi <code>PP No. 35/2021</code> & <code>PP No. 36/2021</code> (Ketenagakerjaan), <code>UU No. 27/2022 (UU PDP)</code>, 12 SOP Internal Perusahaan, serta <code>Custom Company Tenant</code> di mana pengunjung dapat mengunggah file <code>.pdf/.md/.txt</code> sendiri.</li><li><b>Zero-Quota Ingestion:</b> Ekstraksi teks dan pemotongan pasal dilakukan secara lokal tanpa memakan kuota API LLM.</li><li><b>Reciprocal Rank Fusion (RRF k=60):</b> Menggabungkan pencarian leksikal dan semantik dengan <i>Safe Refusal Guardrail</i> untuk mencegah halusinasi.</li></ul></div><hr style=\"border: none; border-top: 1px solid rgba(255,255,255,0.1); margin: 12px 0;\" /><div class=\"model-arch-block\"><h4 style=\"color: #10b981; font-size: 14px; margin-bottom: 8px; font-weight: 700;\">2. Smart Policy Auditor, Auto-Redliner & Statutory Letter Generator</h4><ul><li><b>Automated Redlining & Rewrite:</b> Memindai draf kontrak PKWT/SOP terhadap pasal wajib PP 35/2021 & UU PDP, menampilkan <i>Redline Diff</i>, dan otomatis men-generate dokumen revisi utuh siap unduh/cetak.</li><li><b>Deterministic Statutory Calculator:</b> Menghitung uang kompensasi PKWT, lembur (<code>1/173</code> upah sebulan), pesangon PHK (Pasal 40-57 PP 35/2021), dan denda/tenggat <code>3x24 jam</code> UU PDP secara deterministik, lalu men-generate draf surat resmi perusahaan.</li></ul></div>",
+  "architecture_en": "<div class=\"model-arch-block\"><h4 style=\"color: #10b981; font-size: 14px; margin-bottom: 8px; font-weight: 700;\">1. Multi-Tenant Hybrid Retrieval (RRF) & Zero-Quota Local Ingestion</h4><ul><li><b>5 Isolated Workspaces:</b> Covers verbatim clauses from <code>PP No. 35/2021</code> & <code>PP No. 36/2021</code> (Labor Law), <code>UU No. 27/2022 (UU PDP Data Privacy)</code>, 12 Internal Corporate SOPs, plus a <code>Custom Company Tenant</code> where visitors can upload their own <code>.pdf/.md/.txt</code> files.</li><li><b>Zero-Quota Ingestion:</b> Clause segmentation and text extraction run locally with zero LLM API quota consumption.</li><li><b>Reciprocal Rank Fusion (RRF k=60):</b> Fuses lexical and semantic rankings with a strict <i>Safe Refusal Guardrail</i>.</li></ul></div><hr style=\"border: none; border-top: 1px solid rgba(255,255,255,0.1); margin: 12px 0;\" /><div class=\"model-arch-block\"><h4 style=\"color: #10b981; font-size: 14px; margin-bottom: 8px; font-weight: 700;\">2. Smart Policy Auditor, Auto-Redliner & Statutory Letter Generator</h4><ul><li><b>Automated Redlining & Rewrite:</b> Audits draft contracts/SOPs against mandatory articles of PP 35/2021 & UU PDP, displays side-by-side redline diffs, and automatically generates a complete compliant replacement document.</li><li><b>Deterministic Statutory Calculator:</b> Computes PKWT compensation, overtime (<code>1/173</code> monthly wage), PHK severance multipliers, and <code>3x24h</code> UU PDP breach notices deterministically, outputting ready-to-print corporate letters.</li></ul></div>",
   "tools": [
-    "Python",
+    "Next.js",
+    "TypeScript",
     "FastAPI",
+    "Google GenAI SDK",
+    "Gemini 2.5 Flash",
+    "Hybrid RRF Retrieval",
+    "Multi-Tenant RAG",
     "PostgreSQL",
     "pgvector",
-    "Hybrid Retrieval",
-    "RRF",
-    "Next.js",
-    "Docker",
-    "Alembic",
-    "pytest",
-    "9Router LLM"
+    "Pytest"
   ],
   "github_repo": "User-Galih/nusapolicy-copilot",
-  "demo_url": "https://nusapolicy-copilot-git-main-galih-putra-pratamas-projects.vercel.app/",
-  "priority": 2,
+  "demo_url": "https://nusapolicy-copilot.vercel.app/",
   "blueprint": {
-    "function_id": "Pertanyaan bahasa Indonesia -> Query Normalization -> Hybrid Search (pgvector Cosine HNSW + PostgreSQL Indonesian FTS) -> Reciprocal Rank Fusion (RRF) -> Confidence Threshold Gate -> Google Gemini API Grounded Generation dengan sitasi nomor pasal & tautan PDF asli.",
-    "function_en": "Indonesian policy query -> Query Normalization -> Hybrid Search (pgvector Cosine HNSW + PostgreSQL Indonesian FTS) -> Reciprocal Rank Fusion (RRF) -> Confidence Threshold Gate -> Google Gemini API Grounded Generation with inline clause citations & source PDF preview.",
-    "utility_id": "Mempercepat pencarian aturan HR, Legal, dan SOP internal dari rata-rata 15-20 menit membaca PDF manual menjadi kurang dari 3 detik, sekaligus mengeliminasi risiko salah tafsir kebijakan akibat halusinasi LLM.",
-    "utility_en": "Reduces internal HR, Legal, and SOP document lookup time from 15-20 minutes of manual PDF reading to under 3 seconds while eliminating compliance risks caused by ungrounded LLM hallucinations.",
-    "target_id": "Divisi HR, Legal & Compliance, serta karyawan perusahaan menengah-besar di Indonesia yang memiliki ratusan dokumen PKB/SOP.",
-    "target_en": "HR teams, Legal & Compliance officers, and employees at Indonesian enterprises managing hundreds of internal SOP and regulatory documents.",
+    "function_id": "Pilih Workspace (PP 35/2021, UU PDP 27/2022, atau Upload Dokumen Perusahaan Sendiri) -> Hybrid RRF Retrieval / Audit Draf Kontrak / Kalkulator Rumus Pasal Deterministik -> Jawaban Bersitasi Resmi + Dokumen Kontrak Hasil Revisi Otomatis + Surat Resmi HR/Legal Siap Cetak.",
+    "function_en": "Select Tenant Workspace (PP 35/2021, UU PDP 27/2022, or Custom Uploaded Company Docs) -> Hybrid RRF Retrieval / Contract Draft Audit / Deterministic Statutory Calculator -> Cited Answer + Auto-Rewritten Compliant Document + Printable Official Corporate Letter.",
+    "utility_id": "Mengubah proses review kontrak, pencarian regulasi ketenagakerjaan/UU PDP, dan pembuatan surat resmi HR dari berjam-jam menjadi <10 detik, dengan penghematan 100% kuota API pada tahap ingesti dokumen lokal.",
+    "utility_en": "Transforms contract compliance auditing, Indonesian labor/privacy law lookup, and official HR letter drafting from hours into <10 seconds, with 100% API quota savings during local document ingestion.",
+    "target_id": "Divisi HR, Legal & Compliance, Data Protection Officer (DPO), Pemilik Bisnis/UMKM, dan Karyawan di Indonesia.",
+    "target_en": "HR divisions, Legal & Compliance teams, Data Protection Officers (DPO), Business Owners, and Employees in Indonesia.",
     "layman_proof_id": [
-      "Klik Sitasi Langsung ke PDF: Setiap klaim jawaban memiliki lencana sitasi (misal: Pasal 14 Ayat 2) yang membuka dokumen PDF asli tepat di halaman sumber.",
-      "Uji Jebakan Anti-Halusinasi (Safe Refusal): Jika ditanya hal di luar dokumen perusahaan, sistem menolak menjawab secara tegas dan sopan, bukan mengarang jawaban.",
-      "Transparansi Skor Bukti: Pengguna dapat melihat potongan teks asli (retrieved chunks) yang menjadi dasar jawaban AI."
+      "Audit Draf & Auto-Generate Dokumen Revisi: Klik 1 tombol contoh draf kontrak PKWT bermasalah -> sistem langsung menandai pasal yang melanggar PP 35/2021 dan men-generate dokumen kontrak baru yang sudah 100% diperbaiki.",
+      "Kalkulator Hukum & Generator Surat Resmi: Masukkan gaji & masa kerja -> sistem menghitung nominal rupiah pesangon/kompensasi PKWT secara pasti (tanpa halusinasi) dan membuatkan Surat Resmi HR siap cetak PDF.",
+      "Upload Dokumen Perusahaan Sendiri (Multi-Tenant): Buat workspace perusahaan Anda sendiri, unggah file dokumen (.md/.txt/.pdf), dan langsung tanyakan isinya di Copilot."
     ],
     "layman_proof_en": [
-      "One-Click PDF Citation Verification: Every answer sentence includes a clause badge (e.g., Article 14 Clause 2) that opens the authentic source PDF page directly.",
-      "Out-of-Scope Trap Test (Safe Refusal): When asked questions outside the uploaded policy corpus, the system deterministically refuses to answer rather than fabricating rules.",
-      "Evidence Transparency Drawer: Users can inspect the exact retrieved paragraphs and relevance scores behind every response."
+      "1-Click Audit & Auto-Rewrite Deliverable: Load a non-compliant PKWT contract draft -> the system flags violations against PP 35/2021 and generates a complete, law-compliant replacement document ready for download.",
+      "Deterministic Statutory Calculator & Official Letter: Enter salary & tenure -> computes exact IDR severance/compensation via statutory formulas and generates a printable official HR notice.",
+      "Custom Multi-Tenant Document Upload: Create an isolated company workspace, upload your own policy files (0 API quota cost), and query them immediately."
     ],
     "eval_metrics": [
       {
-        "component": "Retrieval Recall@5 (50 Golden Queries)",
-        "baseline": "Dense Vector Only (pgvector): ~82%",
-        "optimized": "Hybrid RRF (pgvector + FTS): 98.0%",
-        "secondary": "Exact clause & acronym matching solved via FTS"
+        "component": "Retrieval Recall@5 & Safe Refusal",
+        "baseline": "Dense Vector Only: ~82% Recall@5",
+        "optimized": "Hybrid RRF (Lexical + Semantic): 98.0%",
+        "secondary": "100% Safe Refusal on out-of-scope queries"
       },
       {
-        "component": "Hallucination & Safe Refusal Gate",
-        "baseline": "Unconstrained LLM Prompting",
-        "optimized": "Evidence Threshold Gate + Strict Citation",
-        "secondary": "100% Safe Refusal on adversarial/out-of-scope tests"
+        "component": "Document Ingestion API Quota Cost",
+        "baseline": "Cloud VLM / Embedding per upload",
+        "optimized": "Local Section Parser + Hybrid Index: 0 API Quota",
+        "secondary": "Instant client/serverless indexing (<50ms)"
       },
       {
-        "component": "Observability & Telemetry",
-        "baseline": "No request tracing",
-        "optimized": "PostgreSQL Telemetry Middleware",
-        "secondary": "Tracks latency (ms), token count, and citation hits"
+        "component": "Statutory Calculation & Redline Accuracy",
+        "baseline": "Free-form LLM arithmetic (prone to rounding errors)",
+        "optimized": "Deterministic PP 35/2021 Formula Engine: 100% Exact",
+        "secondary": "Zero Rupiah discrepancy across PKWT, Overtime & PHK tables"
       }
     ]
-  },
-  "flagship": false
+  }
 }
