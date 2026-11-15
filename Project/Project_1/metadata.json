@@ -20,7 +20,7 @@
       "Joblib"
     ],
     "github_repo": "User-Galih/SmartInvest-App",
-    "demo_url": "https://smart-invest-app-git-main-helmi-azkias-projects.vercel.app/",
+    "demo_url": "https://smartinvest-app-one.vercel.app/",
     "evaluation_images": [
       {
         "title_id": "Confusion Matrix: Model Rekomendasi IHSG (Tren Pasar)",
@@ -63,7 +63,7 @@
       "yfinance"
     ],
     "github_repo": "User-Galih/SmartInvest-App",
-    "demo_url": "https://smart-invest-app-git-main-helmi-azkias-projects.vercel.app/",
+    "demo_url": "https://smartinvest-app-one.vercel.app/",
     "category": "agent-ml",
     "highlight_metric": "Time-Series Data Pipeline • 15-Day Sequential Window",
     "priority": 5
@@ -94,7 +94,7 @@
       "HTML5"
     ],
     "github_repo": "User-Galih/SmartInvest-App",
-    "demo_url": "https://smart-invest-app-git-main-helmi-azkias-projects.vercel.app/",
+    "demo_url": "https://smartinvest-app-one.vercel.app/",
     "category": "agent-ml",
     "highlight_metric": "FastAPI Distributed Microservices • React UI",
     "priority": 6

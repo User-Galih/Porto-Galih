@@ -86,7 +86,7 @@
       "Docker"
     ],
     "github_repo": "User-Galih/SmartInvest-App",
-    "demo_url": "https://smart-invest-app-git-main-helmi-azkias-projects.vercel.app/",
+    "demo_url": "https://smartinvest-app-one.vercel.app/",
     "evaluation_images": [
       {
         "title_id": "Confusion Matrix: Model Rekomendasi IHSG (Tren Pasar Makro)",
@@ -342,7 +342,7 @@
       "Joblib"
     ],
     "github_repo": "User-Galih/SmartInvest-App",
-    "demo_url": "https://smart-invest-app-git-main-helmi-azkias-projects.vercel.app/",
+    "demo_url": "https://smartinvest-app-one.vercel.app/",
     "evaluation_images": [
       {
         "title_id": "Confusion Matrix: Model Rekomendasi IHSG (Tren Pasar)",
@@ -392,7 +392,7 @@
       "Docker"
     ],
     "github_repo": "User-Galih/SmartInvest-Agent-BE",
-    "demo_url": "",
+    "demo_url": "https://smartinvest-app-one.vercel.app/",
     "folder_name": "Project_9_SmartInvest_Agent",
     "priority": 4
   },
@@ -417,7 +417,7 @@
       "yfinance"
     ],
     "github_repo": "User-Galih/SmartInvest-App",
-    "demo_url": "https://smart-invest-app-git-main-helmi-azkias-projects.vercel.app/",
+    "demo_url": "https://smartinvest-app-one.vercel.app/",
     "folder_name": "Project_1",
     "video_url": "https://www.youtube.com/watch?v=Fi9alw-M8DI",
     "presentation_url": "assets/projects/project_1/documents/PPT SMARTINVEST.pdf",
@@ -452,7 +452,7 @@
       "HTML5"
     ],
     "github_repo": "User-Galih/SmartInvest-App",
-    "demo_url": "https://smart-invest-app-git-main-helmi-azkias-projects.vercel.app/",
+    "demo_url": "https://smartinvest-app-one.vercel.app/",
     "folder_name": "Project_1",
     "video_url": "https://www.youtube.com/watch?v=Fi9alw-M8DI",
     "presentation_url": "assets/projects/project_1/documents/PPT SMARTINVEST.pdf",
