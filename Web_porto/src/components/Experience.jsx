@@ -8,6 +8,7 @@ export const Experience = () => {
   const experiences = [
     {
       id: "dbs-coding-camp",
+      logo: "/assets/brands/smartinvest-logo.svg",
       company: "Coding Camp powered by DBS Foundation & Dicoding",
       role_id: "AI Engineer & Ketua Tim Operasional Capstone",
       role_en: "AI Engineer & Capstone Operations Team Lead",
@@ -28,6 +29,7 @@ export const Experience = () => {
     },
     {
       id: "diskominfo-semarang",
+      logo: "/assets/brands/nusapolicy-logo.svg",
       company: "Dinas Komunikasi, Informatika, Statistik dan Persandian (Diskominfo) Kota Semarang",
       role_id: "LLM Application Developer & Ketua Tim (Magang)",
       role_en: "LLM Application Developer & Team Lead (Internship)",
@@ -48,6 +50,7 @@ export const Experience = () => {
     },
     {
       id: "udinus-assistant",
+      logo: "/assets/brands/quantum-nlp-logo.svg",
       company: "Universitas Dian Nuswantoro (UDINUS)",
       role_id: "Asisten Praktikum: Sistem Basis Data & Dasar Pemrograman",
       role_en: "Teaching Assistant: Database Systems & Programming Fundamentals",
@@ -68,31 +71,45 @@ export const Experience = () => {
 
   return (
     <section id="experience" className="experience-section container" aria-labelledby="experience-heading">
-      <div className="section-header">
+      <div className="section-header reveal-on-scroll">
+        <span className="section-kicker-tag">
+          {language === "id"
+            ? "REKAM JEJAK OPERASIONAL & KEPEMIMPINAN TEKNIS"
+            : "OPERATIONAL TRACK RECORD & TECHNICAL LEADERSHIP"}
+        </span>
         <h2 id="experience-heading" className="section-title">
           {language === "id"
-            ? "Pengalaman Rekayasa AI & Kepemimpinan Teknis"
-            : "AI Engineering & Technical Leadership Experience"}
+            ? "Pengalaman Rekayasa AI & Kepemimpinan Tim"
+            : "AI Engineering & Team Leadership Experience"}
         </h2>
         <p className="section-subtitle">
           {language === "id"
-            ? "Rekam jejak dalam memimpin tim pengembangan sistem AI, merancang pipeline model produksi, dan mengintegrasikan layanan LLM di instansi nyata."
-            : "Proven track record leading cross-functional AI engineering teams, shipping production model pipelines, and integrating LLM services."}
+            ? "Memimpin tim lintas disiplin dalam merancang pipeline model Deep Learning, mengintegrasikan layanan LLM di instansi pemerintah, dan membimbing praktikum akademik."
+            : "Leading cross-functional teams to ship production Deep Learning pipelines, deploy municipal LLM services, and mentor undergraduate practicums."}
         </p>
       </div>
 
-      <div className="exp-grid">
-        {experiences.map((exp) => (
-          <article key={exp.id} className="exp-card surface-card">
+      <div className="exp-timeline-stack">
+        {experiences.map((exp, idx) => (
+          <article key={exp.id} className="exp-card surface-card reveal-on-scroll">
             <div className="exp-card-header">
-              <div>
-                <span className="category-tag" style={{ display: "inline-block", marginBottom: "8px" }}>
-                  {exp.meta}
-                </span>
-                <h3 className="exp-role-title">
-                  {language === "id" ? exp.role_id : exp.role_en}
-                </h3>
-                <p className="exp-company-name">{exp.company}</p>
+              <div className="exp-identity-row">
+                <img
+                  src={exp.logo}
+                  alt=""
+                  width="44"
+                  height="44"
+                  className="exp-brand-emblem"
+                />
+                <div>
+                  <span className="category-tag" style={{ display: "inline-block", marginBottom: "6px" }}>
+                    0{idx + 1} · {exp.meta}
+                  </span>
+                  <h3 className="exp-role-title">
+                    {language === "id" ? exp.role_id : exp.role_en}
+                  </h3>
+                  <p className="exp-company-name">{exp.company}</p>
+                </div>
               </div>
 
               <div className="exp-period-badge">

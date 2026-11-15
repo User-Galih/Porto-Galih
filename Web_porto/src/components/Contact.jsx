@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useLanguage } from "../context/LanguageContext";
-import { Mail, Check, Copy } from "lucide-react";
+import { Mail, Check, Copy, ArrowUpRight } from "lucide-react";
 import { playClickSound } from "../utils/audio";
 
 const GithubIcon = ({ size = 20 }) => (
@@ -32,64 +32,95 @@ export const Contact = () => {
 
   return (
     <section id="contact" className="contact-section container" aria-labelledby="contact-heading">
-      <div className="contact-card-box surface-card">
-        <h2 id="contact-heading" className="section-title" style={{ marginBottom: "14px" }}>
-          {language === "id"
-            ? "Diskusi Teknis & Peluang Rekayasa AI"
-            : "Technical Collaboration & AI Engineering Roles"}
-        </h2>
+      <div className="contact-editorial-split reveal-on-scroll">
+        {/* Left Cobalt-Emerald Accent Block (Colorlib Amplify / Porsche Configurator Style) */}
+        <div className="contact-editorial-accent">
+          <div className="contact-brand-head">
+            <img
+              src="/assets/brands/gpp-monogram.svg"
+              alt=""
+              width="46"
+              height="46"
+              className="contact-monogram-svg"
+            />
+            <span className="contact-availability-pill">
+              <span className="availability-dot" aria-hidden="true" />
+              <span>
+                {language === "id"
+                  ? "Terbuka untuk Peran AI / ML Engineer"
+                  : "Available for AI / ML Engineering Roles"}
+              </span>
+            </span>
+          </div>
 
-        <p className="contact-lead-text">
-          {language === "id"
-            ? "Terbuka untuk posisi penuh waktu (Full-Time AI / ML / LLM Engineer), kolaborasi riset Deep Learning, maupun pengembangan arsitektur RAG dan microservice perusahaan."
-            : "Available for full-time AI / ML / LLM Engineering roles, Deep Learning research collaborations, and enterprise RAG microservice architecture."}
-        </p>
+          <h2 id="contact-heading" className="contact-editorial-title">
+            {language === "id"
+              ? "Siap Membangun Sistem AI Produksi untuk Tim Anda."
+              : "Ready to Architect Production AI Systems for Your Team."}
+          </h2>
 
-        <div className="contact-channels-grid">
-          <a
-            href={`mailto:${emailAddress}`}
-            className="contact-item-btn primary-btn"
-            onClick={playClickSound}
-          >
-            <Mail size={18} aria-hidden="true" />
-            <span>{language === "id" ? "Kirim Email ke Galih" : "Send Direct Email"}</span>
-          </a>
+          <p className="contact-editorial-desc">
+            {language === "id"
+              ? "Mari diskusikan posisi Full-Time AI / LLM / Deep Learning Engineer, integrasi Multi-Tenant RAG perusahaan, maupun pengembangan arsitektur model terukur."
+              : "Let's discuss full-time AI / LLM / Deep Learning Engineering opportunities, enterprise Multi-Tenant RAG integration, or custom model pipelines."}
+          </p>
+        </div>
 
-          <button
-            type="button"
-            className="contact-item-btn secondary-btn"
-            onClick={handleCopyEmail}
-            aria-label={language === "id" ? "Salin alamat email" : "Copy email address"}
-          >
-            {copied ? (
-              <Check size={18} style={{ color: "var(--accent-primary)" }} aria-hidden="true" />
-            ) : (
-              <Copy size={18} aria-hidden="true" />
-            )}
-            <span>{copied ? (language === "id" ? "Email Tersalin" : "Email Copied") : emailAddress}</span>
-          </button>
+        {/* Right Direct Action Channels */}
+        <div className="contact-editorial-actions">
+          <p className="contact-channels-kicker">
+            {language === "id" ? "JALUR KOMUNIKASI LANGSUNG" : "DIRECT COMMUNICATION CHANNELS"}
+          </p>
 
-          <a
-            href="https://github.com/User-Galih"
-            target="_blank"
-            rel="noreferrer"
-            className="contact-item-btn secondary-btn"
-            onClick={playClickSound}
-          >
-            <GithubIcon size={18} />
-            <span>github.com/User-Galih</span>
-          </a>
+          <div className="contact-channels-grid">
+            <a
+              href={`mailto:${emailAddress}`}
+              className="contact-item-btn primary-btn"
+              onClick={playClickSound}
+            >
+              <Mail size={18} aria-hidden="true" />
+              <span>{language === "id" ? "Kirim Email ke Galih" : "Send Direct Email"}</span>
+              <ArrowUpRight size={15} aria-hidden="true" />
+            </a>
 
-          <a
-            href="https://linkedin.com/in/galih-putra-pratama-8194bb255"
-            target="_blank"
-            rel="noreferrer"
-            className="contact-item-btn secondary-btn"
-            onClick={playClickSound}
-          >
-            <LinkedinIcon size={18} />
-            <span>LinkedIn</span>
-          </a>
+            <button
+              type="button"
+              className="contact-item-btn secondary-btn"
+              onClick={handleCopyEmail}
+              aria-label={language === "id" ? "Salin alamat email" : "Copy email address"}
+            >
+              {copied ? (
+                <Check size={18} style={{ color: "var(--accent-primary)" }} aria-hidden="true" />
+              ) : (
+                <Copy size={18} aria-hidden="true" />
+              )}
+              <span>{copied ? (language === "id" ? "Email Tersalin" : "Email Copied") : emailAddress}</span>
+            </button>
+
+            <a
+              href="https://github.com/User-Galih"
+              target="_blank"
+              rel="noreferrer"
+              className="contact-item-btn secondary-btn"
+              onClick={playClickSound}
+            >
+              <GithubIcon size={18} />
+              <span>github.com/User-Galih</span>
+              <ArrowUpRight size={14} aria-hidden="true" />
+            </a>
+
+            <a
+              href="https://linkedin.com/in/galih-putra-pratama-8194bb255"
+              target="_blank"
+              rel="noreferrer"
+              className="contact-item-btn secondary-btn"
+              onClick={playClickSound}
+            >
+              <LinkedinIcon size={18} />
+              <span>LinkedIn · Galih Putra Pratama</span>
+              <ArrowUpRight size={14} aria-hidden="true" />
+            </a>
+          </div>
         </div>
       </div>
     </section>

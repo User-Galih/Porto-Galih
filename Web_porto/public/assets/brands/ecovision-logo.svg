@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" fill="none">
+  <defs>
+    <linearGradient id="evBg" x1="10" y1="10" x2="110" y2="110" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#065F46"/>
+      <stop offset="55%" stop-color="#0F766E"/>
+      <stop offset="100%" stop-color="#0F172A"/>
+    </linearGradient>
+  </defs>
+  <rect x="8" y="8" width="104" height="104" rx="26" fill="url(#evBg)" stroke="#2DD4BF" stroke-opacity="0.4" stroke-width="2.5"/>
+  <!-- Vision Detection Reticle Corners -->
+  <path d="M30 44V32H42" stroke="#5EEAD4" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M90 44V32H78" stroke="#5EEAD4" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M30 76V88H42" stroke="#5EEAD4" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M90 76V88H78" stroke="#5EEAD4" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Eco Leaf & Classification Core -->
+  <path d="M76 42C54 42 42 54 42 74C62 74 76 62 76 42Z" fill="#34D399" fill-opacity="0.28" stroke="#ECFDF5" stroke-width="4" stroke-linejoin="round"/>
+  <path d="M42 74L64 54" stroke="#ECFDF5" stroke-width="3.5" stroke-linecap="round"/>
+</svg>

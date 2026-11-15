@@ -30,39 +30,53 @@ export const Education = () => {
 
   return (
     <section id="education" className="education-section container" aria-labelledby="education-heading">
-      <div className="section-header">
+      <div className="section-header reveal-on-scroll">
+        <span className="section-kicker-tag">
+          {language === "id"
+            ? "FONDASI AKADEMIK & PUBLIKASI ILMIAH PEER-REVIEWED"
+            : "ACADEMIC FOUNDATION & PEER-REVIEWED RESEARCH"}
+        </span>
         <h2 id="education-heading" className="section-title">
           {language === "id"
-            ? "Pendidikan Akademik & Publikasi Ilmiah"
+            ? "Pendidikan Akademik & Publikasi Jurnal Ilmiah"
             : "Academic Education & Peer-Reviewed Publication"}
         </h2>
         <p className="section-subtitle">
           {language === "id"
-            ? "Fondasi akademis Teknik Informatika dengan predikat Cumlaude serta kontribusi riset terpublikasi pada jurnal ilmiah nasional."
-            : "Informatics Engineering foundation graduated Cumlaude alongside published computer vision research."}
+            ? "Lulusan Teknik Informatika dengan predikat Cumlaude serta Penulis Pertama pada publikasi jurnal ilmiah nasional terindeks DOI."
+            : "Informatics Engineering graduate with Cumlaude honors and First Author of a DOI-verified computer vision journal article."}
         </p>
       </div>
 
       <div className="edu-two-col-grid">
-        <article className="exp-card surface-card">
+        <article className="exp-card surface-card reveal-on-scroll">
           <div className="exp-card-header">
-            <div>
-              <div className="edu-badges-row">
-                <span className="edu-stat-badge">
-                  <Award size={14} aria-hidden="true" />
-                  <span>IPK {uDinus.gpa}</span>
-                </span>
-                <span className="category-tag">
-                  {language === "id" ? uDinus.honors_id : uDinus.honors_en}
-                </span>
-              </div>
+            <div className="exp-identity-row">
+              <img
+                src="/assets/brands/ecovision-logo.svg"
+                alt=""
+                width="44"
+                height="44"
+                className="exp-brand-emblem"
+              />
+              <div>
+                <div className="edu-badges-row">
+                  <span className="edu-stat-badge">
+                    <Award size={14} aria-hidden="true" />
+                    <span>IPK {uDinus.gpa}</span>
+                  </span>
+                  <span className="category-tag">
+                    {language === "id" ? uDinus.honors_id : uDinus.honors_en}
+                  </span>
+                </div>
 
-              <h3 className="exp-role-title">
-                {language === "id" ? uDinus.degree_id : uDinus.degree_en}
-              </h3>
-              <p className="exp-company-name">
-                {language === "id" ? uDinus.institution_id : uDinus.institution_en}
-              </p>
+                <h3 className="exp-role-title">
+                  {language === "id" ? uDinus.degree_id : uDinus.degree_en}
+                </h3>
+                <p className="exp-company-name">
+                  {language === "id" ? uDinus.institution_id : uDinus.institution_en}
+                </p>
+              </div>
             </div>
 
             <div className="exp-period-badge">
@@ -101,21 +115,30 @@ export const Education = () => {
           </div>
         </article>
 
-        <article className="exp-card surface-card">
+        <article className="exp-card surface-card reveal-on-scroll">
           <div className="exp-card-header">
-            <div>
-              <div className="edu-badges-row">
-                <span className="edu-stat-badge">
-                  <BookOpen size={14} aria-hidden="true" />
-                  <span>{language === "id" ? "Penulis Pertama (First Author)" : "First Author"}</span>
-                </span>
-                <span className="category-tag">ISSN 2963-0169</span>
-              </div>
+            <div className="exp-identity-row">
+              <img
+                src="/assets/brands/quantum-nlp-logo.svg"
+                alt=""
+                width="44"
+                height="44"
+                className="exp-brand-emblem"
+              />
+              <div>
+                <div className="edu-badges-row">
+                  <span className="edu-stat-badge">
+                    <BookOpen size={14} aria-hidden="true" />
+                    <span>{language === "id" ? "Penulis Pertama (First Author)" : "First Author"}</span>
+                  </span>
+                  <span className="category-tag">ISSN 2963-0169</span>
+                </div>
 
-              <h3 className="exp-role-title">
-                {language === "id" ? publication.title_id : publication.title_en}
-              </h3>
-              <p className="exp-company-name">{publication.venue}</p>
+                <h3 className="exp-role-title">
+                  {language === "id" ? publication.title_id : publication.title_en}
+                </h3>
+                <p className="exp-company-name">{publication.venue}</p>
+              </div>
             </div>
             <div className="exp-period-badge">
               <span>Jan 2026</span>

@@ -16,6 +16,7 @@ function App() {
   const [selectedProject, setSelectedProject] = useState(null);
   const [activeDocument, setActiveDocument] = useState(null);
 
+  // Active Section Observer
   useEffect(() => {
     const sections = ["about", "projects", "experience", "education", "certifications", "contact"];
     const observerOptions = {
@@ -46,6 +47,59 @@ function App() {
     };
   }, []);
 
+  // Porsche-Style Choreographed Scroll-Reveal Engine
+  useEffect(() => {
+    const prefersReduced =
+      typeof window !== "undefined" &&
+      window.matchMedia &&
+      window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    if (prefersReduced) {
+      document.querySelectorAll(".reveal-on-scroll").forEach((el) => {
+        el.classList.add("is-visible");
+      });
+      return;
+    }
+
+    const revealObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("is-visible");
+            revealObserver.unobserve(entry.target);
+          }
+        });
+      },
+      {
+        root: null,
+        rootMargin: "0px 0px -8% 0px",
+        threshold: 0.08
+      }
+    );
+
+    const observeAllTargets = () => {
+      document.querySelectorAll(".reveal-on-scroll:not(.is-visible)").forEach((el) => {
+        revealObserver.observe(el);
+      });
+    };
+
+    observeAllTargets();
+
+    const mutationObserver = new MutationObserver(() => {
+      observeAllTargets();
+    });
+
+    const mainNode = document.getElementById("main-content");
+    if (mainNode) {
+      mutationObserver.observe(mainNode, { childList: true, subtree: true });
+    }
+
+    return () => {
+      revealObserver.disconnect();
+      mutationObserver.disconnect();
+    };
+  }, []);
+
   return (
     <div className={`portfolio-app-root ${theme}-theme`}>
       <a href="#main-content" className="skip-to-content-link">
@@ -58,41 +112,55 @@ function App() {
       />
 
       <main id="main-content" className="main-content-flow">
-        <Hero
-          setActiveSection={setActiveSection}
-          onViewDocument={(url) => setActiveDocument(url)}
-        />
+        {/* BAND 1: EDITORIAL HERO + PORSCHE SPEC BAR */}
+        <div className="section-band section-band-hero">
+          <Hero
+            setActiveSection={setActiveSection}
+            onViewDocument={(url) => setActiveDocument(url)}
+          />
+        </div>
 
-        <hr className="section-divider-line container" />
+        {/* BAND 2: PORSCHE SHOWROOM FLAGSHIPS & BENTO ARCHIVE */}
+        <div className="section-band section-band-showroom">
+          <Projects
+            onSelectProject={(project) => setSelectedProject(project)}
+            onViewDocument={(url) => setActiveDocument(url)}
+          />
+        </div>
 
-        <Projects
-          onSelectProject={(project) => setSelectedProject(project)}
-        />
+        {/* BAND 3: LEADERSHIP EXPERIENCE & ACADEMIC PUBLICATION */}
+        <div className="section-band section-band-editorial">
+          <Experience />
+          <Education />
+        </div>
 
-        <hr className="section-divider-line container" />
+        {/* BAND 4: VERIFIED NATIONAL & INDUSTRY CREDENTIALS */}
+        <div className="section-band section-band-showroom">
+          <Certifications
+            onViewDocument={(url) => setActiveDocument(url)}
+          />
+        </div>
 
-        <Experience />
-
-        <hr className="section-divider-line container" />
-
-        <Education />
-
-        <hr className="section-divider-line container" />
-
-        <Certifications
-          onViewDocument={(url) => setActiveDocument(url)}
-        />
-
-        <hr className="section-divider-line container" />
-
-        <Contact />
+        {/* BAND 5: ASYMMETRIC HIGH-CONTRAST COLLABORATION CALLOUT */}
+        <div className="section-band section-band-contact">
+          <Contact />
+        </div>
       </main>
 
       <footer className="app-footer-bar">
         <div className="container footer-layout">
-          <p className="footer-copyright">
-            &copy; {new Date().getFullYear()} Galih Putra Pratama. AI Engineering &amp; Deep Learning Portfolio.
-          </p>
+          <div className="footer-brand-row">
+            <img
+              src="/assets/brands/gpp-monogram.svg"
+              alt=""
+              width="26"
+              height="26"
+              className="footer-logo-svg"
+            />
+            <p className="footer-copyright">
+              &copy; {new Date().getFullYear()} Galih Putra Pratama. AI Engineering &amp; Deep Learning Portfolio.
+            </p>
+          </div>
 
           <div className="footer-system-stats">
             <span>React 19</span>

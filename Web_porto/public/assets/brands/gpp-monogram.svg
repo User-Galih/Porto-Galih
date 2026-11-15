@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" fill="none">
+  <defs>
+    <linearGradient id="gppBg" x1="10" y1="10" x2="110" y2="110" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#0F172A"/>
+      <stop offset="100%" stop-color="#090D16"/>
+    </linearGradient>
+    <linearGradient id="gppAccent" x1="20" y1="20" x2="100" y2="100" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#34D399"/>
+      <stop offset="50%" stop-color="#10B981"/>
+      <stop offset="100%" stop-color="#2563EB"/>
+    </linearGradient>
+  </defs>
+  <rect x="6" y="6" width="108" height="108" rx="28" fill="url(#gppBg)" stroke="url(#gppAccent)" stroke-width="4"/>
+  <path d="M56 34H42C34.268 34 28 40.268 28 48V72C28 79.732 34.268 86 42 86H56C62.627 86 68 80.627 68 74V60H48" stroke="url(#gppAccent)" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M76 86V34H88C93.523 34 98 38.477 98 44V52C98 57.523 93.523 62 88 62H76" stroke="#F8FAFC" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="92" cy="82" r="5" fill="#10B981"/>
+</svg>

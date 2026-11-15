@@ -78,7 +78,12 @@ export const Certifications = ({ onViewDocument }) => {
 
   return (
     <section id="certifications" className="certifications-section container" aria-labelledby="certs-heading">
-      <div className="section-header">
+      <div className="section-header reveal-on-scroll">
+        <span className="section-kicker-tag">
+          {language === "id"
+            ? "LISENSI NEGARA BNSP & SERTIFIKASI INDUSTRI RESMI"
+            : "NATIONAL BNSP LICENSE & VERIFIED INDUSTRY CREDENTIALS"}
+        </span>
         <h2 id="certs-heading" className="section-title">
           {language === "id"
             ? "Lisensi Profesi & Sertifikasi Teknis"
@@ -166,7 +171,7 @@ export const Certifications = ({ onViewDocument }) => {
               return (
                 <article
                   key={cert.id}
-                  className={`cert-card surface-card ${isBNSP ? "is-bnsp-highlight" : ""}`}
+                  className={`cert-card surface-card reveal-on-scroll ${isBNSP ? "is-bnsp-highlight" : ""}`}
                 >
                   <button
                     type="button"

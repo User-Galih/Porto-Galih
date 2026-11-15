@@ -16,9 +16,14 @@ export const DynamicIsland = ({ activeSection, setActiveSection }) => {
   const { theme, toggleTheme } = useTheme();
   const [isAudio, setIsAudio] = useState(getAudioEnabled());
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [scrollProgress, setScrollProgress] = useState(0);
 
   useEffect(() => {
     const handleScroll = () => {
+      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const pct = docHeight > 0 ? Math.min(100, Math.max(0, (window.scrollY / docHeight) * 100)) : 0;
+      setScrollProgress(pct);
+
       const sections = ["about", "projects", "experience", "education", "certifications", "contact"];
       const scrollPosition = window.scrollY + 140;
 
@@ -36,6 +41,7 @@ export const DynamicIsland = ({ activeSection, setActiveSection }) => {
       }
     };
     window.addEventListener("scroll", handleScroll, { passive: true });
+    handleScroll();
     return () => window.removeEventListener("scroll", handleScroll);
   }, [activeSection, setActiveSection]);
 
@@ -66,7 +72,7 @@ export const DynamicIsland = ({ activeSection, setActiveSection }) => {
 
   const menuItems = [
     { id: "about", labelId: "Profil", labelEn: "Profile" },
-    { id: "projects", labelId: "Sistem AI", labelEn: "AI Systems" },
+    { id: "projects", labelId: "Showroom AI", labelEn: "AI Showroom" },
     { id: "experience", labelId: "Pengalaman", labelEn: "Experience" },
     { id: "education", labelId: "Riset & Studi", labelEn: "Research" },
     { id: "certifications", labelId: "Sertifikasi", labelEn: "Credentials" },
@@ -74,123 +80,141 @@ export const DynamicIsland = ({ activeSection, setActiveSection }) => {
   ];
 
   return (
-    <header className="dynamic-island-container">
-      <div className="dynamic-island-wrapper">
-        <div className="island-navbar-layout">
-          <button
-            type="button"
-            className="island-logo"
-            onClick={() => handleNavClick("about")}
-            aria-label={language === "id" ? "Kembali ke bagian atas" : "Scroll to top"}
-          >
-            <span className="island-logo-mark" aria-hidden="true">GP</span>
-            <span>Galih Putra</span>
-          </button>
-
-          <nav className="island-nav-links" aria-label={language === "id" ? "Navigasi Utama" : "Main Navigation"}>
-            {menuItems.map((item) => (
-              <button
-                key={item.id}
-                type="button"
-                className={`island-nav-btn ${activeSection === item.id ? "active" : ""}`}
-                aria-current={activeSection === item.id ? "location" : undefined}
-                onClick={() => handleNavClick(item.id)}
-              >
-                {language === "id" ? item.labelId : item.labelEn}
-              </button>
-            ))}
-          </nav>
-
-          <div className="island-controls">
-            <a
-              href="https://github.com/User-Galih"
-              target="_blank"
-              rel="noreferrer"
-              className="island-github-link"
-              onClick={playClickSound}
-            >
-              <GithubIcon size={14} />
-              <span>User-Galih</span>
-            </a>
-
-            <button
-              type="button"
-              className="island-control-btn"
-              onClick={() => {
-                playClickSound();
-                const nextState = !isAudio;
-                setIsAudio(nextState);
-                setAudioEnabled(nextState);
-              }}
-              aria-label={isAudio ? "Mute UI sound" : "Enable UI sound"}
-              aria-pressed={isAudio}
-            >
-              {isAudio ? <Volume2 size={15} aria-hidden="true" /> : <VolumeX size={15} aria-hidden="true" />}
-            </button>
-
-            <button
-              type="button"
-              className="island-control-btn"
-              onClick={() => {
-                playClickSound();
-                toggleTheme();
-              }}
-              aria-label={theme === "dark" ? "Switch to light mode" : "Switch to dark mode"}
-            >
-              {theme === "dark" ? <Moon size={15} aria-hidden="true" /> : <Sun size={15} aria-hidden="true" />}
-            </button>
-
-            <button
-              type="button"
-              className="island-control-btn lang-btn"
-              onClick={() => {
-                playClickSound();
-                toggleLanguage();
-              }}
-              aria-label={language === "id" ? "Ganti bahasa ke Inggris" : "Switch language to Indonesian"}
-            >
-              <Globe size={13} aria-hidden="true" />
-              <span>{language.toUpperCase()}</span>
-            </button>
-
-            <button
-              type="button"
-              className="island-mobile-toggle"
-              onClick={() => {
-                playClickSound();
-                setMobileMenuOpen((prev) => !prev);
-              }}
-              aria-expanded={mobileMenuOpen}
-              aria-controls="mobile-nav-drawer"
-              aria-label={mobileMenuOpen ? "Close navigation menu" : "Open navigation menu"}
-            >
-              {mobileMenuOpen ? <X size={16} aria-hidden="true" /> : <Menu size={16} aria-hidden="true" />}
-              <span>Menu</span>
-            </button>
-          </div>
-        </div>
-
-        {mobileMenuOpen && (
-          <nav
-            id="mobile-nav-drawer"
-            className="island-mobile-drawer"
-            aria-label={language === "id" ? "Navigasi Mobile" : "Mobile Navigation"}
-          >
-            {menuItems.map((item) => (
-              <button
-                key={item.id}
-                type="button"
-                className={`mobile-nav-item ${activeSection === item.id ? "active" : ""}`}
-                aria-current={activeSection === item.id ? "location" : undefined}
-                onClick={() => handleNavClick(item.id)}
-              >
-                {language === "id" ? item.labelId : item.labelEn}
-              </button>
-            ))}
-          </nav>
-        )}
+    <>
+      <div className="top-scroll-progress-track" aria-hidden="true">
+        <div
+          className="top-scroll-progress-bar"
+          style={{ transform: `scaleX(${scrollProgress / 100})` }}
+        />
       </div>
-    </header>
+
+      <header className="dynamic-island-container">
+        <div className="dynamic-island-wrapper">
+          <div className="island-navbar-layout">
+            <button
+              type="button"
+              className="island-logo"
+              onClick={() => handleNavClick("about")}
+              aria-label={language === "id" ? "Kembali ke bagian atas" : "Scroll to top"}
+            >
+              <img
+                src="/assets/brands/gpp-monogram.svg"
+                alt=""
+                width="30"
+                height="30"
+                className="island-logo-svg"
+              />
+              <span className="island-logo-text-group">
+                <span className="island-logo-title">Galih Putra</span>
+                <span className="island-logo-sub">AI Systems</span>
+              </span>
+            </button>
+
+            <nav className="island-nav-links" aria-label={language === "id" ? "Navigasi Utama" : "Main Navigation"}>
+              {menuItems.map((item) => (
+                <button
+                  key={item.id}
+                  type="button"
+                  className={`island-nav-btn ${activeSection === item.id ? "active" : ""}`}
+                  aria-current={activeSection === item.id ? "location" : undefined}
+                  onClick={() => handleNavClick(item.id)}
+                >
+                  {language === "id" ? item.labelId : item.labelEn}
+                </button>
+              ))}
+            </nav>
+
+            <div className="island-controls">
+              <a
+                href="https://github.com/User-Galih"
+                target="_blank"
+                rel="noreferrer"
+                className="island-github-link"
+                onClick={playClickSound}
+              >
+                <GithubIcon size={14} />
+                <span>User-Galih</span>
+              </a>
+
+              <button
+                type="button"
+                className="island-control-btn"
+                onClick={() => {
+                  playClickSound();
+                  const nextState = !isAudio;
+                  setIsAudio(nextState);
+                  setAudioEnabled(nextState);
+                }}
+                aria-label={isAudio ? "Mute UI sound" : "Enable UI sound"}
+                aria-pressed={isAudio}
+              >
+                {isAudio ? <Volume2 size={15} aria-hidden="true" /> : <VolumeX size={15} aria-hidden="true" />}
+              </button>
+
+              <button
+                type="button"
+                className="island-control-btn"
+                onClick={() => {
+                  playClickSound();
+                  toggleTheme();
+                }}
+                aria-label={theme === "dark" ? "Switch to light mode" : "Switch to dark mode"}
+              >
+                {theme === "dark" ? <Moon size={15} aria-hidden="true" /> : <Sun size={15} aria-hidden="true" />}
+              </button>
+
+              <button
+                type="button"
+                className="island-control-btn lang-btn"
+                onClick={() => {
+                  playClickSound();
+                  toggleLanguage();
+                }}
+                aria-label={language === "id" ? "Ganti bahasa ke Inggris" : "Switch language to Indonesian"}
+              >
+                <Globe size={13} aria-hidden="true" />
+                <span>{language.toUpperCase()}</span>
+              </button>
+
+              <button
+                type="button"
+                className="island-mobile-toggle"
+                onClick={() => {
+                  playClickSound();
+                  setMobileMenuOpen((prev) => !prev);
+                }}
+                aria-expanded={mobileMenuOpen}
+                aria-controls="mobile-nav-drawer"
+                aria-label={mobileMenuOpen ? "Close navigation menu" : "Open navigation menu"}
+              >
+                {mobileMenuOpen ? <X size={16} aria-hidden="true" /> : <Menu size={16} aria-hidden="true" />}
+                <span>Menu</span>
+              </button>
+            </div>
+          </div>
+
+          {mobileMenuOpen && (
+            <nav
+              id="mobile-nav-drawer"
+              className="island-mobile-drawer"
+              aria-label={language === "id" ? "Navigasi Mobile" : "Mobile Navigation"}
+            >
+              {menuItems.map((item) => (
+                <button
+                  key={item.id}
+                  type="button"
+                  className={`mobile-nav-item ${activeSection === item.id ? "active" : ""}`}
+                  aria-current={activeSection === item.id ? "location" : undefined}
+                  onClick={() => handleNavClick(item.id)}
+                >
+                  {language === "id" ? item.labelId : item.labelEn}
+                </button>
+              ))}
+            </nav>
+          )}
+        </div>
+      </header>
+    </>
   );
 };
 
