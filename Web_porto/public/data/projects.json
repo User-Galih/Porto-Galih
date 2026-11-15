@@ -117,7 +117,10 @@
       "smartinvest-fs",
       "smartinvest-agent-system"
     ],
-    "flagship": false
+    "flagship": false,
+    "meet_photos": [
+      "assets/projects/project_12_smartinvest_ecosystem/images/smartinvest_architecture.jpg"
+    ]
   },
   {
     "id": "nusapolicy-copilot",
@@ -187,7 +190,10 @@
     "demo_url": "https://nusapolicy-copilot-git-main-galih-putra-pratamas-projects.vercel.app/",
     "folder_name": "Project_6_NusaPolicy_Copilot",
     "priority": 2,
-    "flagship": false
+    "flagship": false,
+    "meet_photos": [
+      "assets/projects/project_6_nusapolicy_copilot/images/nusapolicy_hybrid_rag.jpg"
+    ]
   },
   {
     "id": "waste-classifier",
@@ -308,7 +314,10 @@
     "demo_url": "",
     "folder_name": "Project_10_GPrompt",
     "priority": 4,
-    "flagship": false
+    "flagship": false,
+    "meet_photos": [
+      "assets/projects/project_10_gprompt/images/gprompt_studio_workbench.jpg"
+    ]
   },
   {
     "id": "smartinvest-ai",
