@@ -1,0 +1,79 @@
+{
+  "id": "smartinvest-ecosystem",
+  "folder_name": "Project_12_SmartInvest_Ecosystem",
+  "title_id": "SmartInvest Unified AI Ecosystem",
+  "title_en": "SmartInvest Unified AI Ecosystem",
+  "subtitle_id": "Arsitektur Terpadu: Deep Learning BiLSTM+Attention, Kuantitatif MPT, Multi-Agent Copilot & Microservices",
+  "subtitle_en": "Unified Architecture: BiLSTM+Attention Deep Learning, Quantitative MPT, Multi-Agent Copilot & Microservices",
+  "preserve_submodules": [
+    "smartinvest-ai",
+    "smartinvest-ds",
+    "smartinvest-fs",
+    "smartinvest-agent-system"
+  ],
+  "blueprint": {
+    "function_id": "Input nominal modal, profil risiko, dan ticker saham LQ45/IDX30 -> Scraper yfinance (dynamic header spoofing) + BI Rate -> Ekstraksi 11 Indikator Teknikal (15-day window) -> BiLSTM + Multi-Head Attention Classifier + SciPy SLSQP Portfolio Optimizer + Multi-Agent Gemini Synthesis -> Output sinyal tren 3-kelas, alokasi Rupiah per saham, dan analisis risiko di Supabase.",
+    "function_en": "Capital input, risk profile, and LQ45/IDX30 tickers -> yfinance Scraper (header spoofing) + Central Bank Rate -> 11 Technical Indicators (15-day window) -> BiLSTM + Multi-Head Attention Classifier + SciPy SLSQP Optimizer + Multi-Agent Gemini Synthesis -> 3-class trend signal, exact capital weights, and risk thesis persisted in Supabase.",
+    "utility_id": "Memangkas waktu riset teknikal dan perhitungan pembagian porsi modal (position sizing) dari 2-3 jam analisis spreadsheet manual menjadi kurang dari 4 detik, membantu investor ritel menghindari keputusan beli impulsif (FOMO).",
+    "utility_en": "Cuts manual technical charting and quantitative position-sizing calculations from 2-3 hours of spreadsheet work to under 4 seconds, helping retail investors avoid impulsive FOMO trades.",
+    "target_id": "Investor ritel pasar modal Indonesia (fokus saham blue-chip LQ45 & IDX30), analis riset ekuitas junior, dan peserta edukasi pasar modal.",
+    "target_en": "Indonesian retail equity investors (focusing on LQ45 & IDX30 blue-chip stocks), junior equity analysts, and capital market learners.",
+    "layman_proof_id": [
+      "Sinyal Cuaca Pasar 3-Warna: Menampilkan status tegas Bullish (Naik), Sideways (Stabil), atau Bearish (Turun) beserta persentase keyakinan model tanpa perlu membaca grafik indikator rumit.",
+      "Simulasi Pembagian Rupiah Otomatis: Masukkan modal (misal Rp 10.000.000), sistem otomatis memecah nominal Rupiah ke tiap saham sesuai profil risiko (total terverifikasi 100%).",
+      "Alasan Transparan (Explainable AI): Setiap porsi saham disertai penjelasan bahasa manusia mengapa saham tersebut mendapat bobot terbesar berdasarkan tren 15 hari terakhir dan volatilitas historis."
+    ],
+    "layman_proof_en": [
+      "3-State Traffic-Light Signal: Displays clear Bullish, Sideways, or Bearish verdicts with model confidence scores so users do not have to decipher complex indicator charts.",
+      "Exact Capital Split Simulation: Enter any capital amount (e.g., IDR 10,000,000) and immediately see the exact currency allocation per stock tailored to your risk profile (verified 100% sum).",
+      "Plain-Language Rationale: Every stock weight includes a clear explanation of why it received its allocation based on 15-day momentum and historical volatility."
+    ],
+    "eval_metrics": [
+      {
+        "component": "Emiten Trend Model (LQ45/IDX30)",
+        "baseline": "Vanilla LSTM (15-Day): ~86.2% Acc",
+        "optimized": "BiLSTM + Multi-Head Attention: 94.46% Acc",
+        "secondary": "Macro F1: 93.00% (Blind Test)"
+      },
+      {
+        "component": "IHSG Macro Trend Model (3-Class)",
+        "baseline": "Single-Layer LSTM: ~83.5% Acc",
+        "optimized": "BiLSTM + Multi-Head Attention: 92.64% Acc",
+        "secondary": "Macro F1: 90.39% (Sideways F1: 80.00%)"
+      },
+      {
+        "component": "Quant Optimizer (MVEP / SIM / CAPM)",
+        "baseline": "Equal-Weight Allocation",
+        "optimized": "SciPy SLSQP Max Sharpe Ratio",
+        "secondary": "Validated via SciPy Paired t-Test (5Y Data)"
+      }
+    ],
+    "submodules": [
+      {
+        "id": "smartinvest-ai",
+        "label_id": "Modul 1: AI Engineering (BiLSTM + Attention)",
+        "label_en": "Module 1: AI Engineering (BiLSTM + Attention)",
+        "repo": "User-Galih/SmartInvest-App"
+      },
+      {
+        "id": "smartinvest-ds",
+        "label_id": "Modul 2: Data Science (Kuantitatif MPT)",
+        "label_en": "Module 2: Data Science (Quantitative MPT)",
+        "repo": "User-Galih/SmartInvest-App"
+      },
+      {
+        "id": "smartinvest-agent-system",
+        "label_id": "Modul 3: Autonomous Multi-Agent Copilot",
+        "label_en": "Module 3: Autonomous Multi-Agent Copilot",
+        "repo": "User-Galih/SmartInvest-Agent-BE"
+      },
+      {
+        "id": "smartinvest-fs",
+        "label_id": "Modul 4: Fullstack Distributed Platform",
+        "label_en": "Module 4: Fullstack Distributed Platform",
+        "repo": "User-Galih/SmartInvest-App"
+      }
+    ]
+  },
+  "flagship": false
+}

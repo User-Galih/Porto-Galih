@@ -3,8 +3,8 @@
   "category": "rag-llm",
   "featured": true,
   "highlight_metric": "Recall@5: 98% • 50 Golden Tests • Zero Hallucination Refusal",
-  "title_id": "NusaPolicy Copilot — Indonesian RAG Policy Assistant",
-  "title_en": "NusaPolicy Copilot — Indonesian RAG Policy Assistant",
+  "title_id": "NusaPolicy Copilot  -  Indonesian RAG Policy Assistant",
+  "title_en": "NusaPolicy Copilot  -  Indonesian RAG Policy Assistant",
   "subtitle_id": "Sistem RAG End-to-End dengan Hybrid Retrieval (RRF + pgvector), Sitasi Terverifikasi & Safe Refusal",
   "subtitle_en": "End-to-End Indonesian RAG Copilot with Hybrid Retrieval, Verified Citations & Safe Refusal",
   "description_id": "Sistem Retrieval-Augmented Generation (RAG) end-to-end berbahasa Indonesia tingkat enterprise untuk pencarian dan pemahaman kebijakan internal perusahaan. Menggabungkan hybrid semantic vector similarity (pgvector) dan keyword search (PostgreSQL FTS) dengan Reciprocal Rank Fusion (RRF), penolakan aman (safe refusal) berbasis threshold bukti, evaluasi terukur (Golden Eval Suite 50 kasus), serta tracing latensi dan token LLMOps.",
@@ -26,5 +26,44 @@
   ],
   "github_repo": "User-Galih/nusapolicy-copilot",
   "demo_url": "https://nusapolicy-copilot-git-main-galih-putra-pratamas-projects.vercel.app/",
-  "priority": 2
+  "priority": 2,
+  "blueprint": {
+    "function_id": "Pertanyaan bahasa Indonesia -> Query Normalization -> Hybrid Search (pgvector Cosine HNSW + PostgreSQL Indonesian FTS) -> Reciprocal Rank Fusion (RRF) -> Confidence Threshold Gate -> Google Gemini API Grounded Generation dengan sitasi nomor pasal & tautan PDF asli.",
+    "function_en": "Indonesian policy query -> Query Normalization -> Hybrid Search (pgvector Cosine HNSW + PostgreSQL Indonesian FTS) -> Reciprocal Rank Fusion (RRF) -> Confidence Threshold Gate -> Google Gemini API Grounded Generation with inline clause citations & source PDF preview.",
+    "utility_id": "Mempercepat pencarian aturan HR, Legal, dan SOP internal dari rata-rata 15-20 menit membaca PDF manual menjadi kurang dari 3 detik, sekaligus mengeliminasi risiko salah tafsir kebijakan akibat halusinasi LLM.",
+    "utility_en": "Reduces internal HR, Legal, and SOP document lookup time from 15-20 minutes of manual PDF reading to under 3 seconds while eliminating compliance risks caused by ungrounded LLM hallucinations.",
+    "target_id": "Divisi HR, Legal & Compliance, serta karyawan perusahaan menengah-besar di Indonesia yang memiliki ratusan dokumen PKB/SOP.",
+    "target_en": "HR teams, Legal & Compliance officers, and employees at Indonesian enterprises managing hundreds of internal SOP and regulatory documents.",
+    "layman_proof_id": [
+      "Klik Sitasi Langsung ke PDF: Setiap klaim jawaban memiliki lencana sitasi (misal: Pasal 14 Ayat 2) yang membuka dokumen PDF asli tepat di halaman sumber.",
+      "Uji Jebakan Anti-Halusinasi (Safe Refusal): Jika ditanya hal di luar dokumen perusahaan, sistem menolak menjawab secara tegas dan sopan, bukan mengarang jawaban.",
+      "Transparansi Skor Bukti: Pengguna dapat melihat potongan teks asli (retrieved chunks) yang menjadi dasar jawaban AI."
+    ],
+    "layman_proof_en": [
+      "One-Click PDF Citation Verification: Every answer sentence includes a clause badge (e.g., Article 14 Clause 2) that opens the authentic source PDF page directly.",
+      "Out-of-Scope Trap Test (Safe Refusal): When asked questions outside the uploaded policy corpus, the system deterministically refuses to answer rather than fabricating rules.",
+      "Evidence Transparency Drawer: Users can inspect the exact retrieved paragraphs and relevance scores behind every response."
+    ],
+    "eval_metrics": [
+      {
+        "component": "Retrieval Recall@5 (50 Golden Queries)",
+        "baseline": "Dense Vector Only (pgvector): ~82%",
+        "optimized": "Hybrid RRF (pgvector + FTS): 98.0%",
+        "secondary": "Exact clause & acronym matching solved via FTS"
+      },
+      {
+        "component": "Hallucination & Safe Refusal Gate",
+        "baseline": "Unconstrained LLM Prompting",
+        "optimized": "Evidence Threshold Gate + Strict Citation",
+        "secondary": "100% Safe Refusal on adversarial/out-of-scope tests"
+      },
+      {
+        "component": "Observability & Telemetry",
+        "baseline": "No request tracing",
+        "optimized": "PostgreSQL Telemetry Middleware",
+        "secondary": "Tracks latency (ms), token count, and citation hits"
+      }
+    ]
+  },
+  "flagship": false
 }

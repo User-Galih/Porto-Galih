@@ -1,10 +1,10 @@
 import React, { useEffect } from "react";
 import { useLanguage } from "../context/LanguageContext";
-import { X, ExternalLink, MonitorPlay, FileText, Cpu } from "lucide-react";
+import { X, ExternalLink, MonitorPlay, FileText, Cpu, CheckCircle2 } from "lucide-react";
 import { playClickSound } from "../utils/audio";
 
 const GithubIcon = ({ size = 16 }) => (
-  <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+  <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
     <path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4" />
     <path d="M9 18c-4.51 2-5-2-7-2" />
   </svg>
@@ -27,44 +27,57 @@ export const ProjectDetailModal = ({ project, onClose, onViewDocument }) => {
 
   if (!project) return null;
 
+  const bp = project.blueprint || null;
+  const laymanProofs = bp
+    ? (language === "id" ? bp.layman_proof_id : bp.layman_proof_en) || []
+    : [];
+  const evalMetrics = bp && Array.isArray(bp.eval_metrics) ? bp.eval_metrics : [];
+
   return (
-    <div className="modal-overlay" onClick={() => { playClickSound(); onClose(); }}>
+    <div
+      className="modal-overlay"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="modal-project-title"
+      onClick={() => {
+        playClickSound();
+        onClose();
+      }}
+    >
       <div className="modal-content-panel" onClick={(e) => e.stopPropagation()}>
-        
-        {/* Header */}
         <div className="modal-header-row">
           <div>
-            <div style={{ display: "flex", gap: "10px", alignItems: "center", marginBottom: "8px" }}>
-              <span className="section-tag" style={{ margin: 0, padding: "4px 12px", fontSize: "0.75rem" }}>
-                {project.category || "AI Project"}
-              </span>
+            <div className="modal-meta-badges">
+              <span className="category-tag">{project.category || "AI Engineering"}</span>
               {project.highlight_metric && (
-                <span className="p-card-metric" style={{ margin: 0, padding: "4px 10px", fontSize: "0.75rem" }}>
-                  {project.highlight_metric}
-                </span>
+                <span className="flagship-metric-pill">{project.highlight_metric}</span>
               )}
             </div>
 
-            <h2 style={{ fontSize: "clamp(1.8rem, 3vw, 2.4rem)", fontWeight: "800", color: "var(--text-main)", letterSpacing: "-0.02em" }}>
+            <h2 id="modal-project-title" className="modal-title-heading">
               {language === "id" ? project.title_id : project.title_en}
             </h2>
 
-            <p style={{ fontSize: "1.05rem", color: "var(--accent-primary)", fontWeight: "500", marginTop: "4px" }}>
+            <p className="modal-subtitle-lead">
               {language === "id" ? project.subtitle_id : project.subtitle_en}
             </p>
           </div>
 
           <button
+            type="button"
             className="modal-close-btn"
-            onClick={() => { playClickSound(); onClose(); }}
-            title="Close"
+            onClick={() => {
+              playClickSound();
+              onClose();
+            }}
+            aria-label={language === "id" ? "Tutup modal spesifikasi" : "Close specification modal"}
           >
-            <X size={20} />
+            <X size={20} aria-hidden="true" />
           </button>
         </div>
 
         {/* Action Buttons: Repo, Demo, Video, PDF Docs */}
-        <div style={{ display: "flex", gap: "12px", flexWrap: "wrap", marginBottom: "32px", paddingBottom: "24px", borderBottom: "1px solid var(--border-subtle)" }}>
+        <div className="modal-actions-bar">
           {project.github_repo && (
             <a
               href={"https://github.com/" + project.github_repo}
@@ -74,7 +87,7 @@ export const ProjectDetailModal = ({ project, onClose, onViewDocument }) => {
               onClick={playClickSound}
             >
               <GithubIcon size={16} />
-              <span>{language === "id" ? "Lihat GitHub Repo" : "View GitHub Repo"}</span>
+              <span>{language === "id" ? "Buka Repositori GitHub" : "Open GitHub Repository"}</span>
             </a>
           )}
 
@@ -86,8 +99,8 @@ export const ProjectDetailModal = ({ project, onClose, onViewDocument }) => {
               className="secondary-btn btn-sm"
               onClick={playClickSound}
             >
-              <ExternalLink size={16} />
-              <span>{language === "id" ? "Buka Live App" : "Launch Live App"}</span>
+              <ExternalLink size={16} aria-hidden="true" />
+              <span>{language === "id" ? "Buka Aplikasi Live" : "Launch Live Application"}</span>
             </a>
           )}
 
@@ -99,82 +112,173 @@ export const ProjectDetailModal = ({ project, onClose, onViewDocument }) => {
               className="secondary-btn btn-sm"
               onClick={playClickSound}
             >
-              <MonitorPlay size={16} />
+              <MonitorPlay size={16} aria-hidden="true" />
               <span>{language === "id" ? "Tonton Video Demo" : "Watch Demo Video"}</span>
             </a>
           )}
 
           {project.presentation_url && onViewDocument && (
             <button
+              type="button"
               className="secondary-btn btn-sm"
               onClick={() => {
                 playClickSound();
                 onViewDocument(project.presentation_url);
               }}
             >
-              <FileText size={16} />
-              <span>{language === "id" ? "Dokumen Presentasi (PPT)" : "Presentation Slide"}</span>
+              <FileText size={16} aria-hidden="true" />
+              <span>{language === "id" ? "Slide Presentasi (PDF)" : "Presentation Deck (PDF)"}</span>
             </button>
           )}
 
           {project.guide_url && onViewDocument && (
             <button
+              type="button"
               className="secondary-btn btn-sm"
               onClick={() => {
                 playClickSound();
                 onViewDocument(project.guide_url);
               }}
             >
-              <FileText size={16} />
-              <span>{language === "id" ? "Buku Panduan (User Guide)" : "User Guide"}</span>
+              <FileText size={16} aria-hidden="true" />
+              <span>{language === "id" ? "Buku Panduan (PDF)" : "User Guide (PDF)"}</span>
             </button>
           )}
         </div>
 
-        {/* Full Description */}
-        <div style={{ marginBottom: "32px" }}>
-          <h4 style={{ fontSize: "1.1rem", fontWeight: "700", marginBottom: "10px", color: "var(--text-main)" }}>
-            {language === "id" ? "Ringkasan & Tujuan Proyek" : "Executive Overview"}
-          </h4>
-          <p style={{ color: "var(--text-secondary)", lineHeight: "1.7", fontSize: "1rem" }}>
+        {/* Executive Overview */}
+        <div className="modal-section-block">
+          <h3 className="modal-section-title">
+            {language === "id" ? "Ringkasan Sistem" : "System Overview"}
+          </h3>
+          <p className="modal-body-text">
             {language === "id" ? project.description_id : project.description_en}
           </p>
         </div>
 
+        {/* 5-Pillar Blueprint Summary (if available) */}
+        {bp && (
+          <div className="modal-section-block">
+            <h3 className="modal-section-title">
+              {language === "id"
+                ? "Spesifikasi 5 Pilar AI Engineering"
+                : "5-Pillar AI Engineering Blueprint"}
+            </h3>
+            <div className="pillars-three-grid" style={{ marginBottom: "18px" }}>
+              <div className="pillar-box">
+                <span className="pillar-label">
+                  {language === "id" ? "1. Fungsi Teknis" : "1. Technical Function"}
+                </span>
+                <p className="pillar-body">
+                  {language === "id" ? bp.function_id : bp.function_en}
+                </p>
+              </div>
+              <div className="pillar-box">
+                <span className="pillar-label">
+                  {language === "id" ? "2. Kegunaan Bisnis" : "2. Business Utility"}
+                </span>
+                <p className="pillar-body">
+                  {language === "id" ? bp.utility_id : bp.utility_en}
+                </p>
+              </div>
+              <div className="pillar-box">
+                <span className="pillar-label">
+                  {language === "id" ? "3. Target Pengguna" : "3. Target Audience"}
+                </span>
+                <p className="pillar-body">
+                  {language === "id" ? bp.target_id : bp.target_en}
+                </p>
+              </div>
+            </div>
+
+            {laymanProofs.length > 0 && (
+              <div className="layman-proof-banner" style={{ marginBottom: "18px" }}>
+                <h4 className="layman-proof-heading">
+                  {language === "id"
+                    ? "4. Indikator Sukses Orang Awam (Verifikasi 10 Detik)"
+                    : "4. Layman Proof of Success (10-Second Verification)"}
+                </h4>
+                <ul className="layman-proof-list">
+                  {laymanProofs.map((item, idx) => (
+                    <li key={idx}>
+                      <CheckCircle2 size={16} className="proof-check-icon" aria-hidden="true" />
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
+
+            {evalMetrics.length > 0 && (
+              <div className="eval-table-wrapper">
+                <table className="eval-benchmark-table">
+                  <thead>
+                    <tr>
+                      <th scope="col">{language === "id" ? "Komponen" : "Component"}</th>
+                      <th scope="col">{language === "id" ? "Baseline" : "Baseline"}</th>
+                      <th scope="col">{language === "id" ? "Arsitektur Produksi" : "Production Architecture"}</th>
+                      <th scope="col">{language === "id" ? "Bukti Evaluasi" : "Evaluation Evidence"}</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {evalMetrics.map((row, rIdx) => (
+                      <tr key={rIdx}>
+                        <td className="eval-col-comp">{row.component}</td>
+                        <td className="eval-col-base">{row.baseline}</td>
+                        <td className="eval-col-opt">{row.optimized}</td>
+                        <td className="eval-col-sec">{row.secondary}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            )}
+          </div>
+        )}
+
         {/* Architecture & Engineering Details */}
-        <div style={{ marginBottom: "32px" }}>
-          <h4 style={{ fontSize: "1.1rem", fontWeight: "700", marginBottom: "16px", color: "var(--text-main)", display: "flex", alignItems: "center", gap: "8px" }}>
-            <Cpu size={18} style={{ color: "var(--accent-primary)" }} />
-            <span>{language === "id" ? "Arsitektur Sistem & Spesifikasi Model" : "System Architecture & Model Specs"}</span>
-          </h4>
+        <div className="modal-section-block">
+          <h3 className="modal-section-title">
+            <Cpu size={18} style={{ color: "var(--accent-primary)" }} aria-hidden="true" />
+            <span>
+              {language === "id"
+                ? "Detail Arsitektur & Pipeline Teknis"
+                : "Architectural Pipeline & Model Specifications"}
+            </span>
+          </h3>
 
           <div
-            style={{ lineHeight: "1.7", color: "var(--text-main)" }}
+            className="modal-arch-html"
             dangerouslySetInnerHTML={{
               __html: language === "id" ? project.architecture_id : project.architecture_en
             }}
           />
         </div>
 
-        {/* Evaluation Images (if available) */}
+        {/* Evaluation Images (Confusion Matrices) */}
         {Array.isArray(project.evaluation_images) && project.evaluation_images.length > 0 && (
-          <div style={{ marginBottom: "32px" }}>
-            <h4 style={{ fontSize: "1.1rem", fontWeight: "700", marginBottom: "16px", color: "var(--text-main)" }}>
-              {language === "id" ? "Evaluasi Model & Matriks Performa" : "Model Evaluation & Confusion Matrices"}
-            </h4>
+          <div className="modal-section-block">
+            <h3 className="modal-section-title">
+              {language === "id"
+                ? "Bukti Visual Evaluasi Model (Confusion Matrix)"
+                : "Visual Model Evaluation Evidence (Confusion Matrices)"}
+            </h3>
 
-            <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: "20px" }}>
+            <div className="eval-images-grid">
               {project.evaluation_images.map((img, i) => (
-                <div key={i} className="glass-card" style={{ padding: "16px", overflow: "hidden" }}>
+                <div key={i} className="surface-card eval-image-card">
                   <img
                     src={img.url}
-                    alt={img.title_en || "Evaluation"}
-                    style={{ width: "100%", borderRadius: "10px", marginBottom: "12px", border: "1px solid var(--border-subtle)" }}
+                    alt={language === "id" ? img.title_id : img.title_en}
+                    width="520"
+                    height="380"
+                    loading="lazy"
+                    className="eval-matrix-img"
                   />
-                  <p style={{ fontWeight: "600", fontSize: "0.92rem", marginBottom: "4px" }}>
+                  <p className="eval-img-title">
                     {language === "id" ? img.title_id : img.title_en}
                   </p>
-                  <p style={{ fontSize: "0.82rem", color: "var(--text-secondary)" }}>
+                  <p className="eval-img-desc">
                     {language === "id" ? img.description_id : img.description_en}
                   </p>
                 </div>
@@ -185,10 +289,10 @@ export const ProjectDetailModal = ({ project, onClose, onViewDocument }) => {
 
         {/* Tech Stack Chips */}
         <div>
-          <h4 style={{ fontSize: "0.95rem", fontWeight: "700", marginBottom: "12px", color: "var(--text-muted)", textTransform: "uppercase", letterSpacing: "0.05em" }}>
-            {language === "id" ? "Teknologi & Framework" : "Technologies & Frameworks"}
-          </h4>
-          <div style={{ display: "flex", gap: "8px", flexWrap: "wrap" }}>
+          <h3 className="modal-stack-heading">
+            {language === "id" ? "Teknologi & Pustaka" : "Technologies & Libraries"}
+          </h3>
+          <div className="flagship-tools-list">
             {Array.isArray(project.tools) &&
               project.tools.map((tool) => (
                 <span key={tool} className="skill-chip chip-primary">
@@ -197,7 +301,6 @@ export const ProjectDetailModal = ({ project, onClose, onViewDocument }) => {
               ))}
           </div>
         </div>
-
       </div>
     </div>
   );

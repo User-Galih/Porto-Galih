@@ -1,6 +1,6 @@
 import React from "react";
 import { useLanguage } from "../context/LanguageContext";
-import { Briefcase, Calendar } from "lucide-react";
+import { Calendar } from "lucide-react";
 
 export const Experience = () => {
   const { language } = useLanguage();
@@ -9,86 +9,84 @@ export const Experience = () => {
     {
       id: "dbs-coding-camp",
       company: "Coding Camp powered by DBS Foundation & Dicoding",
-      role_id: "AI Engineer & Ketua Tim (Operasional)",
-      role_en: "AI Engineer & Team Lead (Operations)",
+      role_id: "AI Engineer & Ketua Tim Operasional Capstone",
+      role_en: "AI Engineer & Capstone Operations Team Lead",
       period_id: "Jan 2026 - Sekarang",
       period_en: "Jan 2026 - Present",
       meta: "AI Engineering Specialization",
-      tools: ["TensorFlow", "FastAPI", "Keras", "yfinance", "React", "Docker", "Git/GitHub"],
+      tools: ["TensorFlow", "FastAPI", "Keras", "yfinance", "React 19", "Docker", "Git/GitHub"],
       responsibilities_id: [
-        "Ketua tim operasional capstone SmartInvest: pembagian tugas, manajemen timeline, dan koordinasi lintas divisi Data Science, AI Engineer, dan Fullstack.",
-        "Mengusulkan dan mengimplementasikan yfinance sebagai sumber data real-time untuk konstituen LQ45 dan IDX30.",
-        "Merancang model BiLSTM + Attention untuk klasifikasi tren IHSG, membangun microservice FastAPI, dan mengintegrasikannya ke aplikasi web React/Node.js."
+        "Memimpin operasional tim lintas divisi (Data Science, AI Engineering, dan Fullstack) pada proyek investasi cerdas SmartInvest mulai dari perancangan spesifikasi hingga rilis produksi.",
+        "Menginisiasi dan mengintegrasikan pipeline akuisisi data pasar real-time menggunakan yfinance untuk konstituen saham LQ45 dan IDX30 beserta indikator makroekonomi.",
+        "Merancang arsitektur Bidirectional LSTM + Multi-Head Attention untuk klasifikasi tren IHSG dan saham individu (akurasi blind test 94.46%), membungkusnya ke dalam microservice FastAPI, serta mengintegrasikannya dengan antarmuka React."
       ],
       responsibilities_en: [
-        "Led SmartInvest capstone operations across Data Science, AI Engineering, and Fullstack workstreams.",
-        "Introduced yfinance as the live market data source for LQ45 and IDX30 constituents.",
-        "Designed BiLSTM + Attention IHSG trend models, shipped FastAPI microservices, and integrated them into the React/Node.js product."
+        "Led cross-functional SmartInvest capstone operations across Data Science, AI Engineering, and Fullstack teams from specification to production release.",
+        "Introduced and engineered the live market data ingestion pipeline using yfinance for LQ45 and IDX30 constituents alongside macroeconomic indicators.",
+        "Architected Bidirectional LSTM + Multi-Head Attention models for IHSG and equity trend classification (94.46% blind test accuracy), deployed FastAPI microservices, and integrated them into the React platform."
       ]
     },
     {
       id: "diskominfo-semarang",
-      company: "Diskominfo Kota Semarang",
-      role_id: "LLM App Developer & Ketua Tim (Magang)",
-      role_en: "LLM App Developer & Team Lead (Internship)",
+      company: "Dinas Komunikasi, Informatika, Statistik dan Persandian (Diskominfo) Kota Semarang",
+      role_id: "LLM Application Developer & Ketua Tim (Magang)",
+      role_en: "LLM Application Developer & Team Lead (Internship)",
       period_id: "Mei 2025 - Jul 2025",
       period_en: "May 2025 - Jul 2025",
-      meta: "Chatbot & Web Services",
-      tools: ["Python", "JavaScript", "Google Gemini", "REST API", "MySQL", "Git"],
+      meta: "Government AI & Web Services",
+      tools: ["Python", "JavaScript", "Google Gemini API", "REST API", "MySQL", "Git"],
       responsibilities_id: [
-        "Ketua tim developer sistem pendaftaran magang: koordinasi tugas, timeline, dan rilis.",
-        "Membangun chatbot berbasis aturan terintegrasi Google Gemini API dengan basis pengetahuan dokumen kebijakan dan FAQ internal.",
-        "Membangun platform web pendaftaran magang end-to-end (frontend–backend, REST API, basis data) serta pengujian performa di lingkungan publik."
+        "Memimpin tim pengembang sistem layanan pendaftaran magang terpadu: membagi tugas teknis, mengelola jadwal rilis, dan memimpin pengujian sistem.",
+        "Membangun asisten tanya-jawab otomatis yang mengintegrasikan Google Gemini API di atas basis pengetahuan dokumen kebijakan dan FAQ resmi instansi.",
+        "Merilis platform web pendaftaran magang end-to-end (frontend, backend REST API, dan basis data relasional MySQL) untuk melayani pendaftar publik."
       ],
       responsibilities_en: [
-        "Led the internship-registration product team across tasking, timeline, and release.",
-        "Built a rule-based chatbot integrated with Google Gemini API over internal policy and FAQ documents.",
-        "Shipped the registration platform end-to-end (frontend, backend, REST API, database) and tested it in a public environment."
+        "Led the internship registration platform engineering team across task allocation, milestone tracking, and public release.",
+        "Built an automated policy assistant integrating Google Gemini API grounded over internal municipal regulations and FAQ documents.",
+        "Delivered the end-to-end web registration platform (frontend, REST API backend, and MySQL database) tested in a live public environment."
       ]
     },
     {
       id: "udinus-assistant",
-      company: "Universitas Dian Nuswantoro",
-      role_id: "Asisten Praktikum — Sistem Basis Data & Dasar Pemrograman",
-      role_en: "Teaching Assistant — Database Systems & Programming Fundamentals",
+      company: "Universitas Dian Nuswantoro (UDINUS)",
+      role_id: "Asisten Praktikum: Sistem Basis Data & Dasar Pemrograman",
+      role_en: "Teaching Assistant: Database Systems & Programming Fundamentals",
       period_id: "Feb 2024 - Des 2024",
       period_en: "Feb 2024 - Dec 2024",
-      meta: "Academic Teaching",
-      tools: ["SQL", "Python", "Database Normalization", "Teaching"],
+      meta: "Academic Instruction",
+      tools: ["SQL", "Python", "Database Normalization", "Algorithmic Logic"],
       responsibilities_id: [
-        "Mendampingi 30 mahasiswa pada dua mata kuliah praktikum: Sistem Basis Data (query SQL, normalisasi) dan Dasar Pemrograman (logika dan struktur kode).",
-        "Menyusun dan mengoreksi modul serta tugas praktikum sebagai bahan evaluasi pembelajaran."
+        "Membimbing 30 mahasiswa pada praktikum Sistem Basis Data (perancangan skema relasional, normalisasi, query SQL kompleks) dan Dasar Pemrograman (algoritma dan struktur kode Python).",
+        "Menyusun modul latihan mingguan dan melakukan evaluasi kode mahasiswa secara objektif."
       ],
       responsibilities_en: [
-        "Mentored 30 students across Database Systems (SQL queries, normalization) and Programming Fundamentals (logic and code structure).",
-        "Prepared and graded practicum modules and assignments used in course evaluation."
+        "Mentored 30 undergraduate students across Database Systems (relational schema design, normalization, complex SQL queries) and Programming Fundamentals (Python algorithms).",
+        "Authored weekly practicum modules and evaluated student code submissions."
       ]
     }
   ];
 
   return (
-    <section id="experience" className="experience-section container">
-      <div className="section-header js-reveal">
-        <div className="section-tag">
-          <Briefcase size={13} />
-          <span>{language === "id" ? "Rekam Jejak" : "Career Track"}</span>
-        </div>
-        <h2 className="section-title">
-          {language === "id" ? "Pengalaman Rekayasa AI & Kepemimpinan" : "Engineering & Leadership Experience"}
+    <section id="experience" className="experience-section container" aria-labelledby="experience-heading">
+      <div className="section-header">
+        <h2 id="experience-heading" className="section-title">
+          {language === "id"
+            ? "Pengalaman Rekayasa AI & Kepemimpinan Teknis"
+            : "AI Engineering & Technical Leadership Experience"}
         </h2>
         <p className="section-subtitle">
           {language === "id"
-            ? "Pengalaman memimpin pengembangan sistem AI, koordinasi tim teknis, dan integrasi pipeline end-to-end."
-            : "Demonstrated technical leadership, end-to-end AI pipeline architecture, and team coordination."}
+            ? "Rekam jejak dalam memimpin tim pengembangan sistem AI, merancang pipeline model produksi, dan mengintegrasikan layanan LLM di instansi nyata."
+            : "Proven track record leading cross-functional AI engineering teams, shipping production model pipelines, and integrating LLM services."}
         </p>
       </div>
 
       <div className="exp-grid">
         {experiences.map((exp) => (
-          <div key={exp.id} className="exp-card glass-card js-reveal">
+          <article key={exp.id} className="exp-card surface-card">
             <div className="exp-card-header">
               <div>
-                <span className="section-tag" style={{ margin: 0, padding: "4px 12px", fontSize: "0.75rem", marginBottom: "8px" }}>
+                <span className="category-tag" style={{ display: "inline-block", marginBottom: "8px" }}>
                   {exp.meta}
                 </span>
                 <h3 className="exp-role-title">
@@ -98,7 +96,7 @@ export const Experience = () => {
               </div>
 
               <div className="exp-period-badge">
-                <Calendar size={13} style={{ display: "inline", marginRight: "6px" }} />
+                <Calendar size={13} style={{ display: "inline", marginRight: "6px" }} aria-hidden="true" />
                 <span>{language === "id" ? exp.period_id : exp.period_en}</span>
               </div>
             </div>
@@ -109,14 +107,14 @@ export const Experience = () => {
               ))}
             </ul>
 
-            <div style={{ display: "flex", gap: "6px", flexWrap: "wrap", marginTop: "16px", paddingTop: "16px", borderTop: "1px solid var(--border-subtle)" }}>
+            <div className="exp-tools-footer">
               {exp.tools.map((t) => (
                 <span key={t} className="skill-chip">
                   {t}
                 </span>
               ))}
             </div>
-          </div>
+          </article>
         ))}
       </div>
     </section>

@@ -19,5 +19,36 @@
     "Node.js"
   ],
   "github_repo": "User-Galih/gpromt",
-  "demo_url": ""
+  "demo_url": "",
+  "blueprint": {
+    "function_id": "Variasi System Prompt A & B + Variabel Template Dinamis + Test Input -> Eksekusi Paralel LLM API -> Komparasi Output Berdampingan + Kalkulasi Konsumsi Token & Estimasi Biaya.",
+    "function_en": "System Prompt Variants A & B + Dynamic Template Variables + Test Inputs -> Parallel LLM API Execution -> Side-by-Side Output Diffing + Token & Cost Profiling.",
+    "utility_id": "Menggantikan proses coba-coba prompt secara acak di chat biasa dengan pengujian A/B yang terstruktur dan terukur, menghemat waktu iterasi prompt engineering sekaligus memangkas pemborosan token.",
+    "utility_en": "Replaces ad-hoc prompt trial-and-error with structured side-by-side A/B testing, accelerating prompt engineering iterations while reducing unnecessary token usage.",
+    "target_id": "AI Engineer, LLM Application Developer, dan Prompt Engineer yang membangun fitur berbasis Google Gemini API / OpenAI SDK.",
+    "target_en": "AI Engineers, LLM Application Developers, and Prompt Engineers building production features on Google Gemini API or OpenAI-compatible SDKs.",
+    "layman_proof_id": [
+      "Layar Uji Banding Berdampingan (A vs B): Pengguna langsung melihat bagaimana perubahan 1 kalimat instruksi mengubah kualitas dan kerapian jawaban AI pada layar kiri vs kanan.",
+      "Kalkulator Token & Biaya Otomatis: Menampilkan jumlah token secara langsung sehingga mudah memahami prompt mana yang lebih hemat biaya."
+    ],
+    "layman_proof_en": [
+      "Side-by-Side A/B Comparison View: Immediately see how changing a single constraint alters response quality and structure across Variant A and Variant B.",
+      "Live Token & Cost Meter: Displays real-time token counts so anyone can verify which prompt achieves the goal with lower cost."
+    ],
+    "eval_metrics": [
+      {
+        "component": "Prompt Evaluation Workflow",
+        "baseline": "Single-turn manual chat testing",
+        "optimized": "Parallel A/B Variant Execution with Variable Injection",
+        "secondary": "Deterministic comparison on identical test inputs"
+      },
+      {
+        "component": "Token Efficiency Tracking",
+        "baseline": "Unmeasured prompt length",
+        "optimized": "Live Context Window & Cost Estimator",
+        "secondary": "Deployed at gpromt.vercel.app"
+      }
+    ]
+  },
+  "flagship": false
 }

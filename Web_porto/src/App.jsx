@@ -9,24 +9,15 @@ import Certifications from "./components/Certifications";
 import Contact from "./components/Contact";
 import ProjectDetailModal from "./components/ProjectDetailModal";
 import DocumentModal from "./components/DocumentModal";
-import { useScrollReveal } from "./hooks/useScrollReveal";
 
 function App() {
-  // language available via context in child components
   const { theme } = useTheme();
-
-  // Section Navigation State
   const [activeSection, setActiveSection] = useState("about");
-
-  // Modals & Overlay States
   const [selectedProject, setSelectedProject] = useState(null);
   const [activeDocument, setActiveDocument] = useState(null);
-  useScrollReveal();
 
-  // Intersection Observer for active scroll section
   useEffect(() => {
     const sections = ["about", "projects", "experience", "education", "certifications", "contact"];
-
     const observerOptions = {
       root: null,
       rootMargin: "-25% 0px -65% 0px",
@@ -42,7 +33,6 @@ function App() {
     };
 
     const observer = new IntersectionObserver(observerCallback, observerOptions);
-
     sections.forEach((id) => {
       const el = document.getElementById(id);
       if (el) observer.observe(el);
@@ -56,87 +46,64 @@ function App() {
     };
   }, []);
 
-  useEffect(() => {
-    const bar = document.querySelector(".scroll-progress");
-    if (!bar) return undefined;
-
-    const onScroll = () => {
-      const max = document.documentElement.scrollHeight - window.innerHeight;
-      const progress = max > 0 ? window.scrollY / max : 0;
-      bar.style.transform = `scaleX(${Math.min(Math.max(progress, 0), 1)})`;
-    };
-
-    onScroll();
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
-
   return (
     <div className={`portfolio-app-root ${theme}-theme`}>
-      <div className="scroll-progress" aria-hidden="true" />
-      {/* Floating Dynamic Island Navigation */}
+      <a href="#main-content" className="skip-to-content-link">
+        Skip to main content
+      </a>
+
       <DynamicIsland
         activeSection={activeSection}
         setActiveSection={setActiveSection}
       />
 
-      {/* Main Content Sections */}
-      <main className="main-content-flow">
-        {/* 1. Hero & AI Engineer Profile */}
+      <main id="main-content" className="main-content-flow">
         <Hero
           setActiveSection={setActiveSection}
           onViewDocument={(url) => setActiveDocument(url)}
         />
 
-        <div className="section-divider-line container"></div>
+        <hr className="section-divider-line container" />
 
-        {/* 2. Flagship Systems & All GitHub Repositories */}
         <Projects
           onSelectProject={(project) => setSelectedProject(project)}
         />
 
-        <div className="section-divider-line container"></div>
+        <hr className="section-divider-line container" />
 
-        {/* 3. Career & Technical Leadership Experience */}
         <Experience />
 
-        <div className="section-divider-line container"></div>
+        <hr className="section-divider-line container" />
 
-        {/* 4. Academic Background & Research */}
-        <Education
-          onViewDocument={(url) => setActiveDocument(url)}
-        />
+        <Education />
 
-        <div className="section-divider-line container"></div>
+        <hr className="section-divider-line container" />
 
-        {/* 5. 18 Verified Professional Certifications */}
         <Certifications
           onViewDocument={(url) => setActiveDocument(url)}
         />
 
-        <div className="section-divider-line container"></div>
+        <hr className="section-divider-line container" />
 
-        {/* 6. Developer Contact & Collaboration */}
         <Contact />
       </main>
 
-      {/* Modern Engineering Footer */}
       <footer className="app-footer-bar">
         <div className="container footer-layout">
           <p className="footer-copyright">
-            © {new Date().getFullYear()} Galih Putra Pratama. Built with passion for AI Engineering.
+            &copy; {new Date().getFullYear()} Galih Putra Pratama. AI Engineering &amp; Deep Learning Portfolio.
           </p>
 
           <div className="footer-system-stats">
             <span>React 19</span>
-            <span>•</span>
-            <span>Vite</span>
-            <span>•</span>
+            <span aria-hidden="true">&bull;</span>
+            <span>5-Pillar AI Blueprint</span>
+            <span aria-hidden="true">&bull;</span>
             <a
               href="https://github.com/User-Galih"
               target="_blank"
               rel="noreferrer"
-              style={{ color: "var(--accent-primary)", textDecoration: "none" }}
+              className="footer-github-anchor"
             >
               github.com/User-Galih
             </a>
@@ -144,7 +111,6 @@ function App() {
         </div>
       </footer>
 
-      {/* Project Deep Dive Architecture Modal */}
       {selectedProject && (
         <ProjectDetailModal
           project={selectedProject}
@@ -153,7 +119,6 @@ function App() {
         />
       )}
 
-      {/* Quick Look PDF Document / Certificate Modal */}
       {activeDocument && (
         <DocumentModal
           fileUrl={activeDocument}

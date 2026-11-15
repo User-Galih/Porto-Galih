@@ -1,10 +1,10 @@
 import React from "react";
 import { useLanguage } from "../context/LanguageContext";
 import { playClickSound } from "../utils/audio";
-import { ArrowUpRight, FileText, Sparkles, ShieldCheck } from "lucide-react";
+import { FileText, ShieldCheck, Terminal, CheckCircle2 } from "lucide-react";
 
 const GithubIcon = ({ size = 16 }) => (
-  <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+  <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
     <path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4" />
     <path d="M9 18c-4.51 2-5-2-7-2" />
   </svg>
@@ -18,7 +18,7 @@ export const Hero = ({ setActiveSection, onViewDocument }) => {
     setActiveSection(targetId);
     const element = document.getElementById(targetId);
     if (element) {
-      const offset = 80;
+      const offset = 88;
       const elementPosition = element.getBoundingClientRect().top + window.scrollY;
       window.scrollTo({
         top: elementPosition - offset,
@@ -28,150 +28,157 @@ export const Hero = ({ setActiveSection, onViewDocument }) => {
   };
 
   return (
-    <section id="about" className="hero-section container">
+    <section id="about" className="hero-section container" aria-labelledby="hero-heading">
       <div className="hero-grid">
-        {/* Left Column: AI Engineer Narrative & CTAs */}
-        <div className="hero-left-content js-reveal">
-          <div className="hero-status-pill">
-            <span className="status-pulse-dot"></span>
-            <span>
-              {language === "id"
-                ? "Terbuka untuk Peran AI Engineer & Research"
-                : "Available for AI Engineering & Research Roles"}
-            </span>
-          </div>
-
-          <h1 className="hero-title">
-            <span className="gradient-text">GALIH PUTRA PRATAMA</span>
-          </h1>
-
-          <div className="hero-role-lead">
+        {/* Left Column: Engineering Value Prop, Primary Actions & Verified Metrics */}
+        <div className="hero-left-content">
+          <p className="hero-role-kicker">
             <span>AI Engineer</span>
-            <span style={{ color: "var(--border-medium)" }}>•</span>
-            <span>Deep Learning Specialist</span>
-            <span style={{ color: "var(--border-medium)" }}>•</span>
-            <span style={{ color: "var(--accent-cyan)" }}>RAG & LLMOps</span>
-          </div>
+            <span className="kicker-sep" aria-hidden="true">/</span>
+            <span>Deep Learning &amp; Time-Series</span>
+            <span className="kicker-sep" aria-hidden="true">/</span>
+            <span>Enterprise RAG &amp; LLMOps</span>
+          </p>
+
+          <h1 id="hero-heading" className="hero-title">
+            {language === "id"
+              ? "Membangun Sistem AI Produksi yang Terukur, Terverifikasi, dan Siap Deploy."
+              : "Engineering Measurable, Grounded, Production-Ready AI Systems."}
+          </h1>
 
           <p className="hero-bio">
             {language === "id"
-              ? "Membangun sistem AI produksi dari riset hingga deployment: Sistem Enterprise RAG berbahasa Indonesia dengan Hybrid Retrieval (pgvector + RRF), pemodelan Deep Learning time-series (BiLSTM + Attention, 94.46% blind test accuracy), arsitektur Computer Vision CNN, dan sistem multi-agent otonom."
-              : "Building production-grade AI systems from research to edge deployment: Indonesian Enterprise RAG with Hybrid Retrieval (pgvector + RRF), Deep Learning time-series modeling (BiLSTM + Attention with 94.46% blind test accuracy), Computer Vision CNN, and autonomous multi-agent pipelines."}
+              ? "Galih Putra Pratama merancang pipeline AI end-to-end dari eksperimen model hingga microservice terdistribusi: Hybrid RAG berbahasa Indonesia (pgvector + RRF, Recall@5 98%), klasifikasi tren pasar modal BiLSTM + Multi-Head Attention (akurasi blind test 94.46%), Computer Vision EfficientNetV2 di Docker, serta integrasi Google Gemini API."
+              : "Galih Putra Pratama architects end-to-end AI pipelines from model research to distributed microservices: Indonesian Hybrid RAG (pgvector + RRF, 98% Recall@5), BiLSTM + Multi-Head Attention equity trend classification (94.46% blind test accuracy), Dockerized EfficientNetV2 Computer Vision, and Google Gemini API workflows."}
           </p>
 
           <div className="hero-cta-group">
-            <a
-              href="https://smart-invest-app-git-main-helmi-azkias-projects.vercel.app/"
-              target="_blank"
-              rel="noreferrer"
-              className="primary-btn"
-              onClick={playClickSound}
-            >
-              <Sparkles size={16} />
-              <span>{language === "id" ? "Live Demo SmartInvest" : "Launch SmartInvest"}</span>
-              <ArrowUpRight size={18} />
-            </a>
-
             <button
-              className="secondary-btn"
+              type="button"
+              className="primary-btn"
               onClick={() => handleScrollTo("projects")}
             >
-              <span>{language === "id" ? "Lihat Semua Proyek" : "View All Projects"}</span>
+              <Terminal size={17} aria-hidden="true" />
+              <span>
+                {language === "id"
+                  ? "Eksplorasi 4 Sistem Flagship"
+                  : "Explore 4 Flagship Systems"}
+              </span>
             </button>
 
             <button
+              type="button"
               className="secondary-btn"
               onClick={() => {
                 playClickSound();
                 if (onViewDocument) onViewDocument("assets/documents/CV_Galih_Putra_Pratama_ATS.pdf");
               }}
             >
-              <FileText size={16} />
-              <span>{language === "id" ? "Unduh CV" : "View CV / Resume"}</span>
+              <FileText size={16} aria-hidden="true" />
+              <span>{language === "id" ? "Buka CV ATS (PDF)" : "Read ATS Resume (PDF)"}</span>
             </button>
           </div>
 
-          {/* Key Metrics / Technical Benchmarks */}
-          <div className="hero-stats-bar">
+          {/* 3 Verifiable Engineering Benchmarks */}
+          <dl className="hero-stats-bar" aria-label={language === "id" ? "Metrik rekayasa terverifikasi" : "Verified engineering benchmarks"}>
             <div className="stat-item">
-              <span className="stat-value accent">94.46%</span>
-              <span className="stat-label">
-                {language === "id" ? "Akurasi Blind Test Model" : "Blind Test Model Accuracy"}
-              </span>
+              <dt className="stat-label">
+                {language === "id" ? "Blind Test Emiten LQ45 (BiLSTM+Attention)" : "LQ45 Blind Test (BiLSTM+Attention)"}
+              </dt>
+              <dd className="stat-value accent">94.46%</dd>
+              <span className="stat-meta">Macro F1: 93.00% (15-Day Window)</span>
             </div>
 
             <div className="stat-item">
-              <span className="stat-value cyan">RRF + RAG</span>
-              <span className="stat-label">
-                {language === "id" ? "Hybrid Vector Retrieval" : "pgvector Hybrid Retrieval"}
-              </span>
+              <dt className="stat-label">
+                {language === "id" ? "Hybrid Retrieval NusaPolicy (50 Uji)" : "NusaPolicy Hybrid Retrieval (50 Tests)"}
+              </dt>
+              <dd className="stat-value accent">98.0%</dd>
+              <span className="stat-meta">Recall@5 (pgvector + FTS RRF)</span>
             </div>
 
             <div className="stat-item">
-              <span className="stat-value">19+</span>
-              <span className="stat-label">
-                {language === "id" ? "Repositori GitHub Publik" : "Public GitHub Repositories"}
-              </span>
+              <dt className="stat-label">
+                {language === "id" ? "Akademik & Sertifikasi Nasional" : "Academic & National Credential"}
+              </dt>
+              <dd className="stat-value">3.72 / 4.00</dd>
+              <span className="stat-meta">S.Kom. Cumlaude &bull; BNSP Verified</span>
             </div>
-
-            <div className="stat-item">
-              <span className="stat-value accent">3.72</span>
-              <span className="stat-label">
-                {language === "id" ? "IPK Cumlaude (UDINUS)" : "Cumlaude GPA (Informatics)"}
-              </span>
-            </div>
-          </div>
+          </dl>
         </div>
 
-        {/* Right Column: AI Engineer Profile Card */}
-        <div className="hero-profile-card glass-card js-reveal">
+        {/* Right Column: Engineering Identity Dossier Card */}
+        <aside className="hero-profile-card surface-card" aria-label="Galih Putra Pratama Dossier">
           <div className="profile-img-container">
             <img
               src="assets/images/foto_profil.jpeg"
-              alt="Galih Putra Pratama"
+              alt="Galih Putra Pratama, AI Engineer"
+              width="280"
+              height="280"
+              fetchPriority="high"
               onError={(e) => {
                 e.target.src = "https://avatars.githubusercontent.com/u/186676889?v=4";
               }}
             />
             <div className="profile-badge-overlay">
               <span className="badge-label">
-                <ShieldCheck size={14} />
+                <ShieldCheck size={14} aria-hidden="true" />
                 <span>BNSP Associate Data Scientist</span>
               </span>
-              <span className="badge-verified">Verified</span>
+              <span className="badge-verified">MET.0001.000325</span>
             </div>
           </div>
 
-          <h3 className="profile-card-name">Galih Putra Pratama</h3>
+          <h2 className="profile-card-name">Galih Putra Pratama</h2>
           <p className="profile-card-role">
-            {language === "id" ? "Teknik Informatika • UDINUS" : "Informatics Engineering • UDINUS"}
+            {language === "id"
+              ? "S.Kom. Teknik Informatika (Cumlaude) • UDINUS"
+              : "B.Comp.Sc. Informatics Engineering (Cumlaude) • UDINUS"}
           </p>
 
-          <div className="profile-tech-chips">
-            <span className="skill-chip chip-primary">FastAPI</span>
-            <span className="skill-chip chip-primary">pgvector</span>
+          <div className="profile-highlights-list">
+            <div className="profile-highlight-row">
+              <CheckCircle2 size={14} className="highlight-icon" aria-hidden="true" />
+              <span>
+                {language === "id"
+                  ? "Ketua Tim Capstone AI SmartInvest (DBS Foundation)"
+                  : "SmartInvest AI Capstone Team Lead (DBS Foundation)"}
+              </span>
+            </div>
+            <div className="profile-highlight-row">
+              <CheckCircle2 size={14} className="highlight-icon" aria-hidden="true" />
+              <span>
+                {language === "id"
+                  ? "Penulis Pertama Jurnal JURIKTI (DOI Terverifikasi)"
+                  : "First Author in JURIKTI Journal (DOI Verified)"}
+              </span>
+            </div>
+          </div>
+
+          <div className="profile-tech-chips" aria-label="Core technical stack">
             <span className="skill-chip chip-primary">Python</span>
-            <span className="skill-chip chip-cyan">TensorFlow</span>
-            <span className="skill-chip chip-cyan">PyTorch</span>
-            <span className="skill-chip">Next.js</span>
+            <span className="skill-chip chip-primary">FastAPI</span>
+            <span className="skill-chip chip-primary">pgvector + RRF</span>
+            <span className="skill-chip">TensorFlow / Keras</span>
+            <span className="skill-chip">Google Gemini API</span>
+            <span className="skill-chip">React 19 / Next.js</span>
             <span className="skill-chip">Docker</span>
             <span className="skill-chip">Qiskit</span>
           </div>
 
-          <div style={{ display: "flex", gap: "10px", width: "100%", justifyContent: "center" }}>
+          <div className="profile-card-footer">
             <a
               href="https://github.com/User-Galih"
               target="_blank"
               rel="noreferrer"
-              className="card-action-btn btn-github"
-              style={{ padding: "8px 16px" }}
+              className="card-action-btn btn-github-full"
               onClick={playClickSound}
             >
-              <GithubIcon size={14} />
+              <GithubIcon size={15} />
               <span>github.com/User-Galih</span>
             </a>
           </div>
-        </div>
+        </aside>
       </div>
     </section>
   );

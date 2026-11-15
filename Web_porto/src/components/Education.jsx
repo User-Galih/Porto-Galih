@@ -1,17 +1,17 @@
 import React from "react";
 import { useLanguage } from "../context/LanguageContext";
 import { playClickSound } from "../utils/audio";
-import { GraduationCap, Award, FileText, BookOpen, ExternalLink } from "lucide-react";
+import { Award, BookOpen, ExternalLink, ShieldCheck } from "lucide-react";
 
-export const Education = ({ onViewDocument }) => {
+export const Education = () => {
   const { language } = useLanguage();
 
   const uDinus = {
     institution_id: "Universitas Dian Nuswantoro (UDINUS)",
     institution_en: "Universitas Dian Nuswantoro (UDINUS)",
-    degree_id: "Sarjana Komputer (S.Kom.) — Teknik Informatika",
-    degree_en: "Bachelor of Computer Science (B.Comp.Sc.) — Informatics Engineering",
-    period: "Agustus 2022 - 2026",
+    degree_id: "Sarjana Komputer (S.Kom.) - Teknik Informatika",
+    degree_en: "Bachelor of Computer Science (B.Comp.Sc.) - Informatics Engineering",
+    period: "2022 - 2026",
     gpa: "3.72 / 4.00",
     honors_id: "Lulus dengan Predikat Pujian (Cumlaude)",
     honors_en: "Graduated with Honors (Cumlaude)",
@@ -29,32 +29,30 @@ export const Education = ({ onViewDocument }) => {
   };
 
   return (
-    <section id="education" className="education-section container">
-      <div className="section-header js-reveal">
-        <div className="section-tag">
-          <GraduationCap size={13} />
-          <span>{language === "id" ? "Latar Belakang Akademik" : "Academic Background"}</span>
-        </div>
-        <h2 className="section-title">
-          {language === "id" ? "Pendidikan & Riset Komputasi" : "Education & Academic Research"}
+    <section id="education" className="education-section container" aria-labelledby="education-heading">
+      <div className="section-header">
+        <h2 id="education-heading" className="section-title">
+          {language === "id"
+            ? "Pendidikan Akademik & Publikasi Ilmiah"
+            : "Academic Education & Peer-Reviewed Publication"}
         </h2>
         <p className="section-subtitle">
           {language === "id"
-            ? "Fondasi teoretis yang kuat dalam algoritma, matematika diskrit, machine learning, dan arsitektur sistem perangkat lunak."
-            : "Strong theoretical foundations in algorithmic complexity, discrete mathematics, deep learning, and software architectures."}
+            ? "Fondasi akademis Teknik Informatika dengan predikat Cumlaude serta kontribusi riset terpublikasi pada jurnal ilmiah nasional."
+            : "Informatics Engineering foundation graduated Cumlaude alongside published computer vision research."}
         </p>
       </div>
 
-      <div className="exp-grid">
-        <div className="exp-card glass-card js-reveal">
+      <div className="edu-two-col-grid">
+        <article className="exp-card surface-card">
           <div className="exp-card-header">
             <div>
-              <div style={{ display: "flex", gap: "10px", alignItems: "center", marginBottom: "8px" }}>
+              <div className="edu-badges-row">
                 <span className="edu-stat-badge">
-                  <Award size={14} />
+                  <Award size={14} aria-hidden="true" />
                   <span>IPK {uDinus.gpa}</span>
                 </span>
-                <span className="section-tag" style={{ margin: 0, padding: "4px 12px", fontSize: "0.75rem" }}>
+                <span className="category-tag">
                   {language === "id" ? uDinus.honors_id : uDinus.honors_en}
                 </span>
               </div>
@@ -74,66 +72,69 @@ export const Education = ({ onViewDocument }) => {
 
           <ul className="exp-bullets">
             <li>
-              <strong>{language === "id" ? "Fokus Studi: " : "Specialization: "}</strong>
+              <strong>{language === "id" ? "Fokus Spesialisasi: " : "Specialization: "}</strong>
               {language === "id"
-                ? "Kecerdasan Buatan (Artificial Intelligence), Deep Learning, Computer Vision, Algoritma & Struktur Data, serta Rekayasa Perangkat Lunak Terdistribusi."
-                : "Artificial Intelligence, Deep Learning architectures, Computer Vision, Data Structures & Algorithms, and Distributed Systems."}
+                ? "Kecerdasan Buatan (Artificial Intelligence), Arsitektur Deep Learning, Computer Vision, Struktur Data & Algoritma, serta Sistem Terdistribusi."
+                : "Artificial Intelligence, Deep Learning Architectures, Computer Vision, Data Structures & Algorithms, and Distributed Systems."}
             </li>
             <li>
-              <strong>{language === "id" ? "Riset Tugas Akhir: " : "Undergraduate Thesis: "}</strong>
+              <strong>{language === "id" ? "Skripsi / Tugas Akhir: " : "Undergraduate Thesis: "}</strong>
               {language === "id" ? uDinus.thesis_id : uDinus.thesis_en}
             </li>
             <li>
-              <strong>{language === "id" ? "Aktivitas Akademik: " : "Academic Activities: "}</strong>
+              <strong>{language === "id" ? "Eksplorasi Riset: " : "Research Explorations: "}</strong>
               {language === "id"
-                ? "Aktif dalam penelitian implementasi komputasi cerdas, eksplorasi komputasi kuantum (QNN), dan pengembangan solusi AI terapan."
-                : "Active in intelligent computing research, quantum machine learning (QNN) exploration, and production AI application deployment."}
+                ? "Penerapan Quantum Neural Networks (8-Qubit Qiskit), ekstraksi fitur citra SIFT vs AKAZE, serta deployment sistem RAG dan Deep Learning ke lingkungan produksi."
+                : "Applied Quantum Neural Networks (8-Qubit Qiskit), SIFT vs AKAZE feature extraction benchmarking, and production RAG/Deep Learning deployment."}
             </li>
           </ul>
 
-          <div style={{ marginTop: "24px", paddingTop: "20px", borderTop: "1px solid var(--border-subtle)", display: "flex", alignItems: "center", justifyContent: "space-between", flexWrap: "wrap", gap: "16px" }}>
-            <button
-              className="primary-btn btn-sm"
-              onClick={() => {
-                playClickSound();
-                if (onViewDocument) onViewDocument("assets/documents/Transkrip_Nilai.pdf");
-              }}
-            >
-              <FileText size={15} />
-              <span>{language === "id" ? "Lihat Transkrip Nilai Resmi (PDF)" : "View Official Transcript (PDF)"}</span>
-            </button>
-
-            <span style={{ fontSize: "0.82rem", color: "var(--text-muted)", fontFamily: "var(--font-mono)" }}>
-              Dian Nuswantoro University • Semarang, Indonesia
+          <div className="edu-card-footer">
+            <span className="edu-verified-note">
+              <ShieldCheck size={15} style={{ color: "var(--accent-primary)" }} aria-hidden="true" />
+              <span>
+                {language === "id"
+                  ? "Kredensial Akademik Terverifikasi • Semarang, Indonesia"
+                  : "Verified Academic Record • Semarang, Indonesia"}
+              </span>
             </span>
           </div>
-        </div>
+        </article>
 
-        <div className="exp-card glass-card js-reveal">
+        <article className="exp-card surface-card">
           <div className="exp-card-header">
             <div>
-              <span className="section-tag" style={{ margin: 0, padding: "4px 12px", fontSize: "0.75rem", marginBottom: "8px" }}>
-                {language === "id" ? "Publikasi ilmiah" : "Peer-reviewed publication"}
-              </span>
+              <div className="edu-badges-row">
+                <span className="edu-stat-badge">
+                  <BookOpen size={14} aria-hidden="true" />
+                  <span>{language === "id" ? "Penulis Pertama (First Author)" : "First Author"}</span>
+                </span>
+                <span className="category-tag">ISSN 2963-0169</span>
+              </div>
+
               <h3 className="exp-role-title">
                 {language === "id" ? publication.title_id : publication.title_en}
               </h3>
               <p className="exp-company-name">{publication.venue}</p>
             </div>
             <div className="exp-period-badge">
-              <BookOpen size={13} style={{ display: "inline", marginRight: "6px" }} />
               <span>Jan 2026</span>
             </div>
           </div>
 
           <ul className="exp-bullets">
             <li>
-              <strong>{language === "id" ? "Peran: " : "Role: "}</strong>
-              {language === "id" ? "Penulis pertama." : "First author."}
+              <strong>{language === "id" ? "Kontribusi Riset: " : "Research Contribution: "}</strong>
+              {language === "id"
+                ? "Mengevaluasi secara kuantitatif ketahanan skala, rotasi, kepadatan keypoint, dan kecepatan komputasi antara algoritma SIFT (DoG) dan AKAZE (Fast Explicit Diffusion) pada NIST facial dataset."
+                : "Quantitatively benchmarked scale/rotation invariance, keypoint density, and execution speed between SIFT (DoG) and AKAZE (Fast Explicit Diffusion) across the NIST facial dataset."}
             </li>
-            <li>{publication.meta}</li>
             <li>
-              DOI:{" "}
+              <strong>{language === "id" ? "Identitas Jurnal: " : "Publication Metadata: "}</strong>
+              {publication.meta}
+            </li>
+            <li>
+              <strong>DOI: </strong>
               <a
                 className="publication-link"
                 href={publication.url}
@@ -146,7 +147,7 @@ export const Education = ({ onViewDocument }) => {
             </li>
           </ul>
 
-          <div style={{ marginTop: "24px", paddingTop: "20px", borderTop: "1px solid var(--border-subtle)" }}>
+          <div className="edu-card-footer">
             <a
               className="primary-btn btn-sm"
               href={publication.url}
@@ -154,11 +155,11 @@ export const Education = ({ onViewDocument }) => {
               rel="noreferrer"
               onClick={playClickSound}
             >
-              <ExternalLink size={15} />
-              <span>{language === "id" ? "Buka artikel (DOI)" : "Open paper (DOI)"}</span>
+              <ExternalLink size={15} aria-hidden="true" />
+              <span>{language === "id" ? "Verifikasi Publikasi Jurnal (DOI)" : "Verify Journal Publication (DOI)"}</span>
             </a>
           </div>
-        </div>
+        </article>
       </div>
     </section>
   );

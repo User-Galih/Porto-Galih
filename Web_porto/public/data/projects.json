@@ -1,5 +1,316 @@
 [
   {
+    "id": "smartinvest-ecosystem",
+    "title_id": "SmartInvest Unified AI Ecosystem",
+    "title_en": "SmartInvest Unified AI Ecosystem",
+    "subtitle_id": "Arsitektur Terpadu: Deep Learning BiLSTM+Attention, Kuantitatif MPT, Multi-Agent Copilot & Microservices",
+    "subtitle_en": "Unified Architecture: BiLSTM+Attention Deep Learning, Quantitative MPT, Multi-Agent Copilot & Microservices",
+    "description_id": "Arsitektur produksi terpadu yang menyatukan klasifikasi tren jangka pendek IHSG & LQ45 berbasis BiLSTM + Multi-Head Attention (akurasi blind test 94.46%), alokasi modal optimal Modern Portfolio Theory (SciPy SLSQP), dan agen otonom analisis sentimen pasar ke dalam platform microservice FastAPI, React 19, dan Google Gemini API.",
+    "description_en": "Unified production architecture combining short-term IHSG & LQ45 trend classification via BiLSTM + Multi-Head Attention (94.46% blind test accuracy), Modern Portfolio Theory capital allocation (SciPy SLSQP), and autonomous market sentiment agents into a distributed FastAPI, React 19, and Google Gemini API platform.",
+    "blueprint": {
+      "function_id": "Input nominal modal, profil risiko, dan ticker saham LQ45/IDX30 -> Scraper yfinance (dynamic header spoofing) + BI Rate -> Ekstraksi 11 Indikator Teknikal (15-day window) -> BiLSTM + Multi-Head Attention Classifier + SciPy SLSQP Portfolio Optimizer + Multi-Agent Gemini Synthesis -> Output sinyal tren 3-kelas, alokasi Rupiah per saham, dan analisis risiko di Supabase.",
+      "function_en": "Capital input, risk profile, and LQ45/IDX30 tickers -> yfinance Scraper (header spoofing) + Central Bank Rate -> 11 Technical Indicators (15-day window) -> BiLSTM + Multi-Head Attention Classifier + SciPy SLSQP Optimizer + Multi-Agent Gemini Synthesis -> 3-class trend signal, exact capital weights, and risk thesis persisted in Supabase.",
+      "utility_id": "Memangkas waktu riset teknikal dan perhitungan pembagian porsi modal (position sizing) dari 2-3 jam analisis spreadsheet manual menjadi kurang dari 4 detik, membantu investor ritel menghindari keputusan beli impulsif (FOMO).",
+      "utility_en": "Cuts manual technical charting and quantitative position-sizing calculations from 2-3 hours of spreadsheet work to under 4 seconds, helping retail investors avoid impulsive FOMO trades.",
+      "target_id": "Investor ritel pasar modal Indonesia (fokus saham blue-chip LQ45 & IDX30), analis riset ekuitas junior, dan peserta edukasi pasar modal.",
+      "target_en": "Indonesian retail equity investors (focusing on LQ45 & IDX30 blue-chip stocks), junior equity analysts, and capital market learners.",
+      "layman_proof_id": [
+        "Sinyal Cuaca Pasar 3-Warna: Menampilkan status tegas Bullish (Naik), Sideways (Stabil), atau Bearish (Turun) beserta persentase keyakinan model tanpa perlu membaca grafik indikator rumit.",
+        "Simulasi Pembagian Rupiah Otomatis: Masukkan modal (misal Rp 10.000.000), sistem otomatis memecah nominal Rupiah ke tiap saham sesuai profil risiko (total terverifikasi 100%).",
+        "Alasan Transparan (Explainable AI): Setiap porsi saham disertai penjelasan bahasa manusia mengapa saham tersebut mendapat bobot terbesar berdasarkan tren 15 hari terakhir dan volatilitas historis."
+      ],
+      "layman_proof_en": [
+        "3-State Traffic-Light Signal: Displays clear Bullish, Sideways, or Bearish verdicts with model confidence scores so users do not have to decipher complex indicator charts.",
+        "Exact Capital Split Simulation: Enter any capital amount (e.g., IDR 10,000,000) and immediately see the exact currency allocation per stock tailored to your risk profile (verified 100% sum).",
+        "Plain-Language Rationale: Every stock weight includes a clear explanation of why it received its allocation based on 15-day momentum and historical volatility."
+      ],
+      "eval_metrics": [
+        {
+          "component": "Emiten Trend Model (LQ45/IDX30)",
+          "baseline": "Vanilla LSTM (15-Day): ~86.2% Acc",
+          "optimized": "BiLSTM + Multi-Head Attention: 94.46% Acc",
+          "secondary": "Macro F1: 93.00% (Blind Test)"
+        },
+        {
+          "component": "IHSG Macro Trend Model (3-Class)",
+          "baseline": "Single-Layer LSTM: ~83.5% Acc",
+          "optimized": "BiLSTM + Multi-Head Attention: 92.64% Acc",
+          "secondary": "Macro F1: 90.39% (Sideways F1: 80.00%)"
+        },
+        {
+          "component": "Quant Optimizer (MVEP / SIM / CAPM)",
+          "baseline": "Equal-Weight Allocation",
+          "optimized": "SciPy SLSQP Max Sharpe Ratio",
+          "secondary": "Validated via SciPy Paired t-Test (5Y Data)"
+        }
+      ],
+      "submodules": [
+        {
+          "id": "smartinvest-ai",
+          "label_id": "Modul 1: AI Engineering (BiLSTM + Attention)",
+          "label_en": "Module 1: AI Engineering (BiLSTM + Attention)",
+          "repo": "User-Galih/SmartInvest-App"
+        },
+        {
+          "id": "smartinvest-ds",
+          "label_id": "Modul 2: Data Science (Kuantitatif MPT)",
+          "label_en": "Module 2: Data Science (Quantitative MPT)",
+          "repo": "User-Galih/SmartInvest-App"
+        },
+        {
+          "id": "smartinvest-agent-system",
+          "label_id": "Modul 3: Autonomous Multi-Agent Copilot",
+          "label_en": "Module 3: Autonomous Multi-Agent Copilot",
+          "repo": "User-Galih/SmartInvest-Agent-BE"
+        },
+        {
+          "id": "smartinvest-fs",
+          "label_id": "Modul 4: Fullstack Distributed Platform",
+          "label_en": "Module 4: Fullstack Distributed Platform",
+          "repo": "User-Galih/SmartInvest-App"
+        }
+      ]
+    },
+    "architecture_id": "<div class='model-arch-block'><h4>1. Deep Learning Time-Series Engine (BiLSTM + Multi-Head Attention)</h4><ul><li><b>Model Emiten Individu (LQ45/IDX30):</b> Arsitektur Bidirectional LSTM + Multi-Head Attention pada jendela sekuensial 15 hari x 11 indikator teknikal. Mencapai <b>94.46% Blind Test Accuracy</b> dan <b>93% Macro F1-Score</b> (<code>smartinvest_best_model_3class.keras.zip</code>).</li><li><b>Model Indeks Makro IHSG:</b> Mencapai <b>92.64% Blind Test Accuracy</b> dan <b>90.39% Macro F1-Score</b> (F1 kelas Sideways: 80.00%, <code>ihsg_best_model_3class.keras</code>).</li></ul></div><div class='model-arch-block'><h4>2. Quantitative Portfolio Optimization (Data Science)</h4><ul><li><b>Algoritma:</b> Mean-Variance Efficient Portfolio (MVEP) via <code>SciPy SLSQP</code> untuk memaksimalkan Sharpe Ratio, Single Index Model (SIM), dan CAPM berbasis sensitivitas Beta pada distribusi return 5 tahun.</li><li><b>Validasi Statistik:</b> Uji statistik berpasangan (paired t-test) via SciPy untuk menjamin konsistensi formula kuantitatif.</li></ul></div><div class='model-arch-block'><h4>3. Multi-Agent Financial Copilot & Fullstack Microservices</h4><ul><li><b>Autonomous Agents:</b> News Sentiment Scraper Agent, Technical Indicator Calculator Agent, dan Portfolio Synthesizer Agent (FastAPI + Google Gemini API).</li><li><b>Orkestrasi Platform:</b> React 19 + Tailwind CSS frontend, Node.js Express Gateway, FastAPI Microservices, real-time BI Rate scraper, dan penyimpanan otomatis Supabase (PostgreSQL) dengan kebijakan rotasi 20-record FIFO.</li></ul></div>",
+    "architecture_en": "<div class='model-arch-block'><h4>1. Deep Learning Time-Series Engine (BiLSTM + Multi-Head Attention)</h4><ul><li><b>Individual Stock Model (LQ45/IDX30):</b> Bidirectional LSTM + Multi-Head Attention over a 15-day sequential window x 11 technical indicators. Achieves <b>94.46% Blind Test Accuracy</b> and <b>93% Macro F1-Score</b> (<code>smartinvest_best_model_3class.keras.zip</code>).</li><li><b>IHSG Macro Index Model:</b> Achieves <b>92.64% Blind Test Accuracy</b> and <b>90.39% Macro F1-Score</b> (Sideways F1: 80.00%, <code>ihsg_best_model_3class.keras</code>).</li></ul></div><div class='model-arch-block'><h4>2. Quantitative Portfolio Optimization (Data Science)</h4><ul><li><b>Algorithms:</b> Mean-Variance Efficient Portfolio (MVEP) via <code>SciPy SLSQP</code> maximizing Sharpe Ratio, Single Index Model (SIM), and defensive Beta-based CAPM over 5-year historical return distributions.</li><li><b>Statistical Validation:</b> Relational paired t-test validation via SciPy guaranteeing formula consistency.</li></ul></div><div class='model-arch-block'><h4>3. Multi-Agent Financial Copilot & Fullstack Microservices</h4><ul><li><b>Autonomous Agents:</b> News Sentiment Scraper Agent, Technical Indicator Calculator Agent, and Portfolio Synthesizer Agent (FastAPI + Google Gemini API).</li><li><b>Platform Orchestration:</b> React 19 + Tailwind CSS client, Node.js Express Gateway, FastAPI Microservices, live Central Bank (BI Rate) scraper, and Supabase (PostgreSQL) persistence with 20-record FIFO rotation.</li></ul></div>",
+    "tools": [
+      "Python",
+      "TensorFlow / Keras",
+      "BiLSTM + Attention",
+      "FastAPI",
+      "Google Gemini API",
+      "SciPy / PyPortfolioOpt",
+      "React 19",
+      "TypeScript",
+      "Supabase PostgreSQL",
+      "Docker"
+    ],
+    "github_repo": "User-Galih/SmartInvest-App",
+    "demo_url": "https://smart-invest-app-git-main-helmi-azkias-projects.vercel.app/",
+    "evaluation_images": [
+      {
+        "title_id": "Confusion Matrix: Model Rekomendasi IHSG (Tren Pasar Makro)",
+        "title_en": "Confusion Matrix: IHSG Recommendation Model (Macro Market Trend)",
+        "description_id": "Mengklasifikasikan pergerakan IHSG ke dalam 3 kelas (Bullish, Bearish, Sideways) pada jendela sekuensial 15 hari perdagangan (Akurasi Blind Test: 92.64%).",
+        "description_en": "Classifies IHSG composite movements into 3 classes (Bullish, Bearish, Sideways) using 15-day sequential market data (92.64% Blind Test Accuracy).",
+        "url": "assets/projects/project_1/images/evaluation_model_rekomendasi.png"
+      },
+      {
+        "title_id": "Confusion Matrix: Model Analisis Emiten (Saham Individual LQ45/IDX30)",
+        "title_en": "Confusion Matrix: Stock Analysis Model (Individual Emitents LQ45/IDX30)",
+        "description_id": "Mengklasifikasikan pergerakan saham emiten individu LQ45/IDX30 dengan akurasi blind test sebesar 94.46% dan Macro F1 93%.",
+        "description_en": "Classifies individual stock ticker movements (LQ45/IDX30 constituents) with 94.46% blind test accuracy and 93% Macro F1.",
+        "url": "assets/projects/project_1/images/evaluation_model_analisis.png"
+      }
+    ],
+    "folder_name": "Project_12_SmartInvest_Ecosystem",
+    "video_url": "https://www.youtube.com/watch?v=Fi9alw-M8DI",
+    "presentation_url": "assets/projects/project_1/documents/PPT SMARTINVEST.pdf",
+    "guide_url": "assets/projects/project_1/documents/USER GUIDE SMARTINVEST.pdf",
+    "category": "deep-learning",
+    "featured": true,
+    "highlight_metric": "94.46% Blind Test Acc • 93% Macro F1 • BiLSTM + MPT + Multi-Agent",
+    "priority": 1,
+    "preserve_submodules": [
+      "smartinvest-ai",
+      "smartinvest-ds",
+      "smartinvest-fs",
+      "smartinvest-agent-system"
+    ],
+    "flagship": false
+  },
+  {
+    "id": "nusapolicy-copilot",
+    "category": "rag-llm",
+    "featured": true,
+    "highlight_metric": "Recall@5: 98% • 50 Golden Tests • Zero Hallucination Refusal",
+    "title_id": "NusaPolicy Copilot  -  Indonesian RAG Policy Assistant",
+    "title_en": "NusaPolicy Copilot  -  Indonesian RAG Policy Assistant",
+    "subtitle_id": "Sistem RAG End-to-End dengan Hybrid Retrieval (RRF + pgvector), Sitasi Terverifikasi & Safe Refusal",
+    "subtitle_en": "End-to-End Indonesian RAG Copilot with Hybrid Retrieval, Verified Citations & Safe Refusal",
+    "description_id": "Sistem Retrieval-Augmented Generation (RAG) end-to-end berbahasa Indonesia tingkat enterprise untuk pencarian dan pemahaman kebijakan internal perusahaan. Menggabungkan hybrid semantic vector similarity (pgvector) dan keyword search (PostgreSQL FTS) dengan Reciprocal Rank Fusion (RRF), penolakan aman (safe refusal) berbasis threshold bukti, evaluasi terukur (Golden Eval Suite 50 kasus), serta tracing latensi dan token LLMOps.",
+    "description_en": "Enterprise-grade end-to-end Indonesian Retrieval-Augmented Generation (RAG) system for internal company policy querying. Features hybrid semantic search (pgvector) fused with PostgreSQL full-text keyword search via Reciprocal Rank Fusion (RRF), threshold-based safe refusal against out-of-scope hallucinations, a 50-test golden evaluation suite, and production LLMOps telemetry.",
+    "blueprint": {
+      "function_id": "Pertanyaan bahasa Indonesia -> Query Normalization -> Hybrid Search (pgvector Cosine HNSW + PostgreSQL Indonesian FTS) -> Reciprocal Rank Fusion (RRF) -> Confidence Threshold Gate -> Google Gemini API Grounded Generation dengan sitasi nomor pasal & tautan PDF asli.",
+      "function_en": "Indonesian policy query -> Query Normalization -> Hybrid Search (pgvector Cosine HNSW + PostgreSQL Indonesian FTS) -> Reciprocal Rank Fusion (RRF) -> Confidence Threshold Gate -> Google Gemini API Grounded Generation with inline clause citations & source PDF preview.",
+      "utility_id": "Mempercepat pencarian aturan HR, Legal, dan SOP internal dari rata-rata 15-20 menit membaca PDF manual menjadi kurang dari 3 detik, sekaligus mengeliminasi risiko salah tafsir kebijakan akibat halusinasi LLM.",
+      "utility_en": "Reduces internal HR, Legal, and SOP document lookup time from 15-20 minutes of manual PDF reading to under 3 seconds while eliminating compliance risks caused by ungrounded LLM hallucinations.",
+      "target_id": "Divisi HR, Legal & Compliance, serta karyawan perusahaan menengah-besar di Indonesia yang memiliki ratusan dokumen PKB/SOP.",
+      "target_en": "HR teams, Legal & Compliance officers, and employees at Indonesian enterprises managing hundreds of internal SOP and regulatory documents.",
+      "layman_proof_id": [
+        "Klik Sitasi Langsung ke PDF: Setiap klaim jawaban memiliki lencana sitasi (misal: Pasal 14 Ayat 2) yang membuka dokumen PDF asli tepat di halaman sumber.",
+        "Uji Jebakan Anti-Halusinasi (Safe Refusal): Jika ditanya hal di luar dokumen perusahaan, sistem menolak menjawab secara tegas dan sopan, bukan mengarang jawaban.",
+        "Transparansi Skor Bukti: Pengguna dapat melihat potongan teks asli (retrieved chunks) yang menjadi dasar jawaban AI."
+      ],
+      "layman_proof_en": [
+        "One-Click PDF Citation Verification: Every answer sentence includes a clause badge (e.g., Article 14 Clause 2) that opens the authentic source PDF page directly.",
+        "Out-of-Scope Trap Test (Safe Refusal): When asked questions outside the uploaded policy corpus, the system deterministically refuses to answer rather than fabricating rules.",
+        "Evidence Transparency Drawer: Users can inspect the exact retrieved paragraphs and relevance scores behind every response."
+      ],
+      "eval_metrics": [
+        {
+          "component": "Retrieval Recall@5 (50 Golden Queries)",
+          "baseline": "Dense Vector Only (pgvector): ~82%",
+          "optimized": "Hybrid RRF (pgvector + FTS): 98.0%",
+          "secondary": "Exact clause & acronym matching solved via FTS"
+        },
+        {
+          "component": "Hallucination & Safe Refusal Gate",
+          "baseline": "Unconstrained LLM Prompting",
+          "optimized": "Evidence Threshold Gate + Strict Citation",
+          "secondary": "100% Safe Refusal on adversarial/out-of-scope tests"
+        },
+        {
+          "component": "Observability & Telemetry",
+          "baseline": "No request tracing",
+          "optimized": "PostgreSQL Telemetry Middleware",
+          "secondary": "Tracks latency (ms), token count, and citation hits"
+        }
+      ]
+    },
+    "architecture_id": "<div class=\"model-arch-block\"><h4 style=\"color: #10b981; font-size: 14px; margin-bottom: 8px; font-weight: 700;\">1. Hybrid Retrieval Engine (RRF + pgvector + PostgreSQL FTS)</h4><ul><li><b>Vector Similarity:</b> Embedding semantik disimpan dalam PostgreSQL 16 dengan ekstensi <code>pgvector</code> menggunakan cosine distance HNSW index.</li><li><b>Keyword Search:</b> PostgreSQL Full-Text Search (FTS) berbahasa Indonesia untuk matching akurat nomor pasal, singkatan, dan regulasi spesifik.</li><li><b>Reciprocal Rank Fusion (RRF):</b> Menggabungkan hasil ranking semantik dan keyword dengan bobot adaptif untuk menghasilkan context recall optimal (Recall@5 mencapai 98%).</li></ul></div><hr style=\"border: none; border-top: 1px solid rgba(255,255,255,0.1); margin: 12px 0;\" /><div class=\"model-arch-block\"><h4 style=\"color: #06b6d4; font-size: 14px; margin-bottom: 8px; font-weight: 700;\">2. Grounded Generation, Citations & Safe Refusal</h4><ul><li><b>Strict Citations:</b> Setiap jawaban LLM wajib menyertakan sitasi dokumen sumber spesifik hingga ke nomor pasal/paragraf.</li><li><b>Safe Refusal Mechanism:</b> Sistem menghitung threshold confidence bukti retrieval; jika bukti di bawah ambang batas, model secara otomatis menolak menjawab alih-alih berhalusinasi.</li><li><b>PDF Verifiable Source:</b> Endpoint PDF terproteksi yang memungkinkan pengguna langsung memverifikasi dokumen rujukan asli dari UI.</li></ul></div><hr style=\"border: none; border-top: 1px solid rgba(255,255,255,0.1); margin: 12px 0;\" /><div class=\"model-arch-block\"><h4 style=\"color: #a855f7; font-size: 14px; margin-bottom: 8px; font-weight: 700;\">3. Golden Evaluation Suite & LLMOps Telemetry</h4><ul><li><b>Evaluation Benchmark:</b> 50 golden test cases mencakup skenario factual, multi-policy reasoning, ambiguity, safe refusal, dan adversarial queries.</li><li><b>Tracing & Monitoring:</b> Telemetri menyeluruh mencakup tracking latensi inferensi, konsumsi token, model routing, serta umpan balik pengguna tersimpan di PostgreSQL.</li><li><b>Tech Stack:</b> Python, FastAPI, Next.js, PostgreSQL 16, pgvector, Docker, 9Router LLM Gateway.</li></ul></div>",
+    "architecture_en": "<div class=\"model-arch-block\"><h4 style=\"color: #10b981; font-size: 14px; margin-bottom: 8px; font-weight: 700;\">1. Hybrid Retrieval Engine (RRF + pgvector + PostgreSQL FTS)</h4><ul><li><b>Vector Similarity:</b> Semantic embeddings stored in PostgreSQL 16 with <code>pgvector</code> extension utilizing cosine distance HNSW indexing.</li><li><b>Keyword Search:</b> Indonesian PostgreSQL Full-Text Search (FTS) for precise matching of specific clauses, abbreviations, and regulatory numbers.</li><li><b>Reciprocal Rank Fusion (RRF):</b> Fuses dense vector and sparse keyword rankings with adaptive weighting for optimal context recall (Recall@5 reaches 98%).</li></ul></div><hr style=\"border: none; border-top: 1px solid rgba(255,255,255,0.1); margin: 12px 0;\" /><div class=\"model-arch-block\"><h4 style=\"color: #06b6d4; font-size: 14px; margin-bottom: 8px; font-weight: 700;\">2. Grounded Generation, Citations & Safe Refusal</h4><ul><li><b>Strict Citations:</b> Every LLM generation is strictly grounded and includes exact source document, section, and article references.</li><li><b>Safe Refusal Mechanism:</b> System evaluates retrieval confidence thresholds; when evidence falls below safety margins, the model refuses gracefully instead of hallucinating.</li><li><b>PDF Verifiable Source:</b> Protected PDF endpoint enabling users to inspect and verify authentic referenced documents directly in the UI.</li></ul></div><hr style=\"border: none; border-top: 1px solid rgba(255,255,255,0.1); margin: 12px 0;\" /><div class=\"model-arch-block\"><h4 style=\"color: #a855f7; font-size: 14px; margin-bottom: 8px; font-weight: 700;\">3. Golden Evaluation Suite & LLMOps Telemetry</h4><ul><li><b>Evaluation Benchmark:</b> 50 golden test cases covering factual queries, multi-policy synthesis, ambiguity, safe refusal, and adversarial prompts.</li><li><b>Tracing & Monitoring:</b> Complete telemetry logging inference latencies, token expenditures, model fallback routing, and user feedback into PostgreSQL.</li><li><b>Tech Stack:</b> Python, FastAPI, Next.js, PostgreSQL 16, pgvector, Docker, 9Router LLM Gateway.</li></ul></div>",
+    "tools": [
+      "Python",
+      "FastAPI",
+      "PostgreSQL",
+      "pgvector",
+      "Hybrid Retrieval",
+      "RRF",
+      "Next.js",
+      "Docker",
+      "Alembic",
+      "pytest",
+      "9Router LLM"
+    ],
+    "github_repo": "User-Galih/nusapolicy-copilot",
+    "demo_url": "https://nusapolicy-copilot-git-main-galih-putra-pratamas-projects.vercel.app/",
+    "folder_name": "Project_6_NusaPolicy_Copilot",
+    "priority": 2,
+    "flagship": false
+  },
+  {
+    "id": "waste-classifier",
+    "title_id": "Waste Classifier API & UI",
+    "title_en": "Waste Classifier API & UI",
+    "subtitle_id": "Klasifikasi Sampah Otomatis dengan EfficientNetV2",
+    "subtitle_en": "Automated Waste Classification with EfficientNetV2",
+    "description_id": "Aplikasi deteksi gambar untuk membedakan sampah Organik dan Anorganik secara otomatis. Bertujuan membantu digitalisasi pengelolaan sampah rumah tangga dan instansi.",
+    "description_en": "Image detection application to automatically classify Organic and Inorganic waste, designed to support waste management digitization in households and institutions.",
+    "blueprint": {
+      "function_id": "Stream Kamera WebRTC / Unggahan Citra -> Preprocessing & Normalisasi Tensor (224x224 RGB) -> Fine-Tuned EfficientNetV2 CNN Backbone -> FastAPI REST Inference Container (Docker) -> Output Kelas Sampah (Organik/Anorganik) + Skor Keyakinan + Rekomendasi Penanganan.",
+      "function_en": "WebRTC Camera Stream / Image Upload -> Tensor Preprocessing & Normalization (224x224 RGB) -> Fine-Tuned EfficientNetV2 CNN Backbone -> Dockerized FastAPI Inference Container -> Waste Category (Organic/Inorganic) + Confidence Score + Disposal Guide.",
+      "utility_id": "Mengurangi kesalahan pemilahan sampah di sumber rumah tangga dan fasilitas publik tanpa memerlukan perangkat keras sensor mahal, cukup menggunakan kamera smartphone atau webcam standar.",
+      "utility_en": "Reduces waste sorting errors at household and institutional collection points without expensive sensor hardware, operating directly on standard smartphone or webcam cameras.",
+      "target_id": "Bank sampah digital, fasilitas pengelolaan limbah kampus/instansi, dan edukasi pemilahan sampah masyarakat.",
+      "target_en": "Digital waste banks, campus/institutional recycling facilities, and public waste management programs.",
+      "layman_proof_id": [
+        "Uji Kamera Langsung (Live Camera): Arahkan kamera HP/laptop ke benda di sekitar (misal botol plastik atau sisa daun), sistem langsung menampilkan label Organik/Anorganik dalam hitungan milidetik.",
+        "Indikator Persentase Keyakinan: Menampilkan angka probabilitas yang jelas (misal: 98.4% Anorganik) sehingga pengguna tahu seberapa yakin model terhadap gambar tersebut.",
+        "Pemisahan Arsitektur Backend & UI: Antarmuka web di Vercel berkomunikasi langsung dengan container API produksi di Hugging Face Spaces."
+      ],
+      "layman_proof_en": [
+        "Instant Live Camera Test: Point any phone or laptop webcam at a plastic bottle or organic item and see the classification badge appear in real time.",
+        "Confidence Percentage Meter: Displays transparent probability scores (e.g., 98.4% Inorganic) alongside practical disposal instructions.",
+        "Decoupled Cloud Deployment: Responsive React frontend on Vercel communicating with a containerized FastAPI inference engine on Hugging Face Spaces."
+      ],
+      "eval_metrics": [
+        {
+          "component": "Feature Backbone Architecture",
+          "baseline": "Custom 3-Layer Vanilla CNN",
+          "optimized": "Fine-Tuned EfficientNetV2 (224x224)",
+          "secondary": "Superior generalization on varied lighting & backgrounds"
+        },
+        {
+          "component": "Deployment & Packaging",
+          "baseline": "Local Jupyter Notebook (.ipynb)",
+          "optimized": "Dockerized FastAPI Microservice + React SPA",
+          "secondary": "Stateless REST endpoint with CORS & Pillow validation"
+        }
+      ]
+    },
+    "architecture_id": "Model dilatih menggunakan arsitektur Convolutional Neural Network EfficientNetV2 (TensorFlow/Keras) berukuran input 224x224. Backend API dibangun menggunakan FastAPI, dikontainerisasi dengan Docker, dan dideploy pada Hugging Face Spaces. Frontend UI dibangun dengan React dan dideploy di Vercel.",
+    "architecture_en": "Model is trained using the EfficientNetV2 Convolutional Neural Network architecture (TensorFlow/Keras) with a 224x224 input size. Backend API is built using FastAPI, containerized with Docker, and deployed on Hugging Face Spaces. Frontend UI is built using React and hosted on Vercel.",
+    "tools": [
+      "Python",
+      "TensorFlow",
+      "Keras",
+      "FastAPI",
+      "Pillow",
+      "Docker",
+      "React",
+      "Tailwind CSS",
+      "JavaScript",
+      "HTML5",
+      "Node.js",
+      "CSS3"
+    ],
+    "github_repo": "User-Galih/waste-classification-api",
+    "demo_url": "https://waste-classification-ui.vercel.app/",
+    "folder_name": "Project_2",
+    "category": "deep-learning",
+    "featured": true,
+    "highlight_metric": "Production CNN • Real-Time Camera Inference",
+    "priority": 3,
+    "flagship": false
+  },
+  {
+    "id": "gprompt-workbench",
+    "category": "rag-llm",
+    "featured": false,
+    "highlight_metric": "Prompt Optimization • System Prompt Studio",
+    "title_id": "G-Prompt AI Engineering Studio",
+    "title_en": "G-Prompt AI Engineering Studio",
+    "subtitle_id": "Workbench Eksperimentasi & Optimasi Prompt untuk Pengembang LLM",
+    "subtitle_en": "Developer Workbench for Prompt Engineering, Evaluation & Optimization",
+    "description_id": "Aplikasi developer tool untuk merancang, menguji, dan membandingkan variasi prompt LLM sistematis. Membantu AI Engineer menguji ketahanan role-prompting, few-shot examples, token efficiency, dan edge-case refusal sebelum model dideploy ke produksi.",
+    "description_en": "Developer workbench application designed to formulate, test, and benchmark LLM prompt variations. Enables AI Engineers to systematically validate system prompt guardrails, few-shot distributions, token usage, and edge-case behaviors before deployment.",
+    "blueprint": {
+      "function_id": "Variasi System Prompt A & B + Variabel Template Dinamis + Test Input -> Eksekusi Paralel LLM API -> Komparasi Output Berdampingan + Kalkulasi Konsumsi Token & Estimasi Biaya.",
+      "function_en": "System Prompt Variants A & B + Dynamic Template Variables + Test Inputs -> Parallel LLM API Execution -> Side-by-Side Output Diffing + Token & Cost Profiling.",
+      "utility_id": "Menggantikan proses coba-coba prompt secara acak di chat biasa dengan pengujian A/B yang terstruktur dan terukur, menghemat waktu iterasi prompt engineering sekaligus memangkas pemborosan token.",
+      "utility_en": "Replaces ad-hoc prompt trial-and-error with structured side-by-side A/B testing, accelerating prompt engineering iterations while reducing unnecessary token usage.",
+      "target_id": "AI Engineer, LLM Application Developer, dan Prompt Engineer yang membangun fitur berbasis Google Gemini API / OpenAI SDK.",
+      "target_en": "AI Engineers, LLM Application Developers, and Prompt Engineers building production features on Google Gemini API or OpenAI-compatible SDKs.",
+      "layman_proof_id": [
+        "Layar Uji Banding Berdampingan (A vs B): Pengguna langsung melihat bagaimana perubahan 1 kalimat instruksi mengubah kualitas dan kerapian jawaban AI pada layar kiri vs kanan.",
+        "Kalkulator Token & Biaya Otomatis: Menampilkan jumlah token secara langsung sehingga mudah memahami prompt mana yang lebih hemat biaya."
+      ],
+      "layman_proof_en": [
+        "Side-by-Side A/B Comparison View: Immediately see how changing a single constraint alters response quality and structure across Variant A and Variant B.",
+        "Live Token & Cost Meter: Displays real-time token counts so anyone can verify which prompt achieves the goal with lower cost."
+      ],
+      "eval_metrics": [
+        {
+          "component": "Prompt Evaluation Workflow",
+          "baseline": "Single-turn manual chat testing",
+          "optimized": "Parallel A/B Variant Execution with Variable Injection",
+          "secondary": "Deterministic comparison on identical test inputs"
+        },
+        {
+          "component": "Token Efficiency Tracking",
+          "baseline": "Unmeasured prompt length",
+          "optimized": "Live Context Window & Cost Estimator",
+          "secondary": "Deployed at gpromt.vercel.app"
+        }
+      ]
+    },
+    "architecture_id": "<div class=\"model-arch-block\"><h4 style=\"color: #10b981; font-size: 14px; margin-bottom: 8px; font-weight: 700;\">1. Fitur Utama Workbench</h4><ul><li><b>Side-by-side Comparison:</b> Menguji dua variasi prompt secara paralel terhadap test input yang sama.</li><li><b>Token & Cost Counter:</b> Estimasi konsumsi context window dan biaya per panggilan model.</li><li><b>Template Engine:</b> Variabel dinamis untuk penyusunan prompt terstruktur.</li></ul></div>",
+    "architecture_en": "<div class=\"model-arch-block\"><h4 style=\"color: #10b981; font-size: 14px; margin-bottom: 8px; font-weight: 700;\">1. Workbench Capabilities</h4><ul><li><b>Side-by-side Comparison:</b> Parallel comparison of prompt variants against uniform test inputs.</li><li><b>Token & Cost Estimation:</b> Live context window calculation and token optimization metrics.</li><li><b>Template Engine:</b> Dynamic variable injection for structured system prompt generation.</li></ul></div>",
+    "tools": [
+      "JavaScript",
+      "React",
+      "Prompt Engineering",
+      "OpenAI API",
+      "Node.js"
+    ],
+    "github_repo": "User-Galih/gpromt",
+    "demo_url": "",
+    "folder_name": "Project_10_GPrompt",
+    "priority": 4,
+    "flagship": false
+  },
+  {
     "id": "smartinvest-ai",
     "title_id": "SmartInvest (AI Engineering)",
     "title_en": "SmartInvest (AI Engineering)",
@@ -45,6 +356,34 @@
     "featured": true,
     "highlight_metric": "94.46% Blind Test Accuracy • 93% Macro F1 • BiLSTM + Attention",
     "priority": 1
+  },
+  {
+    "id": "smartinvest-agent-system",
+    "category": "rag-llm",
+    "featured": true,
+    "highlight_metric": "Multi-Agent System • Autonomous Market Scrapers",
+    "title_id": "SmartInvest Multi-Agent Financial Copilot",
+    "title_en": "SmartInvest Multi-Agent Financial Copilot",
+    "subtitle_id": "Sistem Multi-Agent Otonom untuk Analisis Finansial, Sentimen Pasar & Portofolio",
+    "subtitle_en": "Autonomous Multi-Agent System for Financial Analysis, Sentiment & Portfolio Intelligence",
+    "description_id": "Arsitektur multi-agent otonom yang memecah riset investasi kompleks ke dalam beberapa agent terspesialisasi: News Sentiment Scraper Agent, Technical Indicator Calculator Agent, dan Portfolio Advisory Agent. Dibangun dengan backend Python FastAPI dan UI TypeScript interaktif.",
+    "description_en": "Autonomous multi-agent architecture decomposing complex financial research into specialized cooperating agents: News Sentiment Scraper, Technical Indicator Calculator, and Portfolio Advisor Agent. Built with Python FastAPI backend and responsive TypeScript UI.",
+    "architecture_id": "<div class=\"model-arch-block\"><h4 style=\"color: #10b981; font-size: 14px; margin-bottom: 8px; font-weight: 700;\">1. Sistem Multi-Agent Orchestration</h4><ul><li><b>Research Agent:</b> Scrape berita emiten IDX real-time dan analisis sentimen berita.</li><li><b>Technical Agent:</b> Menghitung moving averages, RSI, MACD, dan sinyal breakout.</li><li><b>Synthesizer Agent:</b> Menggabungkan hasil analisis multi-agent menjadi rekomendasi portofolio terstruktur.</li></ul></div><hr style=\"border: none; border-top: 1px solid rgba(255,255,255,0.1); margin: 12px 0;\" /><div class=\"model-arch-block\"><h4 style=\"color: #06b6d4; font-size: 14px; margin-bottom: 8px; font-weight: 700;\">2. Microservices Architecture</h4><ul><li><b>Backend (BE):</b> Python FastAPI dengan asynchronous agent task queue.</li><li><b>Frontend (UI):</b> TypeScript modern chat & card interface untuk interaksi dinamis pengguna.</li></ul></div>",
+    "architecture_en": "<div class=\"model-arch-block\"><h4 style=\"color: #10b981; font-size: 14px; margin-bottom: 8px; font-weight: 700;\">1. Multi-Agent Orchestration</h4><ul><li><b>Research Agent:</b> Real-time IDX corporate news scraping and NLP sentiment analysis.</li><li><b>Technical Agent:</b> Computes moving averages, momentum indicators (RSI, MACD), and breakout signals.</li><li><b>Synthesizer Agent:</b> Fuses multi-agent findings into a cohesive, structured portfolio thesis.</li></ul></div><hr style=\"border: none; border-top: 1px solid rgba(255,255,255,0.1); margin: 12px 0;\" /><div class=\"model-arch-block\"><h4 style=\"color: #06b6d4; font-size: 14px; margin-bottom: 8px; font-weight: 700;\">2. Microservices Architecture</h4><ul><li><b>Backend:</b> Python FastAPI with asynchronous execution and structured agent outputs.</li><li><b>Frontend:</b> TypeScript modern responsive dashboard for agent step inspection.</li></ul></div>",
+    "tools": [
+      "Python",
+      "FastAPI",
+      "TypeScript",
+      "Multi-Agent AI",
+      "LangChain",
+      "yfinance",
+      "React",
+      "Docker"
+    ],
+    "github_repo": "User-Galih/SmartInvest-Agent-BE",
+    "demo_url": "",
+    "folder_name": "Project_9_SmartInvest_Agent",
+    "priority": 4
   },
   {
     "id": "smartinvest-ds",
@@ -112,93 +451,6 @@
     "priority": 6
   },
   {
-    "id": "waste-classifier",
-    "title_id": "Waste Classifier API & UI",
-    "title_en": "Waste Classifier API & UI",
-    "subtitle_id": "Klasifikasi Sampah Otomatis dengan EfficientNetV2",
-    "subtitle_en": "Automated Waste Classification with EfficientNetV2",
-    "description_id": "Aplikasi deteksi gambar untuk membedakan sampah Organik dan Anorganik secara otomatis. Bertujuan membantu digitalisasi pengelolaan sampah rumah tangga dan instansi.",
-    "description_en": "Image detection application to automatically classify Organic and Inorganic waste, designed to support waste management digitization in households and institutions.",
-    "architecture_id": "Model dilatih menggunakan arsitektur Convolutional Neural Network EfficientNetV2 (TensorFlow/Keras) berukuran input 224x224. Backend API dibangun menggunakan FastAPI, dikontainerisasi dengan Docker, dan dideploy pada Hugging Face Spaces. Frontend UI dibangun dengan React dan dideploy di Vercel.",
-    "architecture_en": "Model is trained using the EfficientNetV2 Convolutional Neural Network architecture (TensorFlow/Keras) with a 224x224 input size. Backend API is built using FastAPI, containerized with Docker, and deployed on Hugging Face Spaces. Frontend UI is built using React and hosted on Vercel.",
-    "tools": [
-      "Python",
-      "TensorFlow",
-      "Keras",
-      "FastAPI",
-      "Pillow",
-      "Docker",
-      "React",
-      "Tailwind CSS",
-      "JavaScript",
-      "HTML5",
-      "Node.js",
-      "CSS3"
-    ],
-    "github_repo": "User-Galih/waste-classification-api",
-    "demo_url": "https://waste-classification-ui.vercel.app/",
-    "folder_name": "Project_2",
-    "category": "deep-learning",
-    "featured": true,
-    "highlight_metric": "Production CNN • Real-Time Camera Inference",
-    "priority": 3
-  },
-  {
-    "id": "9router-codex-toolkit",
-    "title_id": "9Router + Codex AI Development Toolkit",
-    "title_en": "9Router + Codex AI Development Toolkit",
-    "subtitle_id": "Ekosistem AI Pribadi: Multi-Model Router, Agentic Coding & Custom Skills",
-    "subtitle_en": "Personal AI Ecosystem: Multi-Model Router, Agentic Coding & Custom Skills",
-    "description_id": "Membangun ekosistem pengembangan AI pribadi berbasis 9Router (OpenAI-compatible API gateway) yang mengintegrasikan 68+ model LLM (GPT, Claude, Gemini, Kimi, DeepSeek) dengan Codex CLI sebagai agentic coding interface. Dilengkapi custom skills untuk web search, image generation, text-to-speech, web scraping, dan embeddings.",
-    "description_en": "Built a personal AI development ecosystem powered by 9Router (OpenAI-compatible API gateway) integrating 68+ LLM models (GPT, Claude, Gemini, Kimi, DeepSeek) with Codex CLI as an agentic coding interface. Equipped with custom skills for web search, image generation, text-to-speech, web scraping, and embeddings.",
-    "architecture_id": "<div class='model-arch-block'><h4 style='color: var(--color-ai); font-size: 13.5px; margin-bottom: 6px; font-weight: 700;'>1. 9Router API Gateway</h4><ul><li><b>Fungsi:</b> Unified OpenAI-compatible API gateway yang merutekan request ke 68+ model LLM secara otomatis dengan fallback chain.</li><li><b>Model Routing:</b> master-fallback combo (GPT-5.6, Claude Opus 4, Gemini 3.8, Kimi K3, DeepSeek V4, dll) dengan auto-failover.</li><li><b>Endpoint:</b> /v1/chat/completions, /v1/search, /v1/web/fetch, /v1/models.</li><li><b>Provider:</b> Tavily, SearXNG, Jina Reader, Antigravity untuk search dan fetch.</li></ul></div><hr style='border: none; border-top: 1px solid var(--border-light); margin: 12px 0;' /><div class='model-arch-block'><h4 style='color: var(--color-ds); font-size: 13.5px; margin-bottom: 6px; font-weight: 700;'>2. Codex CLI + Custom Skills</h4><ul><li><b>Agentic Coding:</b> Terminal-based AI assistant yang bisa membaca, menulis, dan menjalankan code secara otonom.</li><li><b>Custom Skills (9Router):</b> web-search, image-gen, tts, web-fetch, embeddings.</li><li><b>NPX Skills:</b> gpt-taste (UI design principles), full-output-enforcement, imagegen-frontend-web.</li></ul></div><hr style='border: none; border-top: 1px solid var(--border-light); margin: 12px 0;' /><div class='model-arch-block'><h4 style='color: var(--primary-color); font-size: 13.5px; margin-bottom: 6px; font-weight: 700;'>3. Konfigurasi dan Otomasi</h4><ul><li><b>AGENTS.md:</b> Konfigurasi global yang memaksa agent selalu patuh pada aturan skill dan routing.</li><li><b>Environment:</b> NINEROUTER_URL, NINEROUTER_KEY tersimpan di env vars untuk seamless auth.</li></ul></div>",
-    "architecture_en": "<div class='model-arch-block'><h4 style='color: var(--color-ai); font-size: 13.5px; margin-bottom: 6px; font-weight: 700;'>1. 9Router API Gateway</h4><ul><li><b>Function:</b> Unified OpenAI-compatible API gateway that routes requests to 68+ LLM models automatically with fallback chains.</li><li><b>Model Routing:</b> master-fallback combo (GPT-5.6, Claude Opus 4, Gemini 3.8, Kimi K3, DeepSeek V4, etc.) with auto-failover.</li><li><b>Endpoints:</b> /v1/chat/completions, /v1/search, /v1/web/fetch, /v1/models.</li><li><b>Providers:</b> Tavily, SearXNG, Jina Reader, Antigravity for search and fetch.</li></ul></div><hr style='border: none; border-top: 1px solid var(--border-light); margin: 12px 0;' /><div class='model-arch-block'><h4 style='color: var(--color-ds); font-size: 13.5px; margin-bottom: 6px; font-weight: 700;'>2. Codex CLI + Custom Skills</h4><ul><li><b>Agentic Coding:</b> Terminal-based AI assistant capable of autonomously reading, writing, and executing code.</li><li><b>Custom Skills (9Router):</b> web-search, image-gen, tts, web-fetch, embeddings.</li><li><b>NPX Skills:</b> gpt-taste (UI design principles), full-output-enforcement, imagegen-frontend-web.</li></ul></div><hr style='border: none; border-top: 1px solid var(--border-light); margin: 12px 0;' /><div class='model-arch-block'><h4 style='color: var(--primary-color); font-size: 13.5px; margin-bottom: 6px; font-weight: 700;'>3. Configuration and Automation</h4><ul><li><b>AGENTS.md:</b> Global agent config enforcing strict skill compliance and routing rules.</li><li><b>Environment:</b> NINEROUTER_URL, NINEROUTER_KEY stored in env vars for seamless auth.</li></ul></div>",
-    "tools": [
-      "9Router",
-      "Codex CLI",
-      "OpenAI API",
-      "Claude API",
-      "Gemini API",
-      "Tavily",
-      "SearXNG",
-      "Jina Reader",
-      "PowerShell",
-      "Node.js"
-    ],
-    "github_repo": "User-Galih",
-    "demo_url": "",
-    "folder_name": "Project_3_AI_Agent",
-    "category": "rag-llm",
-    "featured": false,
-    "highlight_metric": "68+ LLM Multi-Model Routing • Auto Failover Gateway"
-  },
-  {
-    "id": "gnews-summarizer",
-    "title_id": "GNews Summarization & Hashtag Generator",
-    "title_en": "GNews Summarization & Hashtag Generator",
-    "subtitle_id": "Ringkasan Berita Otomatis & Generator Hashtag dengan NLP",
-    "subtitle_en": "Automated News Summarization & Hashtag Generation with NLP",
-    "description_id": "Aplikasi NLP yang secara otomatis merangkum artikel berita dan menghasilkan hashtag relevan. Menghilangkan gangguan seperti iklan dan elemen tidak perlu, menyajikan ringkasan ringkas. Hasil disimpan dalam file Excel untuk akses mudah.",
-    "description_en": "NLP application that automatically summarizes news articles and generates relevant hashtags using natural language processing and machine learning. Removes distractions like ads, providing concise summaries. Results are saved in Excel files for easy access.",
-    "architecture_id": "<div class='model-arch-block'><h4 style='color: var(--color-ai); font-size: 13.5px; margin-bottom: 6px; font-weight: 700;'>1. Text Processing Pipeline</h4><ul><li><b>Web Scraping:</b> Ekstraksi konten artikel dari URL, menghilangkan iklan dan elemen noise.</li><li><b>NLP Engine:</b> Tokenisasi, ekstraksi fitur TF-IDF, dan algoritma summarization untuk menghasilkan ringkasan.</li><li><b>Hashtag Generator:</b> Keyword extraction berbasis frekuensi dan relevansi untuk menghasilkan hashtag otomatis.</li></ul></div><hr style='border: none; border-top: 1px solid var(--border-light); margin: 12px 0;' /><div class='model-arch-block'><h4 style='color: var(--primary-color); font-size: 13.5px; margin-bottom: 6px; font-weight: 700;'>2. Output dan Storage</h4><ul><li><b>Multi-language:</b> Mendukung pemilihan bahasa untuk summarization.</li><li><b>Data History:</b> Riwayat ringkasan disimpan dalam file Excel (openpyxl).</li><li><b>UI:</b> Interface berbasis Jupyter Notebook dengan visualisasi interaktif.</li></ul></div>",
-    "architecture_en": "<div class='model-arch-block'><h4 style='color: var(--color-ai); font-size: 13.5px; margin-bottom: 6px; font-weight: 700;'>1. Text Processing Pipeline</h4><ul><li><b>Web Scraping:</b> Article content extraction from URLs, removing ads and noise elements.</li><li><b>NLP Engine:</b> Tokenization, TF-IDF feature extraction, and summarization algorithms for generating concise summaries.</li><li><b>Hashtag Generator:</b> Frequency and relevance-based keyword extraction for automatic hashtag generation.</li></ul></div><hr style='border: none; border-top: 1px solid var(--border-light); margin: 12px 0;' /><div class='model-arch-block'><h4 style='color: var(--primary-color); font-size: 13.5px; margin-bottom: 6px; font-weight: 700;'>2. Output and Storage</h4><ul><li><b>Multi-language:</b> Supports language selection for summarization.</li><li><b>Data History:</b> Summary history saved in Excel files (openpyxl).</li><li><b>UI:</b> Jupyter Notebook-based interface with interactive visualizations.</li></ul></div>",
-    "tools": [
-      "Python",
-      "NLP",
-      "TF-IDF",
-      "BeautifulSoup",
-      "openpyxl",
-      "Jupyter Notebook",
-      "Machine Learning"
-    ],
-    "github_repo": "User-Galih/GNEWS-Summarization-Hastags-Generator",
-    "demo_url": "",
-    "folder_name": "Project_4_GNEWS",
-    "category": "quantum-nlp",
-    "featured": false,
-    "highlight_metric": "NLP Text Summarization • Automated Hashtag Generation"
-  },
-  {
     "id": "qnn-classifier",
     "title_id": "Quantum Neural Network Classification",
     "title_en": "Quantum Neural Network Classification",
@@ -222,88 +474,8 @@
     "folder_name": "Project_5_QNN",
     "category": "quantum-nlp",
     "featured": false,
-    "highlight_metric": "8-Qubit Quantum Circuit • Qiskit ML Model"
-  },
-  {
-    "id": "gprompt-workbench",
-    "category": "rag-llm",
-    "featured": false,
-    "highlight_metric": "Prompt Optimization • System Prompt Studio",
-    "title_id": "G-Prompt AI Engineering Studio",
-    "title_en": "G-Prompt AI Engineering Studio",
-    "subtitle_id": "Workbench Eksperimentasi & Optimasi Prompt untuk Pengembang LLM",
-    "subtitle_en": "Developer Workbench for Prompt Engineering, Evaluation & Optimization",
-    "description_id": "Aplikasi developer tool untuk merancang, menguji, dan membandingkan variasi prompt LLM sistematis. Membantu AI Engineer menguji ketahanan role-prompting, few-shot examples, token efficiency, dan edge-case refusal sebelum model dideploy ke produksi.",
-    "description_en": "Developer workbench application designed to formulate, test, and benchmark LLM prompt variations. Enables AI Engineers to systematically validate system prompt guardrails, few-shot distributions, token usage, and edge-case behaviors before deployment.",
-    "architecture_id": "<div class=\"model-arch-block\"><h4 style=\"color: #10b981; font-size: 14px; margin-bottom: 8px; font-weight: 700;\">1. Fitur Utama Workbench</h4><ul><li><b>Side-by-side Comparison:</b> Menguji dua variasi prompt secara paralel terhadap test input yang sama.</li><li><b>Token & Cost Counter:</b> Estimasi konsumsi context window dan biaya per panggilan model.</li><li><b>Template Engine:</b> Variabel dinamis untuk penyusunan prompt terstruktur.</li></ul></div>",
-    "architecture_en": "<div class=\"model-arch-block\"><h4 style=\"color: #10b981; font-size: 14px; margin-bottom: 8px; font-weight: 700;\">1. Workbench Capabilities</h4><ul><li><b>Side-by-side Comparison:</b> Parallel comparison of prompt variants against uniform test inputs.</li><li><b>Token & Cost Estimation:</b> Live context window calculation and token optimization metrics.</li><li><b>Template Engine:</b> Dynamic variable injection for structured system prompt generation.</li></ul></div>",
-    "tools": [
-      "JavaScript",
-      "React",
-      "Prompt Engineering",
-      "OpenAI API",
-      "Node.js"
-    ],
-    "github_repo": "User-Galih/gpromt",
-    "demo_url": "",
-    "folder_name": "Project_10_GPrompt"
-  },
-  {
-    "id": "bengkod-capstone",
-    "category": "agent-ml",
-    "featured": false,
-    "highlight_metric": "End-to-End ML Pipeline • Exploratory Data Analysis",
-    "title_id": "Bengkod Data Science & ML Capstone",
-    "title_en": "Bengkod Data Science & ML Capstone",
-    "subtitle_id": "Pipeline Analisis Data Eksploratif, Rekayasa Fitur & Pemodelan Machine Learning",
-    "subtitle_en": "End-to-End Exploratory Data Analysis, Feature Engineering & ML Pipeline",
-    "description_id": "Proyek capstone pembelajaran intensif data science Bengkod yang mencakup pengolahan data mentah, penanganan missing values dan outlier, rekayasa fitur statistik, pemodelan prediktif machine learning terawasi, serta visualisasi insight data interaktif.",
-    "description_en": "Data science and machine learning capstone project covering raw data preprocessing, outlier and missing value mitigation, statistical feature engineering, supervised predictive modeling, and interactive visualization dashboards.",
-    "architecture_id": "<div class=\"model-arch-block\"><h4 style=\"color: #10b981; font-size: 14px; margin-bottom: 8px; font-weight: 700;\">1. Pipeline Data Science</h4><ul><li><b>Data Wrangling:</b> Imputasi data, normalisasi MinMax/StandardScaler, dan deteksi korelasi fitur.</li><li><b>Machine Learning:</b> Benchmark algoritma klasifikasi (Random Forest, Gradient Boosting, SVM).</li><li><b>Evaluasi:</b> Cross-validation k-fold, ROC-AUC curve, dan feature importance extraction.</li></ul></div>",
-    "architecture_en": "<div class=\"model-arch-block\"><h4 style=\"color: #10b981; font-size: 14px; margin-bottom: 8px; font-weight: 700;\">1. Data Science Pipeline</h4><ul><li><b>Data Wrangling:</b> Automated imputation, feature scaling, and multi-collinearity analysis.</li><li><b>Modeling:</b> Benchmarked classification models (Random Forest, Gradient Boosting, SVM).</li><li><b>Evaluation:</b> K-fold cross-validation, ROC-AUC profiling, and feature importance attribution.</li></ul></div>",
-    "tools": [
-      "Python",
-      "scikit-learn",
-      "Pandas",
-      "NumPy",
-      "Seaborn",
-      "Matplotlib",
-      "Jupyter Notebook"
-    ],
-    "github_repo": "User-Galih/capstone-project-bengkod",
-    "demo_url": "",
-    "folder_name": "Project_11_Bengkod_Capstone"
-  },
-  {
-    "id": "nusapolicy-copilot",
-    "category": "rag-llm",
-    "featured": true,
-    "highlight_metric": "Recall@5: 98% • 50 Golden Tests • Zero Hallucination Refusal",
-    "title_id": "NusaPolicy Copilot — Indonesian RAG Policy Assistant",
-    "title_en": "NusaPolicy Copilot — Indonesian RAG Policy Assistant",
-    "subtitle_id": "Sistem RAG End-to-End dengan Hybrid Retrieval (RRF + pgvector), Sitasi Terverifikasi & Safe Refusal",
-    "subtitle_en": "End-to-End Indonesian RAG Copilot with Hybrid Retrieval, Verified Citations & Safe Refusal",
-    "description_id": "Sistem Retrieval-Augmented Generation (RAG) end-to-end berbahasa Indonesia tingkat enterprise untuk pencarian dan pemahaman kebijakan internal perusahaan. Menggabungkan hybrid semantic vector similarity (pgvector) dan keyword search (PostgreSQL FTS) dengan Reciprocal Rank Fusion (RRF), penolakan aman (safe refusal) berbasis threshold bukti, evaluasi terukur (Golden Eval Suite 50 kasus), serta tracing latensi dan token LLMOps.",
-    "description_en": "Enterprise-grade end-to-end Indonesian Retrieval-Augmented Generation (RAG) system for internal company policy querying. Features hybrid semantic search (pgvector) fused with PostgreSQL full-text keyword search via Reciprocal Rank Fusion (RRF), threshold-based safe refusal against out-of-scope hallucinations, a 50-test golden evaluation suite, and production LLMOps telemetry.",
-    "architecture_id": "<div class=\"model-arch-block\"><h4 style=\"color: #10b981; font-size: 14px; margin-bottom: 8px; font-weight: 700;\">1. Hybrid Retrieval Engine (RRF + pgvector + PostgreSQL FTS)</h4><ul><li><b>Vector Similarity:</b> Embedding semantik disimpan dalam PostgreSQL 16 dengan ekstensi <code>pgvector</code> menggunakan cosine distance HNSW index.</li><li><b>Keyword Search:</b> PostgreSQL Full-Text Search (FTS) berbahasa Indonesia untuk matching akurat nomor pasal, singkatan, dan regulasi spesifik.</li><li><b>Reciprocal Rank Fusion (RRF):</b> Menggabungkan hasil ranking semantik dan keyword dengan bobot adaptif untuk menghasilkan context recall optimal (Recall@5 mencapai 98%).</li></ul></div><hr style=\"border: none; border-top: 1px solid rgba(255,255,255,0.1); margin: 12px 0;\" /><div class=\"model-arch-block\"><h4 style=\"color: #06b6d4; font-size: 14px; margin-bottom: 8px; font-weight: 700;\">2. Grounded Generation, Citations & Safe Refusal</h4><ul><li><b>Strict Citations:</b> Setiap jawaban LLM wajib menyertakan sitasi dokumen sumber spesifik hingga ke nomor pasal/paragraf.</li><li><b>Safe Refusal Mechanism:</b> Sistem menghitung threshold confidence bukti retrieval; jika bukti di bawah ambang batas, model secara otomatis menolak menjawab alih-alih berhalusinasi.</li><li><b>PDF Verifiable Source:</b> Endpoint PDF terproteksi yang memungkinkan pengguna langsung memverifikasi dokumen rujukan asli dari UI.</li></ul></div><hr style=\"border: none; border-top: 1px solid rgba(255,255,255,0.1); margin: 12px 0;\" /><div class=\"model-arch-block\"><h4 style=\"color: #a855f7; font-size: 14px; margin-bottom: 8px; font-weight: 700;\">3. Golden Evaluation Suite & LLMOps Telemetry</h4><ul><li><b>Evaluation Benchmark:</b> 50 golden test cases mencakup skenario factual, multi-policy reasoning, ambiguity, safe refusal, dan adversarial queries.</li><li><b>Tracing & Monitoring:</b> Telemetri menyeluruh mencakup tracking latensi inferensi, konsumsi token, model routing, serta umpan balik pengguna tersimpan di PostgreSQL.</li><li><b>Tech Stack:</b> Python, FastAPI, Next.js, PostgreSQL 16, pgvector, Docker, 9Router LLM Gateway.</li></ul></div>",
-    "architecture_en": "<div class=\"model-arch-block\"><h4 style=\"color: #10b981; font-size: 14px; margin-bottom: 8px; font-weight: 700;\">1. Hybrid Retrieval Engine (RRF + pgvector + PostgreSQL FTS)</h4><ul><li><b>Vector Similarity:</b> Semantic embeddings stored in PostgreSQL 16 with <code>pgvector</code> extension utilizing cosine distance HNSW indexing.</li><li><b>Keyword Search:</b> Indonesian PostgreSQL Full-Text Search (FTS) for precise matching of specific clauses, abbreviations, and regulatory numbers.</li><li><b>Reciprocal Rank Fusion (RRF):</b> Fuses dense vector and sparse keyword rankings with adaptive weighting for optimal context recall (Recall@5 reaches 98%).</li></ul></div><hr style=\"border: none; border-top: 1px solid rgba(255,255,255,0.1); margin: 12px 0;\" /><div class=\"model-arch-block\"><h4 style=\"color: #06b6d4; font-size: 14px; margin-bottom: 8px; font-weight: 700;\">2. Grounded Generation, Citations & Safe Refusal</h4><ul><li><b>Strict Citations:</b> Every LLM generation is strictly grounded and includes exact source document, section, and article references.</li><li><b>Safe Refusal Mechanism:</b> System evaluates retrieval confidence thresholds; when evidence falls below safety margins, the model refuses gracefully instead of hallucinating.</li><li><b>PDF Verifiable Source:</b> Protected PDF endpoint enabling users to inspect and verify authentic referenced documents directly in the UI.</li></ul></div><hr style=\"border: none; border-top: 1px solid rgba(255,255,255,0.1); margin: 12px 0;\" /><div class=\"model-arch-block\"><h4 style=\"color: #a855f7; font-size: 14px; margin-bottom: 8px; font-weight: 700;\">3. Golden Evaluation Suite & LLMOps Telemetry</h4><ul><li><b>Evaluation Benchmark:</b> 50 golden test cases covering factual queries, multi-policy synthesis, ambiguity, safe refusal, and adversarial prompts.</li><li><b>Tracing & Monitoring:</b> Complete telemetry logging inference latencies, token expenditures, model fallback routing, and user feedback into PostgreSQL.</li><li><b>Tech Stack:</b> Python, FastAPI, Next.js, PostgreSQL 16, pgvector, Docker, 9Router LLM Gateway.</li></ul></div>",
-    "tools": [
-      "Python",
-      "FastAPI",
-      "PostgreSQL",
-      "pgvector",
-      "Hybrid Retrieval",
-      "RRF",
-      "Next.js",
-      "Docker",
-      "Alembic",
-      "pytest",
-      "9Router LLM"
-    ],
-    "github_repo": "User-Galih/nusapolicy-copilot",
-    "demo_url": "https://nusapolicy-copilot-git-main-galih-putra-pratamas-projects.vercel.app/",
-    "folder_name": "Project_6_NusaPolicy_Copilot",
-    "priority": 2
+    "highlight_metric": "8-Qubit Quantum Circuit • Qiskit ML Model",
+    "priority": 9
   },
   {
     "id": "sift-akaze-comparison",
@@ -330,7 +502,8 @@
     ],
     "github_repo": "User-Galih/Comparation-Feature-Extraction-SIFT-AKAZE-algorithm-by-Galih",
     "demo_url": "",
-    "folder_name": "Project_7_SIFT_AKAZE"
+    "folder_name": "Project_7_SIFT_AKAZE",
+    "priority": 10
   },
   {
     "id": "cnn-object-classification",
@@ -356,34 +529,92 @@
     ],
     "github_repo": "User-Galih/Klasifikasi-Objek-CNN",
     "demo_url": "",
-    "folder_name": "Project_8_CNN_Object_Classification"
+    "folder_name": "Project_8_CNN_Object_Classification",
+    "priority": 11
   },
   {
-    "id": "smartinvest-agent-system",
-    "category": "rag-llm",
-    "featured": true,
-    "highlight_metric": "Multi-Agent System • Autonomous Market Scrapers",
-    "title_id": "SmartInvest Multi-Agent Financial Copilot",
-    "title_en": "SmartInvest Multi-Agent Financial Copilot",
-    "subtitle_id": "Sistem Multi-Agent Otonom untuk Analisis Finansial, Sentimen Pasar & Portofolio",
-    "subtitle_en": "Autonomous Multi-Agent System for Financial Analysis, Sentiment & Portfolio Intelligence",
-    "description_id": "Arsitektur multi-agent otonom yang memecah riset investasi kompleks ke dalam beberapa agent terspesialisasi: News Sentiment Scraper Agent, Technical Indicator Calculator Agent, dan Portfolio Advisory Agent. Dibangun dengan backend Python FastAPI dan UI TypeScript interaktif.",
-    "description_en": "Autonomous multi-agent architecture decomposing complex financial research into specialized cooperating agents: News Sentiment Scraper, Technical Indicator Calculator, and Portfolio Advisor Agent. Built with Python FastAPI backend and responsive TypeScript UI.",
-    "architecture_id": "<div class=\"model-arch-block\"><h4 style=\"color: #10b981; font-size: 14px; margin-bottom: 8px; font-weight: 700;\">1. Sistem Multi-Agent Orchestration</h4><ul><li><b>Research Agent:</b> Scrape berita emiten IDX real-time dan analisis sentimen berita.</li><li><b>Technical Agent:</b> Menghitung moving averages, RSI, MACD, dan sinyal breakout.</li><li><b>Synthesizer Agent:</b> Menggabungkan hasil analisis multi-agent menjadi rekomendasi portofolio terstruktur.</li></ul></div><hr style=\"border: none; border-top: 1px solid rgba(255,255,255,0.1); margin: 12px 0;\" /><div class=\"model-arch-block\"><h4 style=\"color: #06b6d4; font-size: 14px; margin-bottom: 8px; font-weight: 700;\">2. Microservices Architecture</h4><ul><li><b>Backend (BE):</b> Python FastAPI dengan asynchronous agent task queue.</li><li><b>Frontend (UI):</b> TypeScript modern chat & card interface untuk interaksi dinamis pengguna.</li></ul></div>",
-    "architecture_en": "<div class=\"model-arch-block\"><h4 style=\"color: #10b981; font-size: 14px; margin-bottom: 8px; font-weight: 700;\">1. Multi-Agent Orchestration</h4><ul><li><b>Research Agent:</b> Real-time IDX corporate news scraping and NLP sentiment analysis.</li><li><b>Technical Agent:</b> Computes moving averages, momentum indicators (RSI, MACD), and breakout signals.</li><li><b>Synthesizer Agent:</b> Fuses multi-agent findings into a cohesive, structured portfolio thesis.</li></ul></div><hr style=\"border: none; border-top: 1px solid rgba(255,255,255,0.1); margin: 12px 0;\" /><div class=\"model-arch-block\"><h4 style=\"color: #06b6d4; font-size: 14px; margin-bottom: 8px; font-weight: 700;\">2. Microservices Architecture</h4><ul><li><b>Backend:</b> Python FastAPI with asynchronous execution and structured agent outputs.</li><li><b>Frontend:</b> TypeScript modern responsive dashboard for agent step inspection.</li></ul></div>",
+    "id": "gnews-summarizer",
+    "title_id": "GNews Summarization & Hashtag Generator",
+    "title_en": "GNews Summarization & Hashtag Generator",
+    "subtitle_id": "Ringkasan Berita Otomatis & Generator Hashtag dengan NLP",
+    "subtitle_en": "Automated News Summarization & Hashtag Generation with NLP",
+    "description_id": "Aplikasi NLP yang secara otomatis merangkum artikel berita dan menghasilkan hashtag relevan. Menghilangkan gangguan seperti iklan dan elemen tidak perlu, menyajikan ringkasan ringkas. Hasil disimpan dalam file Excel untuk akses mudah.",
+    "description_en": "NLP application that automatically summarizes news articles and generates relevant hashtags using natural language processing and machine learning. Removes distractions like ads, providing concise summaries. Results are saved in Excel files for easy access.",
+    "architecture_id": "<div class='model-arch-block'><h4 style='color: var(--color-ai); font-size: 13.5px; margin-bottom: 6px; font-weight: 700;'>1. Text Processing Pipeline</h4><ul><li><b>Web Scraping:</b> Ekstraksi konten artikel dari URL, menghilangkan iklan dan elemen noise.</li><li><b>NLP Engine:</b> Tokenisasi, ekstraksi fitur TF-IDF, dan algoritma summarization untuk menghasilkan ringkasan.</li><li><b>Hashtag Generator:</b> Keyword extraction berbasis frekuensi dan relevansi untuk menghasilkan hashtag otomatis.</li></ul></div><hr style='border: none; border-top: 1px solid var(--border-light); margin: 12px 0;' /><div class='model-arch-block'><h4 style='color: var(--primary-color); font-size: 13.5px; margin-bottom: 6px; font-weight: 700;'>2. Output dan Storage</h4><ul><li><b>Multi-language:</b> Mendukung pemilihan bahasa untuk summarization.</li><li><b>Data History:</b> Riwayat ringkasan disimpan dalam file Excel (openpyxl).</li><li><b>UI:</b> Interface berbasis Jupyter Notebook dengan visualisasi interaktif.</li></ul></div>",
+    "architecture_en": "<div class='model-arch-block'><h4 style='color: var(--color-ai); font-size: 13.5px; margin-bottom: 6px; font-weight: 700;'>1. Text Processing Pipeline</h4><ul><li><b>Web Scraping:</b> Article content extraction from URLs, removing ads and noise elements.</li><li><b>NLP Engine:</b> Tokenization, TF-IDF feature extraction, and summarization algorithms for generating concise summaries.</li><li><b>Hashtag Generator:</b> Frequency and relevance-based keyword extraction for automatic hashtag generation.</li></ul></div><hr style='border: none; border-top: 1px solid var(--border-light); margin: 12px 0;' /><div class='model-arch-block'><h4 style='color: var(--primary-color); font-size: 13.5px; margin-bottom: 6px; font-weight: 700;'>2. Output and Storage</h4><ul><li><b>Multi-language:</b> Supports language selection for summarization.</li><li><b>Data History:</b> Summary history saved in Excel files (openpyxl).</li><li><b>UI:</b> Jupyter Notebook-based interface with interactive visualizations.</li></ul></div>",
     "tools": [
       "Python",
-      "FastAPI",
-      "TypeScript",
-      "Multi-Agent AI",
-      "LangChain",
-      "yfinance",
-      "React",
-      "Docker"
+      "NLP",
+      "TF-IDF",
+      "BeautifulSoup",
+      "openpyxl",
+      "Jupyter Notebook",
+      "Machine Learning"
     ],
-    "github_repo": "User-Galih/SmartInvest-Agent-BE",
+    "github_repo": "User-Galih/GNEWS-Summarization-Hastags-Generator",
     "demo_url": "",
-    "folder_name": "Project_9_SmartInvest_Agent",
-    "priority": 4
+    "folder_name": "Project_4_GNEWS",
+    "category": "quantum-nlp",
+    "featured": false,
+    "highlight_metric": "NLP Text Summarization • Automated Hashtag Generation",
+    "priority": 12
+  },
+  {
+    "id": "bengkod-capstone",
+    "category": "agent-ml",
+    "featured": false,
+    "highlight_metric": "End-to-End ML Pipeline • Exploratory Data Analysis",
+    "title_id": "Bengkod Data Science & ML Capstone",
+    "title_en": "Bengkod Data Science & ML Capstone",
+    "subtitle_id": "Pipeline Analisis Data Eksploratif, Rekayasa Fitur & Pemodelan Machine Learning",
+    "subtitle_en": "End-to-End Exploratory Data Analysis, Feature Engineering & ML Pipeline",
+    "description_id": "Proyek capstone pembelajaran intensif data science Bengkod yang mencakup pengolahan data mentah, penanganan missing values dan outlier, rekayasa fitur statistik, pemodelan prediktif machine learning terawasi, serta visualisasi insight data interaktif.",
+    "description_en": "Data science and machine learning capstone project covering raw data preprocessing, outlier and missing value mitigation, statistical feature engineering, supervised predictive modeling, and interactive visualization dashboards.",
+    "architecture_id": "<div class=\"model-arch-block\"><h4 style=\"color: #10b981; font-size: 14px; margin-bottom: 8px; font-weight: 700;\">1. Pipeline Data Science</h4><ul><li><b>Data Wrangling:</b> Imputasi data, normalisasi MinMax/StandardScaler, dan deteksi korelasi fitur.</li><li><b>Machine Learning:</b> Benchmark algoritma klasifikasi (Random Forest, Gradient Boosting, SVM).</li><li><b>Evaluasi:</b> Cross-validation k-fold, ROC-AUC curve, dan feature importance extraction.</li></ul></div>",
+    "architecture_en": "<div class=\"model-arch-block\"><h4 style=\"color: #10b981; font-size: 14px; margin-bottom: 8px; font-weight: 700;\">1. Data Science Pipeline</h4><ul><li><b>Data Wrangling:</b> Automated imputation, feature scaling, and multi-collinearity analysis.</li><li><b>Modeling:</b> Benchmarked classification models (Random Forest, Gradient Boosting, SVM).</li><li><b>Evaluation:</b> K-fold cross-validation, ROC-AUC profiling, and feature importance attribution.</li></ul></div>",
+    "tools": [
+      "Python",
+      "scikit-learn",
+      "Pandas",
+      "NumPy",
+      "Seaborn",
+      "Matplotlib",
+      "Jupyter Notebook"
+    ],
+    "github_repo": "User-Galih/capstone-project-bengkod",
+    "demo_url": "",
+    "folder_name": "Project_11_Bengkod_Capstone",
+    "priority": 13
+  },
+  {
+    "id": "9router-codex-toolkit",
+    "title_id": "Gemini API Pro & Agentic Engineering Toolkit",
+    "title_en": "Gemini API Pro & Agentic Engineering Toolkit",
+    "subtitle_id": "Integrasi Google GenAI SDK, Custom Agent Skills & Quality Gates",
+    "subtitle_en": "Google GenAI SDK Integration, Custom Agent Skills & Quality Gates",
+    "description_id": "Ekosistem pengembangan AI engineering yang dimigrasikan penuh ke Google AI Studio (Gemini API Pro) menggunakan SDK resmi google-genai. Dilengkapi arsitektur custom skills berjenjang: antislop sebagai Hard Gate UI/UX (kontras WCAG AA, anti-klaim palsu), ai-engineer-blueprint (standar 5 pilar proyek AI), serta python-testing-patterns.",
+    "description_en": "Upgraded personal AI engineering environment migrating from legacy proxy routing to direct Google AI Studio (Gemini API Pro) via the official google-genai SDK. Enforces automated UI/UX anti-slop hard gates (WCAG AA contrast, zero fabricated claims), the 5-Pillar AI Engineer Blueprint standard, and pytest evaluation harnesses.",
+    "architecture_id": "<div class='model-arch-block'><h4 style='color: var(--accent-primary); font-size: 13.5px; margin-bottom: 6px; font-weight: 700;'>1. Google AI Studio (Gemini API Pro) & Official SDK</h4><ul><li><b>SDK Standar:</b> Menggunakan <code>google-genai</code> (Python) dan <code>@google/genai</code> (TypeScript/JS) secara langsung untuk text generation, structured output, function calling, dan multimodal analysis.</li><li><b>Model Tiering:</b> Gemini 2.5 Pro untuk penalaran kompleks/arsitektur dan Gemini 2.5 Flash untuk inferensi cepat berlatensi rendah.</li></ul></div><hr style='border: none; border-top: 1px solid var(--border-subtle); margin: 12px 0;' /><div class='model-arch-block'><h4 style='color: var(--accent-primary); font-size: 13.5px; margin-bottom: 6px; font-weight: 700;'>2. Custom Skill Hierarchy & Hard Gates</h4><ul><li><b>antislop Suite (Primary Gate):</b> Menegakkan 40 aturan kualitas UI/copywriting, verifikasi rasio kontras WCAG AA, dan pengiriman berbasis bukti.</li><li><b>ai-engineer-blueprint:</b> Standar wajib 5 pilar untuk setiap proyek AI (Fungsi Teknis, Nilai Bisnis, Target Pengguna, Indikator Awam 10 Detik, dan Matriks Evaluasi/Ablasi).</li><li><b>Testing & Frontend Standards:</b> Integrasi <code>python-testing-patterns</code> (pytest fixtures/mocking) dan <code>vercel-react-best-practices</code>.</li></ul></div>",
+    "architecture_en": "<div class='model-arch-block'><h4 style='color: var(--accent-primary); font-size: 13.5px; margin-bottom: 6px; font-weight: 700;'>1. Google AI Studio (Gemini API Pro) & Official SDK</h4><ul><li><b>Official SDKs:</b> Direct integration with <code>google-genai</code> (Python) and <code>@google/genai</code> (TypeScript/JS) for structured outputs, tool calling, embeddings, and multimodal workflows.</li><li><b>Model Tiering:</b> Gemini 2.5 Pro for complex reasoning/coding and Gemini 2.5 Flash for low-latency production pipelines.</li></ul></div><hr style='border: none; border-top: 1px solid var(--border-subtle); margin: 12px 0;' /><div class='model-arch-block'><h4 style='color: var(--accent-primary); font-size: 13.5px; margin-bottom: 6px; font-weight: 700;'>2. Custom Skill Hierarchy & Hard Gates</h4><ul><li><b>antislop Suite (Primary Gate):</b> Enforces 40 strict UI/copywriting rules, WCAG AA contrast verification, and evidence-backed delivery.</li><li><b>ai-engineer-blueprint:</b> Mandatory 5-Pillar AI project evaluation standard (Technical Pipeline, Business Utility, Target User, 10s Layman Proof, and Evaluation/Ablation Matrix).</li><li><b>Testing & Frontend Standards:</b> Integrated <code>python-testing-patterns</code> (pytest fixtures/mocking) and <code>vercel-react-best-practices</code>.</li></ul></div>",
+    "tools": [
+      "Google GenAI SDK",
+      "Gemini 2.5 Pro",
+      "Gemini 2.5 Flash",
+      "Python",
+      "Pytest",
+      "Antigravity Skills",
+      "React",
+      "Node.js"
+    ],
+    "github_repo": "User-Galih/Porto-Galih",
+    "demo_url": "",
+    "folder_name": "Project_3_AI_Agent",
+    "category": "rag-llm",
+    "featured": false,
+    "highlight_metric": "Google GenAI SDK • 5-Pillar Blueprint & Anti-Slop Gate",
+    "priority": 14,
+    "title": "Gemini API Pro & Agentic Engineering Toolkit",
+    "subtitle": "Google GenAI SDK Integration, Custom Agent Skills & Quality Gates",
+    "description": "Upgraded personal AI engineering environment migrating from legacy proxy routing to direct Google AI Studio (Gemini API Pro) via the official google-genai SDK. Enforces automated UI/UX anti-slop hard gates (WCAG AA contrast, zero fabricated claims), the 5-Pillar AI Engineer Blueprint standard, and pytest evaluation harnesses."
   }
 ]

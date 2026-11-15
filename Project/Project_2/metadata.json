@@ -27,5 +27,38 @@
   "category": "deep-learning",
   "featured": true,
   "highlight_metric": "Production CNN • Real-Time Camera Inference",
-  "priority": 3
+  "priority": 3,
+  "blueprint": {
+    "function_id": "Stream Kamera WebRTC / Unggahan Citra -> Preprocessing & Normalisasi Tensor (224x224 RGB) -> Fine-Tuned EfficientNetV2 CNN Backbone -> FastAPI REST Inference Container (Docker) -> Output Kelas Sampah (Organik/Anorganik) + Skor Keyakinan + Rekomendasi Penanganan.",
+    "function_en": "WebRTC Camera Stream / Image Upload -> Tensor Preprocessing & Normalization (224x224 RGB) -> Fine-Tuned EfficientNetV2 CNN Backbone -> Dockerized FastAPI Inference Container -> Waste Category (Organic/Inorganic) + Confidence Score + Disposal Guide.",
+    "utility_id": "Mengurangi kesalahan pemilahan sampah di sumber rumah tangga dan fasilitas publik tanpa memerlukan perangkat keras sensor mahal, cukup menggunakan kamera smartphone atau webcam standar.",
+    "utility_en": "Reduces waste sorting errors at household and institutional collection points without expensive sensor hardware, operating directly on standard smartphone or webcam cameras.",
+    "target_id": "Bank sampah digital, fasilitas pengelolaan limbah kampus/instansi, dan edukasi pemilahan sampah masyarakat.",
+    "target_en": "Digital waste banks, campus/institutional recycling facilities, and public waste management programs.",
+    "layman_proof_id": [
+      "Uji Kamera Langsung (Live Camera): Arahkan kamera HP/laptop ke benda di sekitar (misal botol plastik atau sisa daun), sistem langsung menampilkan label Organik/Anorganik dalam hitungan milidetik.",
+      "Indikator Persentase Keyakinan: Menampilkan angka probabilitas yang jelas (misal: 98.4% Anorganik) sehingga pengguna tahu seberapa yakin model terhadap gambar tersebut.",
+      "Pemisahan Arsitektur Backend & UI: Antarmuka web di Vercel berkomunikasi langsung dengan container API produksi di Hugging Face Spaces."
+    ],
+    "layman_proof_en": [
+      "Instant Live Camera Test: Point any phone or laptop webcam at a plastic bottle or organic item and see the classification badge appear in real time.",
+      "Confidence Percentage Meter: Displays transparent probability scores (e.g., 98.4% Inorganic) alongside practical disposal instructions.",
+      "Decoupled Cloud Deployment: Responsive React frontend on Vercel communicating with a containerized FastAPI inference engine on Hugging Face Spaces."
+    ],
+    "eval_metrics": [
+      {
+        "component": "Feature Backbone Architecture",
+        "baseline": "Custom 3-Layer Vanilla CNN",
+        "optimized": "Fine-Tuned EfficientNetV2 (224x224)",
+        "secondary": "Superior generalization on varied lighting & backgrounds"
+      },
+      {
+        "component": "Deployment & Packaging",
+        "baseline": "Local Jupyter Notebook (.ipynb)",
+        "optimized": "Dockerized FastAPI Microservice + React SPA",
+        "secondary": "Stateless REST endpoint with CORS & Pillow validation"
+      }
+    ]
+  },
+  "flagship": false
 }
